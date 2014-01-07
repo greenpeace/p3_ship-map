@@ -102,7 +102,7 @@
     $(document).ready(function() {
         var $mapHolder = $(defaults.mapHolder),
             $menuHolder = $(defaults.menuHolder),
-            jsonURL = defaults.api.url + 'get/?file=test1';
+            jsonURL = 'json/test1.json';
 
         // Initialise jPanelMenu
         jPM.on();
