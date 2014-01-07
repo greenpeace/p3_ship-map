@@ -1,0 +1,153 @@
+
+.map-header {
+    @include clearfix;
+    position:relative;
+    z-index:10;
+    background:$bannerColour;
+    color:$white;
+    height:50px;
+
+    h1 {
+        position:fixed;
+        left:$marginPx;
+        height:$headerHeight;
+        width:150px;
+        margin:0;
+        float:left;
+        background: transparent url(../img/logo.gif) left center no-repeat;
+    }
+
+
+    nav {
+        position:fixed;
+        right:0;
+        overflow:hidden;
+        @include transition(all 0.35s);
+
+        .menu-trigger {
+            @include transition(all 0.35s);
+            position:relative;
+            height:$headerHeight;
+            width:$headerHeight;
+            font-size:120%;
+            /*float:right;*/
+            background:rgba(255,255,255,0.1);
+            padding:0;
+            border:none;
+            text-align:center;
+
+            span {
+                position:absolute;
+                left:12px;
+                height:4px;
+                background-color:$white;
+                top:50%;
+                margin-top:-2px;
+                width:30px;
+                font-size:0;
+                @include transition(all 0.3s);
+                
+                &::before,
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    width: 30px;
+                    height: 100%;
+                    background: #fff;
+                    content: '';
+                    -webkit-transition: -webkit-transform 0.3s;
+                    transition: transform 0.3s;
+                }
+                
+                &::before {
+                    -webkit-transform: translateY(-250%);
+                    transform: translateY(-250%);
+                }
+                
+                &::after {
+                    -webkit-transform: translateY(250%);
+                    transform: translateY(250%);
+                }
+                
+
+/*                float:left;
+                display:block;
+                width: 36px;
+                height:35px;
+                background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/
+            }
+
+            &:hover {
+                background:rgba(255,255,255,0.5);
+            }
+        }
+
+
+        &.active {
+            .icon-menu {         
+                background-position-x: -36px;
+                background-color:$sidebarColour;
+            }
+            
+            .menu-trigger span {
+                background-color:transparent;
+                
+                &::before {
+                    -webkit-transform: translateY(0) rotate(45deg);
+                    transform: translateY(0) rotate(45deg);
+                }
+                &::after {
+                    -webkit-transform: translateY(0) rotate(-45deg);
+                    transform: translateY(0) rotate(-45deg);
+                }
+                
+            }
+        }
+        
+        
+    }
+
+}
+
+.map-menu {
+    position:relative;
+    margin:0;
+    display:none;
+    padding-top:$headerHeight;
+    background:$multimediaColour;
+
+/*    .active & {
+        display:block;
+    }*/
+
+    
+    
+}
+
+body > #jPanelMenu-menu {
+    clear:both;
+    overflow-y:hidden;
+    margin:0;
+    padding:$headerHeight 0 0 0;
+    float:left;
+    width:100%;
+/*    border-top:1px solid $multimediaColour;
+    border-bottom:1px solid $multimediaColour;*/
+    list-style-type:none;
+    
+    a {
+        width:100%;
+        float:left; 
+        background:$white;
+    }
+
+    button {
+        @include button(simple, $white);
+        width:100%;
+    }
+    li {
+        float:left;
+        width:100%;
+    }
+
+}

@@ -1,0 +1,261 @@
+{
+    "status": "success",
+    "ttl": 3600,
+    "tileSet": {
+        "url": "http://{s}.tile.cloudmade.com/089335110c7b4bd3a60f0c3b1de28cb9/998/256/{z}/{x}/{y}.png"
+    },
+    "ships": [
+        {
+            "name": "Arctic Sunrise",
+            "nameSimple": "arctic-sunrise",
+            "id": 23,
+            "style": {
+                "point": {
+                    "default": {
+                        "radius": 8,
+                        "fillColor": "white",
+                        "color": "black",
+                        "weight": 12,
+                        "opacity": 0.4,
+                        "fillOpacity": 0.8
+                    }
+                },
+                "icon": {
+                    "default": {
+                        "iconUrl": "img/icons/arctic-sunrise_100.png",
+                        "shadowUrl": "",
+                        "iconSize": [100, 100],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [42, 80],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [5, -30]
+                    }
+                },
+                "path": {
+                    "default": {
+                        "repeat": "10px",
+                        "pixelSize": 4,
+                        "pathOptions": {
+                            "color": "#fff"
+                        }
+                    },
+                    "future": {
+                        "repeat": "20px",
+                        "pixelSize": 2,
+                        "pathOptions": {
+                            "color": "#ccc",
+                            "clickable": true,
+                            "opacity": 0.5
+                        }
+                    }
+                }
+            },
+            "geojson": {
+                "paths": [
+                    {
+                        "type": "LineString",
+                        "period": "default",
+                        "properties": {
+                            "name": "Things done",
+                            "timestamp": "2013-10-22T20:49:00Z",
+                            "summary": "Fnord ptang wibble",
+                            "content": ""
+                        },
+                        "coordinates": [[144.52, -40.01], [144, -41], [144.5, -43.5], [144, -44.5], [146.66, -45.1], [153.12, -41.8]]
+                    }, {
+                        "type": "LineString",
+                        "period": "future",
+                        "properties": {
+                            "name": "Things to do",
+                            "timestamp": "2013-10-22T20:49:00Z",
+                            "summary": "Fnord ptang wibble",
+                            "content": ""
+                        },
+                        "coordinates": [[153.12, -41.8], [171.95, -40.1]]
+                    }
+
+                ],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "id": "fishes",
+                        "properties": {
+                            "name": "First point in recent history",
+                            "timestamp": "2013-05-22T20:49:00Z",
+                            "type": "Ship Event",
+                            "summary": "This is the beginning of the voyage as bounded by the search results for this time period"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [144.25, -42.21]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fished",
+                        "properties": {
+                            "name": "Then we went here",
+                            "timestamp": "2013-10-23T20:49:00Z",
+                            "type": "Ship Event",
+                            "summary": "And another thing happened.  "
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [144.5, -43.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Here be kittens",
+                            "type": "Noon Update",
+                            "timestamp": "2013-12-14T20:49:00Z",
+                            "summary": "<abbr title=\"HTML is supported in summaries, including images\">Now with added HTML!<\/abbr><br/><img src=\"http:\/\/placekitten.com\/150\/150\"\/>"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [144, -44.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Nearly to the end of this path",
+                            "timestamp": "2013-12-24T20:49:00Z",
+                            "summary": "Found another kitten... <img src=\"http:\/\/placekitten.com\/200\/100\"\/>"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [146.66, -45.1]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Current day",
+                            "timestamp": "2014-01-07T20:49:00Z",
+                            "summary": "As the final point in the 'history' path, this point is automatically replaced with the ship icon"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [153.12, -41.8]
+                        }
+                    }
+                ]
+            }
+
+        }, {
+            "name": "Esperanza",
+            "nameSimple": "esperanza",
+            "id": 42,
+            "style": {
+                "point": {
+                    "default": {
+                        "radius": 2,
+                        "fillColor": "cyan",
+                        "color": "white",
+                        "weight": 12,
+                        "opacity": 0.5,
+                        "fillOpacity": 1
+                    }
+                },
+                "default": {
+                    "color": "#efefef",
+                    "weight": 2,
+                    "opacity": 0.65
+                },
+                "icon": {
+                    "default": {
+                        "iconUrl": "img/icons/esperanza_100.png",
+                        "shadowUrl": "",
+                        "iconSize": [100, 100],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [50, 50],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [-3, 0]
+                    }
+
+                },
+                "path": {
+                    "default": {
+                        "pixelSize": 4,
+                        "repeat": "30px",
+                        "pathOptions": {
+                            "color": "white"
+                        }
+                    }
+                }
+            },
+            "geojson": {
+                "paths": [
+                    {
+                        "type": "LineString",
+                        "properties": {
+                            "name": "Thing doing",
+                            "timestamp": "2013-10-25T20:49:00Z",
+                            "summary": "Fnord",
+                            "longContent": ""
+                        },
+                        "coordinates": [[140.1, -43], [143, -43], [142, -44]]
+                    }
+                ],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "id": "fishes",
+                        "properties": {
+                            "name": "Point 1",
+                            "type": "Noon Update",
+                            "timestamp": "2012-10-25T20:49:00Z",
+                            "summary": "KerPow!"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [140.1, -43]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fished",
+                        "properties": {
+                            "name": "Point 2",
+                            "type": "Noon Update",
+                            "timestamp": "2013-03-25T20:49:00Z",
+                            "summary": "Blam!"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [140.9, -42.3]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Point 3",
+                            "type": "Ship Event",
+                            "timestamp": "2013-06-25T20:49:00Z",
+                            "summary": "Thud!"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [142, -42.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fisht",
+                        "properties": {
+                            "name": "Point 4",
+                            "type": "Featured Event",
+                            "timestamp": "2013-12-25T20:49:00Z",
+                            "summary": "Zowie!"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [142.3, -42]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+

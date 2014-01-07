@@ -1,0 +1,39 @@
+/*
+*/
+/* 
+    Created on : 07/01/2014, 12:54:14 PM
+    Author     : Ray Walker <hello@raywalker.it>
+*/
+
+// Reset all leadlet default border radii
+.leaflet-bar,
+.leaflet-popup-content-wrapper,
+.leaflet-bar a:first-child,
+.leaflet-bar a:last-child{
+    border-radius:$borderRadius;
+}
+
+.leaflet-bar {
+    box-shadow:none;
+}
+/*
+.leaflet-popup-content-wrapper {
+    @include transition(none);
+}*/
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background:rgba(255,255,255,0.8);
+}
+
+.leaflet-popup-content {
+
+    h2 {
+        border-bottom: 1px solid $multimediaColour;
+    }
+
+    time {
+        display:block;
+        color:  $multimediaColour;
+    }
+
+}
