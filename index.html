@@ -8,16 +8,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Mappitymap</title>
         <meta name="description" content="">
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        
+
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
 
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-        
+
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
         <![endif]-->
@@ -29,27 +29,29 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
+
         <article id="shipping-map">
             <header class="map-header">
-                <h1><span class="visuallyhidden">Greenpeace</span></h1>
+                <h1>
+                    <span class="visuallyhidden">Greenpeace</span>
+                </h1>
                 <nav>
+
+                    <script id="shipMenuTemplate" type="text/x-jsrender">
+                        <li class={{:simpleName}}>
+                        <button data-ship-id="{{:id}}"><i class="toggle"></i>{{:name}}</button>
+                        </li>
+                    </script>
+
                     <button class="menu-trigger"><span>Show Menu</span></button>
                     <ul id="menu" class="map-menu">
-                        <li>
-                            <button>Display ships <i class="fa fa-anchor"></i></button>
+                        <li class="ships">
+                            <button>Display ships</button>
                             <ul>
-                                <li class="rainbow-warrior">
-                                    <button data-ship="0">Rainbow Warrior<i class="icon-ship"></i></button>
-                                </li>
-                                <li class="arctic-sunrise">
-                                    <button data-ship="1">Arctic Sunrise<i class="icon-ship"></i></button>
-                                </li>
-                                <li class="esperanza">
-                                    <button data-ship="2">Esperanza<i class="icon-ship"></i></button>
-                                </li>
+
                             </ul>
                         </li>
-                        <li>
+                        <li class="points">
                             <button>Legend <i class="fa fa-anchor"></i></button>
                             <ul>
                                 <li><button>Noon Updates</button></li>
@@ -70,8 +72,18 @@
                 </nav>
             </header>
             <div class="map-container">
+                
+                <script id="featurePopupTemplate" type="text/x-jsrender">
+                    <div data-ship-id="{{:id}}">
+                        <h2>{{:title}}/h2>
+                        <h3>{{:subtitle}}</h3>
+                        <time datetime="{{:datetime}}" title="{{:datetime}}">{{:humanTime}}</time>
+                        <p class="summary">{{:summary}}</p>
+                    </div>
+                </script>
+                
                 <div id="map">
-                    
+
                 </div>
             </div>
 
@@ -81,27 +93,28 @@
 
         </article>
 
-<!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>-->
+        <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>-->
 
-        <script>document.write('<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js">\x3C/script>');</script>
-        <script>window.jQuery || document.write('<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js">\x3C/script>');</script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js">\x3C/script>');</script>
-        
+
         <script src="js/vendor/leaflet.js"></script>
         <script src="js/vendor/plugins/leaflet.edgeMarker.js"></script>
         <script src="js/vendor/plugins/leaflet.polylineDecorator.js"></script>
         <script src="js/vendor/plugins/jquery.jPanelMenu-1.3.0.js"></script>
+        <script src="js/vendor/plugins/jRespond.min.js"></script>
+        <script src="js/vendor/plugins/jsrender.min.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!--        <script>
-            var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-            (function(d, t) {
-                var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                g.src = '//www.google-analytics.com/ga.js';
-                s.parentNode.insertBefore(g, s)
-            }(document, 'script'));
-        </script>-->
+        <!--        <script>
+                    var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+                    (function(d, t) {
+                        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                        g.src = '//www.google-analytics.com/ga.js';
+                        s.parentNode.insertBefore(g, s)
+                    }(document, 'script'));
+                </script>-->
     </body>
 </html>

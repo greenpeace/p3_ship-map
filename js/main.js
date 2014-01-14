@@ -2,14 +2,28 @@
     'use strict';
 
     var defaults = {
-        mapHolder: '#shipping-map .map-container',
-        menuHolder: '.map-menu',
+        selectors: {
+            mapHolder: '#shipping-map .map-container',
+            menuHolder: '.map-menu',
+            templates: {
+                menu: {
+                    ship: '#shipMenuTemplate',
+                    event: '#eventMenuTemplate'
+                }
+            }
+        },
+        breakpoints: {
+            handheld: 768,
+            tablet: 980,
+            laptop: 1200,
+            desktop: 20000
+        },
         tileSet: {
             url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
         },
         api: {
-            url: window.location + 'api/ships/'
+            url: 'json/test1.json'
         },
         locations: {
             center: {
@@ -62,6 +76,7 @@
     },
     jPM = $.jPanelMenu({
         direction: 'right',
+        closeOnContentClick: false,
         afterOpen: function() {
             $('.jPanelMenu-panel nav').addClass('active');
         },
@@ -95,24 +110,34 @@
         // more than 8 weeks
         return Math.floor(minutes / 60 / 24 / 7 / 4) + ' months ago';
 
-    },
-    ships = {};
-
+    };
 
     $(document).ready(function() {
-        var $mapHolder = $(defaults.mapHolder),
-            $menuHolder = $(defaults.menuHolder),
-            jsonURL = 'json/test1.json';
+        var templates = {
+            menu: {
+                ship: false,
+                event: false
+            }
+        },
+        ships = {},
+        eventTypes = {};
 
-        // Initialise jPanelMenu
-        jPM.on();
-
-        // Fetch JSON data, and update geoJSON layer
-        $.getJSON(jsonURL, function(data) {
+        // Fetch geoJSON data
+        $.getJSON(defaults.api.url, function(data) {
 
             var config = $.extend(true, defaults, data),
+                $mapHolder = $(config.selectors.mapHolder),
+                $menuHolder = $(config.selectors.menuHolder),
+                $shipsMenu = $('.ships ul', $menuHolder),
                 map = L.map('map'),
                 popup = L.popup();
+
+
+            console.log($menuHolder.html());
+
+            // Prepare templates
+            templates.menu.ship = $.templates(config.selectors.templates.menu.ship);
+            templates.menu.event = $.templates(config.selectors.templates.menu.event);
 
             // Initialise the map
             map.setView(config.locations.center.coords, config.locations.center.zoom);
@@ -124,6 +149,8 @@
                 maxZoom: 12
             }).addTo(map);
 
+
+            // Iterate over each ship and massage data
             $.each(config.ships, function(i, ship) {
                 var j = 0,
                     len = ship.geojson.features.length,
@@ -132,7 +159,7 @@
                     points = [],
                     style = $.extend(true, config.style, ship.style);
 
-                // Add each interactive feature to the map
+                // Add each interactive event or feature to the map
                 $.each(ship.geojson.features, function(i, f) {
                     // Add this feature to the map
                     var point = L.geoJson(f, {
@@ -142,11 +169,13 @@
                         pointToLayer: function(feature, latlng) {
                             // Point marker
 
-                            // If this is the last marker in the array
-                            if (++j === len) {
-
-                                // Show the ship icon
-                                var className = 'ship-icon ' + ship.nameSimple;
+                            if (++j < len) {
+                                // Standard event marker,
+                                // @todo Switch based on type
+                                previous = latlng;
+                                return L.circleMarker(latlng, style.point);
+                            } else {
+                                // Last marker in the array, so show the ship icon
 
                                 // Show right facing icon if ship is moving east
                                 if (previous.lng && previous.lng < latlng.lng) {
@@ -154,17 +183,19 @@
                                 }
 
                                 return L.marker(latlng, {
-                                    icon: L.icon($.extend(true, style.icon.default, {className: className}))
+                                    icon: L.icon($.extend(true, style.icon.default, {className: 'ship-icon ' + ship.nameSimple}))
                                 });
-                            } else {
-                                previous = latlng;
-                                return L.circleMarker(latlng, style.point);
                             }
                         },
                         // add extra data: heading, text, summary
                         onEachFeature: function(feature, layer) {
+                            if (feature.properties.type && !feature.properties.type in eventTypes) {
+                                eventTypes.push(feature.properties.type);
+                            }
 
                             if (feature.properties && (feature.properties.summary || feature.properties.timestamp)) {
+
+
                                 // Either summary or timestamp is enough to show popup
                                 layer.bindPopup("<h2>" + feature.properties.name + "</h2>"
                                     + '<h3>' + ship.name
@@ -217,14 +248,35 @@
                  *       based on the ships and event types available
                  */
 
-
                 // Store relevant variables for toggling from menu
-                ships[ship.nameSimple] = {
+                ships[ship.id] = {
                     paths: paths,
                     points: points,
-                    json: data
+                    name: ship.name,
+                    nameSimple: ship.nameSimple,
+                    style: style
                 };
 
+            });
+
+
+            /* @todo Build navigation menu with json or backend? */
+
+            $.each(ships, function(id, shipData) {
+//                console.log(id);
+                console.log(shipData);
+                console.log(templates.menu.ship);
+                console.log($shipsMenu);
+
+                var html = templates.menu.ship.render({
+                    name: shipData.name,
+                    simpleName: shipData,
+                    id: id
+                });
+
+                console.log(html);
+
+                $shipsMenu.append(html);
             });
 
             /* Add edge markers to offscreen icons
@@ -244,8 +296,53 @@
                 $mapHolder.addClass('show');
             }, 1000);
 
+
+            // Initalised jRespond with breakpoints
+            var jRes = jRespond([
+                {
+                    label: 'handheld',
+                    enter: 0,
+                    exit: config.breakpoints.handheld - 1
+                }, {
+                    label: 'tablet',
+                    enter: config.breakpoints.handheld,
+                    exit: config.breakpoints.tablet - 1
+                }, {
+                    label: 'laptop',
+                    enter: config.breakpoints.tablet,
+                    exit: config.breakpoints.laptop - 1
+                }, {
+                    label: 'desktop',
+                    enter: config.breakpoints.laptop,
+                    exit: config.breakpoints.desktop
+                }
+            ]);
+
+            // Initialise jPanelMenu now that the templates have been built
+            jPM.on();
+
+            // Automatically show panel menu at large screen sizes,
+            // and hide at small sizes
+            jRes.addFunc([{
+                    breakpoint: ['handheld'],
+                    enter: function() {
+                        jPM.close();
+                    },
+                    exit: function() {
+                    }
+                }, {
+                    breakpoint: ['laptop', 'desktop'],
+                    enter: function() {
+                        jPM.open();
+                    },
+                    exit: function() {
+                        //
+                    }
+                }]);
+
+
         }).fail(function() {
-            console.log('Error fetching ' + jsonURL);
+            console.log('Error fetching ' + defaults.api.url);
         });
 
         //    function onMapMove() {
@@ -263,6 +360,7 @@
         //
         //    }
         //    map.on('moveend', onMapMove);
+
 
     }); // End document.ready()
 

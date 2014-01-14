@@ -1,39 +1,4 @@
 
-$white:             #ffffff;
-
-$bannerColour:      #66cc00; // bright green
-
-$submenuColour:     #56b105; // slightly darker green
-
-$titlesColour:      #003300; // dark green
-
-$multimediaColour:  #5f6169; // light grey
-
-$mobileFooterColour:#4d535f; // darker grey
-
-$sidebarColour:     #eaecf3; // very light grey
-
-$debugColor:    pink; 
-
-$borderRadius: 0;
-
-$marginPx: 10px;
-$headerHeight: 50px;
-
-
-// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing:    border-box;
-	box-sizing:         border-box;        
-}
-
-// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
-.image-replacement {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
 
 // Default font
 @mixin typeface {
@@ -56,7 +21,6 @@ $headerHeight: 50px;
         clear: both;
     }
 }
-
 
 @mixin flip-horizontal {
     -moz-transform: scaleX(-1);

@@ -124,7 +124,8 @@
     
 }
 
-body > #jPanelMenu-menu {
+body > #jPanelMenu-menu,
+.map-menu{
     clear:both;
     overflow-y:hidden;
     margin:0;
@@ -136,18 +137,35 @@ body > #jPanelMenu-menu {
     list-style-type:none;
     
     a {
+        display:block;
         width:100%;
-        float:left; 
-        background:$white;
+        color:$white;
+        background:$multimediaColour;
+        @include button(flat, $multimediaColour);
     }
 
     button {
-        @include button(simple, $white);
+        text-align:left;
+        @include button(flat, $multimediaColour);
         width:100%;
     }
+    
+    ul {
+        list-style-type: none;
+        margin:0;
+        padding:0;
+  
+        button {
+            text-indent:30px;
+            /*@include button(flat, $multimediaColour);*/
+        }
+    }
+    
     li {
-        float:left;
+        text-align:left;
         width:100%;
+        background:$multimediaColour;
+        padding:0;
     }
 
 }
