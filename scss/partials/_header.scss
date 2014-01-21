@@ -39,7 +39,7 @@
             span {
                 position:absolute;
                 left:12px;
-                height:4px;
+                height:3px;
                 background-color:$white;
                 top:50%;
                 margin-top:-2px;
@@ -60,13 +60,13 @@
                 }
                 
                 &::before {
-                    -webkit-transform: translateY(-250%);
-                    transform: translateY(-250%);
+                    -webkit-transform: translateY(-300%);
+                    transform: translateY(-300%);
                 }
                 
                 &::after {
-                    -webkit-transform: translateY(250%);
-                    transform: translateY(250%);
+                    -webkit-transform: translateY(300%);
+                    transform: translateY(300%);
                 }
                 
 
@@ -125,16 +125,17 @@
 }
 
 body > #jPanelMenu-menu,
-.map-menu{
+.map-menu {
     clear:both;
     overflow-y:hidden;
     margin:0;
-    padding:$headerHeight 0 0 0;
+    padding:$headerHeight 0 0;
     float:left;
     width:100%;
 /*    border-top:1px solid $multimediaColour;
     border-bottom:1px solid $multimediaColour;*/
     list-style-type:none;
+    border-bottom:1px solid $bannerColour;
     
     a {
         display:block;
@@ -142,12 +143,14 @@ body > #jPanelMenu-menu,
         color:$white;
         background:$multimediaColour;
         @include button(flat, $multimediaColour);
+        border-bottom:1px solid $bannerColour;
     }
 
     button {
         text-align:left;
         @include button(flat, $multimediaColour);
         width:100%;
+        border-bottom:1px solid $bannerColour;
     }
     
     ul {
@@ -158,6 +161,14 @@ body > #jPanelMenu-menu,
         button {
             text-indent:30px;
             /*@include button(flat, $multimediaColour);*/
+            
+            &.hideLayer {
+                color:#ccc;
+            }
+        }
+        
+        &.close {
+            display:none;
         }
     }
     
@@ -168,4 +179,7 @@ body > #jPanelMenu-menu,
         padding:0;
     }
 
+    .ships {
+        border-top:1px solid $bannerColour;
+    }
 }

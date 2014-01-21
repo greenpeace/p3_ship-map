@@ -16,19 +16,21 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
 
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
         <![endif]-->
-
+        
+        <!--[if lt IE 9]>
+            <script src="js/vendor/html5shiv.js"></script>
+        <![endif]-->
+        
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+       
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-
 
         <article id="shipping-map">
             <header class="map-header">
@@ -42,31 +44,33 @@
                         <button data-ship-id="{{:id}}"><i class="toggle"></i>{{:name}}</button>
                         </li>
                     </script>
-
+                    
+                    <script id="featureMenuTemplate" type="text/x-jsrender">
+                        <li class={{:type}}>
+                        <button data-feature-type="{{:type}}"><i class="toggle"></i>{{:name}}</button>
+                        </li>
+                    </script>
+                    
                     <button class="menu-trigger"><span>Show Menu</span></button>
                     <ul id="menu" class="map-menu">
                         <li class="ships">
-                            <button>Display ships</button>
+                            <button class="toggleMenu">Display ships</button>
                             <ul>
-
                             </ul>
                         </li>
-                        <li class="points">
-                            <button>Legend <i class="fa fa-anchor"></i></button>
+                        <li class="features">
+                            <button class="toggleMenu">Events</button>
                             <ul>
-                                <li><button>Noon Updates</button></li>
-                                <li><button>Ship Events</button></li>
-                                <li><button>Rainbow Warrior</button></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="">Get Involved</a>                            
+                            <a href="#">Get Involved</a>                            
                         </li>
                         <li>
-                            <a href="">Donate</a>                            
+                            <a href="#">Donate</a>                            
                         </li>
                         <li>
-                            <a href="">Home</a>                            
+                            <a href="#">Home</a>                            
                         </li>
                     </ul>
                 </nav>
@@ -74,21 +78,25 @@
             <div class="map-container">
                 
                 <script id="featurePopupTemplate" type="text/x-jsrender">
-                    <div data-ship-id="{{:id}}">
-                        <h2>{{:title}}/h2>
-                        <h3>{{:subtitle}}</h3>
-                        <time datetime="{{:datetime}}" title="{{:datetime}}">{{:humanTime}}</time>
+                    <article data-ship-name="{{:nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:id}}">
+                        <header>
+                            <h1>{{:title}}</h1>
+                            {{if subtitle}}<h2>{{:subtitle}}</h2>{{/if}}
+                            <time datetime="{{:datetime}}" title="{{:datetime}}">{{:humanTime}}</time>
+                        </header>
+                        
                         <p class="summary">{{:summary}}</p>
-                    </div>
+                        {{if prev}}<button class="prev"></button>{{/if}}
+                        {{if next}}<button class="next">Next</button>{{/if}}
+                    </article>
                 </script>
                 
                 <div id="map">
-
                 </div>
             </div>
 
             <footer class="map-footer">
-                &COPY; Greenpeace | 2013 <a href="">Legal</a>
+                &COPY; Greenpeace | 2013 <a href="#">Legal</a>
             </footer>
 
         </article>
@@ -102,9 +110,11 @@
         <script src="js/vendor/leaflet.js"></script>
         <script src="js/vendor/plugins/leaflet.edgeMarker.js"></script>
         <script src="js/vendor/plugins/leaflet.polylineDecorator.js"></script>
+        <script src="js/vendor/plugins/leaflet.markercluster-src.js"></script>
         <script src="js/vendor/plugins/jquery.jPanelMenu-1.3.0.js"></script>
         <script src="js/vendor/plugins/jRespond.min.js"></script>
         <script src="js/vendor/plugins/jsrender.min.js"></script>
+        <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -118,3 +128,4 @@
                 </script>-->
     </body>
 </html>
+    

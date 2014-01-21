@@ -5,7 +5,7 @@
     Author     : Ray Walker <hello@raywalker.it>
 */
 
-// Reset all leadlet default border radii
+// Reset all leaflet default border radii
 .leaflet-bar,
 .leaflet-popup-content-wrapper,
 .leaflet-bar a:first-child,
@@ -13,9 +13,16 @@
     border-radius:$borderRadius;
 }
 
+
+#shipping-map > div.narrow {
+    position:relative;
+    left:$panel-width;
+}
+
 .leaflet-bar {
     box-shadow:none;
 }
+
 /*
 .leaflet-popup-content-wrapper {
     @include transition(none);
@@ -27,6 +34,12 @@
 
 .leaflet-popup-content {
 
+    h1 {
+        font-size:12px;
+    }
+    h1 {
+        
+    }
     h2 {
         border-bottom: 1px solid $multimediaColour;
     }

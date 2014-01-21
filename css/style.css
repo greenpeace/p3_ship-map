@@ -199,13 +199,13 @@ td { vertical-align: top; }
 /* line 27, ../scss/partials/_header.scss */
 .map-header nav .menu-trigger { -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; position: relative; height: 50px; width: 50px; font-size: 120%; /*float:right;*/ background: rgba(255, 255, 255, 0.1); padding: 0; border: none; text-align: center; }
 /* line 39, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span { position: absolute; left: 12px; height: 4px; background-color: white; top: 50%; margin-top: -2px; width: 30px; font-size: 0; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; /*                float:left; display:block; width: 36px; height:35px; background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/ }
+.map-header nav .menu-trigger span { position: absolute; left: 12px; height: 3px; background-color: white; top: 50%; margin-top: -2px; width: 30px; font-size: 0; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; /*                float:left; display:block; width: 36px; height:35px; background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/ }
 /* line 51, ../scss/partials/_header.scss */
 .map-header nav .menu-trigger span::before, .map-header nav .menu-trigger span::after { position: absolute; left: 0; width: 30px; height: 100%; background: #fff; content: ''; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
 /* line 62, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span::before { -webkit-transform: translateY(-250%); transform: translateY(-250%); }
+.map-header nav .menu-trigger span::before { -webkit-transform: translateY(-300%); transform: translateY(-300%); }
 /* line 67, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span::after { -webkit-transform: translateY(250%); transform: translateY(250%); }
+.map-header nav .menu-trigger span::after { -webkit-transform: translateY(300%); transform: translateY(300%); }
 /* line 80, ../scss/partials/_header.scss */
 .map-header nav .menu-trigger:hover { background: rgba(255, 255, 255, 0.5); }
 /* line 87, ../scss/partials/_header.scss */
@@ -221,25 +221,31 @@ td { vertical-align: top; }
 .map-menu { position: relative; margin: 0; display: none; padding-top: 50px; background: #5f6169; /*    .active & { display:block; }*/ }
 
 /* line 128, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu, .map-menu { clear: both; overflow-y: hidden; margin: 0; padding: 50px 0 0 0; float: left; width: 100%; /*    border-top:1px solid $multimediaColour; border-bottom:1px solid $multimediaColour;*/ list-style-type: none; }
-/* line 139, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu a, .map-menu a { display: block; width: 100%; color: white; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: white; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; text-shadow: 0 1px 0 none; background-clip: padding-box; background: #5f6169; }
+body > #jPanelMenu-menu, .map-menu { clear: both; overflow-y: hidden; margin: 0; padding: 50px 0 0; float: left; width: 100%; /*    border-top:1px solid $multimediaColour; border-bottom:1px solid $multimediaColour;*/ list-style-type: none; border-bottom: 1px solid #66cc00; }
+/* line 140, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu a, .map-menu a { display: block; width: 100%; color: white; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: white; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; text-shadow: 0 1px 0 none; background-clip: padding-box; background: #5f6169; border-bottom: 1px solid #66cc00; }
 /* line 85, ../scss/bourbon/addons/_button.scss */
 body > #jPanelMenu-menu a:hover:not(:disabled), .map-menu a:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
 body > #jPanelMenu-menu a:disabled, .map-menu a:disabled { opacity: 0.5; cursor: not-allowed; }
-/* line 147, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu button, .map-menu button { text-align: left; border: none; border-radius: 0; box-shadow: none; color: white; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; text-shadow: 0 1px 0 none; background-clip: padding-box; background: #5f6169; width: 100%; }
+/* line 149, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu button, .map-menu button { text-align: left; border: none; border-radius: 0; box-shadow: none; color: white; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; text-shadow: 0 1px 0 none; background-clip: padding-box; background: #5f6169; width: 100%; border-bottom: 1px solid #66cc00; }
 /* line 85, ../scss/bourbon/addons/_button.scss */
 body > #jPanelMenu-menu button:hover:not(:disabled), .map-menu button:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
 body > #jPanelMenu-menu button:disabled, .map-menu button:disabled { opacity: 0.5; cursor: not-allowed; }
-/* line 153, ../scss/partials/_header.scss */
+/* line 156, ../scss/partials/_header.scss */
 body > #jPanelMenu-menu ul, .map-menu ul { list-style-type: none; margin: 0; padding: 0; }
-/* line 158, ../scss/partials/_header.scss */
+/* line 161, ../scss/partials/_header.scss */
 body > #jPanelMenu-menu ul button, .map-menu ul button { text-indent: 30px; /*@include button(flat, $multimediaColour);*/ }
-/* line 164, ../scss/partials/_header.scss */
+/* line 165, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu ul button.hideLayer, .map-menu ul button.hideLayer { color: #ccc; }
+/* line 170, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu ul.close, .map-menu ul.close { display: none; }
+/* line 175, ../scss/partials/_header.scss */
 body > #jPanelMenu-menu li, .map-menu li { text-align: left; width: 100%; background: #5f6169; padding: 0; }
+/* line 182, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu .ships, .map-menu .ships { border-top: 1px solid #66cc00; }
 
 /* line 2, ../scss/partials/_footer.scss */
 .map-footer { position: fixed; padding: 5px; bottom: 0; left: 0; color: white; background: #4d535f; }
@@ -533,18 +539,23 @@ body > #jPanelMenu-menu li, .map-menu li { text-align: left; width: 100%; backgr
 /* line 12, ../scss/partials/_leaflet.scss */
 .leaflet-bar, .leaflet-popup-content-wrapper, .leaflet-bar a:first-child, .leaflet-bar a:last-child { border-radius: 0; }
 
-/* line 16, ../scss/partials/_leaflet.scss */
+/* line 17, ../scss/partials/_leaflet.scss */
+#shipping-map > div.narrow { position: relative; left: 320px; }
+
+/* line 22, ../scss/partials/_leaflet.scss */
 .leaflet-bar { box-shadow: none; }
 
 /*
 .leaflet-popup-content-wrapper { @include transition(none);
 }*/
-/* line 24, ../scss/partials/_leaflet.scss */
+/* line 31, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: rgba(255, 255, 255, 0.8); }
 
-/* line 30, ../scss/partials/_leaflet.scss */
+/* line 37, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content h1 { font-size: 12px; }
+/* line 43, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content h2 { border-bottom: 1px solid #5f6169; }
-/* line 34, ../scss/partials/_leaflet.scss */
+/* line 47, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content time { display: block; color: #5f6169; }
 
 /* line 14, ../scss/style.scss */
