@@ -20,8 +20,8 @@
                 "point": {
                     "default": {
                         "radius": 8,
-                        "fillColor": "green",
-                        "color": "white",
+                        "fillColor": "white",
+                        "color": "green",
                         "weight": 12,
                         "opacity": 0.4,
                         "fillOpacity": 0.8
@@ -40,19 +40,22 @@
                     },
                     "menu": {
                         "iconUrl": "img/icons/AS_legend.svg"
+                    },
+                    "events": {
+                        "fnord": "meh-o"
                     }
                 },
                 "path": {
                     "default": {
                         "repeat": "10px",
                         "pathOptions": {
-                            "color": "#fff"
+                            "color": "green"
                         }
                     },
                     "future": {
                         "repeat": "10px",
                         "pathOptions": {
-                            "color": "#ccc",
+                            "color": "green",
                             "clickable": true,
                             "opacity": 0.5
                         }
@@ -183,8 +186,8 @@
                 "point": {
                     "default": {
                         "radius": 2,
-                        "fillColor": "blue",
-                        "color": "white",
+                        "fillColor": "lightGrey",
+                        "color": "green",
                         "weight": 12,
                         "opacity": 0.5,
                         "fillOpacity": 1
@@ -216,7 +219,7 @@
                         "pixelSize": 4,
                         "repeat": "30px",
                         "pathOptions": {
-                            "color": "white"
+                            "color": "green"
                         }
                     }
                 }

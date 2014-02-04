@@ -517,7 +517,7 @@
              * @todo style icons to suit
              */
             if (config.options.showEdgeMarkers) {
-                L.edgeMarker({fillColor: 'pink'}).addTo(map);
+                L.edgeMarker({fillColor: 'white'}).addTo(map);
             }
 
 

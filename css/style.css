@@ -225,15 +225,15 @@ td { vertical-align: top; }
 .map-header .menu-trigger:hover { background: rgba(255, 255, 255, 0.5); }
 
 /* line 132, ../scss/partials/_header.scss */
-.map-menu { position: relative; margin: 0; display: none; padding: 50px 20px 0; background: white; clear: both; overflow-y: auto !important; padding: 50px 0 0; float: left; width: 100%; list-style-type: none; border-bottom: 1px solid #66cc00; }
+.map-menu { position: relative; margin: 0; display: none; padding: 50px 20px 0; background: white; clear: both; overflow-y: auto !important; padding: 50px 0 0; float: left; width: 100%; list-style-type: none; border-bottom: none; }
 /* line 147, ../scss/partials/_header.scss */
-.map-menu a, .map-menu a:visited { display: block; width: 100%; color: #183319; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; border-bottom: 1px solid #66cc00; }
+.map-menu a, .map-menu a:visited { display: block; width: 100%; color: #183319; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; border-bottom: 1px solid #ccc; }
 /* line 66, ../scss/bourbon/addons/_button.scss */
 .map-menu a:hover:not(:disabled), .map-menu a:visited:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
 .map-menu a:disabled, .map-menu a:visited:disabled { opacity: 0.5; cursor: not-allowed; }
 /* line 156, ../scss/partials/_header.scss */
-.map-menu button { text-align: left; color: #183319; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; min-height: 55px; vertical-align: middle; width: 100%; border-bottom: 1px solid #66cc00; }
+.map-menu button { text-align: left; color: #183319; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; min-height: 55px; vertical-align: middle; width: 100%; border-bottom: 1px solid #ccc; }
 /* line 66, ../scss/bourbon/addons/_button.scss */
 .map-menu button:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
@@ -257,7 +257,7 @@ td { vertical-align: top; }
 /* line 208, ../scss/partials/_header.scss */
 .map-menu li { text-align: left; width: 100%; background: #5f6169; padding: 0; }
 /* line 215, ../scss/partials/_header.scss */
-.map-menu .ships { border-top: 1px solid #66cc00; }
+.map-menu .ships { border-bottom: 1px solid #ccc; }
 
 /* line 220, ../scss/partials/_header.scss */
 #jPanelMenu-menu .map-menu { display: block; }

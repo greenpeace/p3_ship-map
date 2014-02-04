@@ -141,7 +141,7 @@
     float:left;
     width:100%;
     list-style-type:none;
-    border-bottom:1px solid $bannerColour;
+    border-bottom:none;
     
     a,
     a:visited {
@@ -150,7 +150,7 @@
         color: $sidebarTextColour;
         background:$multimediaColour;
         @include button(flat, #ffffff, $sidebarTextColour);
-        border-bottom:1px solid $bannerColour;
+        border-bottom:1px solid #ccc;
     }
 
     button {
@@ -160,7 +160,7 @@
         min-height:55px; 
         vertical-align:middle;
         width:100%;
-        border-bottom:1px solid $bannerColour;
+        border-bottom:1px solid #ccc;
     }
     
     ul {
@@ -213,7 +213,7 @@
     }
 
     .ships {
-        border-top:1px solid $bannerColour;
+        border-bottom:1px solid #ccc;
     }
 }
 
