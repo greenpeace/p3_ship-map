@@ -1,8 +1,15 @@
 {
     "status": "success",
     "ttl": 3600,
-    "tileSet": {
-        "url": "http://{s}.tile.cloudmade.com/089335110c7b4bd3a60f0c3b1de28cb9/998/256/{z}/{x}/{y}.png"
+    "map": {
+        "minZoom": 4,
+        "maxZoom": 8,
+        "tileSet": {
+            "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
+            "url": "http://{s}.tile.cloudmade.com/{apiKey}/998/256/{z}/{x}/{y}.png",
+            "retinaUrl": "http://{s}.tile.cloudmade.com/{apiKey}/998@2x/256/{z}/{x}/{y}.png",
+            "attribution": "This is also parsed from server-generated json"
+        }   
     },
     "ships": [
         {
@@ -13,35 +20,37 @@
                 "point": {
                     "default": {
                         "radius": 8,
-                        "fillColor": "white",
-                        "color": "black",
+                        "fillColor": "green",
+                        "color": "white",
                         "weight": 12,
                         "opacity": 0.4,
                         "fillOpacity": 0.8
                     }
                 },
                 "icon": {
-                    "default": {
-                        "iconUrl": "img/icons/arctic-sunrise_100.png",
+                    "ship": {
+                        "iconUrl": "img/icons/AS_on_map_icon.svg",
+                        "iconRetinaUrl": "img/icons/AS_on_map_icon.svg",
                         "shadowUrl": "",
                         "iconSize": [100, 100],
                         "shadowSize": [0, 0],
                         "iconAnchor": [42, 80],
                         "shadowAnchor": [0, 0],
                         "popupAnchor": [5, -30]
+                    },
+                    "menu": {
+                        "iconUrl": "img/icons/AS_legend.svg"
                     }
                 },
                 "path": {
                     "default": {
                         "repeat": "10px",
-                        "pixelSize": 4,
                         "pathOptions": {
                             "color": "#fff"
                         }
                     },
                     "future": {
-                        "repeat": "20px",
-                        "pixelSize": 2,
+                        "repeat": "10px",
                         "pathOptions": {
                             "color": "#ccc",
                             "clickable": true,
@@ -54,10 +63,12 @@
                 "paths": [
                     {
                         "type": "LineString",
-
                         "properties": {
                             "name": "Things done",
-                            "period": "default",
+                            "period": {
+                                "identifier": "default",
+                                "name": "Default"
+                            },
                             "timestamp": "2013-10-22T20:49:00Z",
                             "summary": "Fnord ptang wibble",
                             "content": ""
@@ -68,14 +79,16 @@
                         
                         "properties": {
                             "name": "Things to do",
-                            "period": "future",
+                            "period": {
+                                "identifier": "future",
+                                "name": "Future Course"
+                            },                            
                             "timestamp": "2013-10-22T20:49:00Z",
                             "summary": "Fnord ptang wibble",
                             "content": ""
                         },
                         "coordinates": [[153.12, -41.8], [171.95, -40.1]]
                     }
-
                 ],
                 "features": [
                     {
@@ -84,7 +97,10 @@
                         "properties": {
                             "name": "First point in recent history",
                             "timestamp": "2013-05-22T20:49:00Z",
-                            "type": "Noon update",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
                             "summary": "This is the beginning of the voyage as bounded by the search results for this time period"
                         },
                         "geometry": {
@@ -97,7 +113,10 @@
                         "properties": {
                             "name": "Then we went here",
                             "timestamp": "2013-10-23T20:49:00Z",
-                            "type": "Ship Event",
+                            "type": {
+                                "identifier": "ship-event",
+                                "name": "Ship Event"
+                            },
                             "summary": "And another thing happened.  "
                         },
                         "geometry": {
@@ -109,7 +128,10 @@
                         "id": "fish",
                         "properties": {
                             "name": "Here be kittens",
-                            "type": "Kittens! !",
+                            "type": {
+                                "identifier": "featured-event",
+                                "name": "Featured Event"
+                            },
                             "timestamp": "2013-12-14T20:49:00Z",
                             "summary": "<abbr title=\"HTML is supported in summaries, including images\">Now with added HTML!<\/abbr><br/><img width=\"150\" height=\"150\" src=\"http:\/\/placekitten.com\/150\/150\"\/>"
                         },
@@ -123,7 +145,10 @@
                         "properties": {
                             "name": "Nearly to the end of this path",
                             "timestamp": "2013-12-24T20:49:00Z",
-                            "type": "Kittens! !",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
                             "summary": "Found another kitten... <img width=\"200\" height=\"100\" src=\"http:\/\/placekitten.com\/200\/100\"\/>"
                         },
                         "geometry": {
@@ -136,7 +161,10 @@
                         "properties": {
                             "name": "Current day",
                             "timestamp": "2014-01-07T20:49:00Z",
-                            "type": "Fnord",
+                            "type": {
+                                "identifier": "fnord",
+                                "name": "Fnord"
+                            },
                             "summary": "As the final point in the 'history' path, this point is automatically replaced with the ship icon"
                         },
                         "geometry": {
@@ -155,7 +183,7 @@
                 "point": {
                     "default": {
                         "radius": 2,
-                        "fillColor": "cyan",
+                        "fillColor": "blue",
                         "color": "white",
                         "weight": 12,
                         "opacity": 0.5,
@@ -168,14 +196,18 @@
                     "opacity": 0.65
                 },
                 "icon": {
-                    "default": {
-                        "iconUrl": "img/icons/esperanza_100.png",
+                    "ship": {
+                        "iconUrl": "img/icons/ES_on_map_icon.svg",
+                        "iconRetinaUrl": "img/icons/ES_on_map_icon.svg",
                         "shadowUrl": "",
                         "iconSize": [100, 100],
                         "shadowSize": [0, 0],
                         "iconAnchor": [50, 50],
                         "shadowAnchor": [0, 0],
                         "popupAnchor": [-3, 0]
+                    },
+                    "menu": {
+                        "iconUrl": "img/icons/ES_legend.svg"
                     }
 
                 },
@@ -195,7 +227,10 @@
                         "type": "LineString",
                         "properties": {
                             "name": "Thing doing",
-                            "period": "default",
+                            "period": {
+                                "identifier": "default",
+                                "name": "Default"
+                            },                            
                             "timestamp": "2013-10-25T20:49:00Z",
                             "summary": "Fnord",
                             "longContent": ""
@@ -209,7 +244,10 @@
                         "id": "fishes",
                         "properties": {
                             "name": "Point 1",
-                            "type": "Noon Update",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
                             "timestamp": "2012-10-25T20:49:00Z",
                             "summary": "KerPow!"
                         },
@@ -222,7 +260,10 @@
                         "id": "fished",
                         "properties": {
                             "name": "Point 2",
-                            "type": "Noon Update",
+                            "type": {
+                                "identifier": "featured-event",
+                                "name": "Featured Event"
+                            },
                             "timestamp": "2013-03-25T20:49:00Z",
                             "summary": "Blam!"
                         },
@@ -235,7 +276,10 @@
                         "id": "fish",
                         "properties": {
                             "name": "Point 3",
-                            "type": "Ship Event",
+                            "type": {
+                                "identifier": "ship-event",
+                                "name": "Ship Event"
+                            },
                             "timestamp": "2013-06-25T20:49:00Z",
                             "summary": "Thud!"
                         },
@@ -248,7 +292,10 @@
                         "id": "fisht",
                         "properties": {
                             "name": "Point 4",
-                            "type": "Featured Event",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
                             "timestamp": "2013-12-25T20:49:00Z",
                             "summary": "Zowie!"
                         },

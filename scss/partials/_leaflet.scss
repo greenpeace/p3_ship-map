@@ -32,21 +32,41 @@
     background:rgba(255,255,255,0.8);
 }
 
-.leaflet-popup-content {
+.leaflet-popup-pane {
+    
+    a.leaflet-popup-close-button {
+        text-align:right;
+        padding:3px 0 0;
+        font-size:20px;
+        top:10px;
+        right:10px;
+    }
+}
 
+.leaflet-popup-content {
+    margin:10px;
+    min-width:140px;
+    
+
+    
     h1 {
-        font-size:12px;
-    }
-    h1 {
+        font-size:14px;
         
+        span {
+            font-size:90%;
+            color:lighten($fontColor, 50%);
+            display:block;
+        }
     }
-    h2 {
-        border-bottom: 1px solid $multimediaColour;
-    }
+
 
     time {
         display:block;
-        color:  $multimediaColour;
+        color:lighten($fontColor, 50%);
+    }
+    
+    .summary {
+        margin-bottom:10px;
     }
 
 }

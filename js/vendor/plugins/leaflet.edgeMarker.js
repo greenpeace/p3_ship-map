@@ -97,9 +97,7 @@
                                 .addTo(this._borderMarkerLayer);
                         }
 
-                        marker.on('click', function (e, wtf) {
-//                            console.log(e);
-//                            console.log(wtf);
+                        marker.on('click', function (e) {
                             this._map.setView(e.latlng, this._map.getZoom(), { animate: true });
                         });
 

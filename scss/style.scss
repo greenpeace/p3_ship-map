@@ -1,8 +1,8 @@
-// CSS normalize.css reset
-@import "modules/normalize";
-
 // See modules/_base.scss
 @import "modules/base";
+
+// CSS normalize.css reset
+@import "modules/normalize";
 
 @import "partials/header";
 @import "partials/footer";
@@ -10,6 +10,10 @@
 
 @import "vendor/leaflet";
 @import "partials/leaflet";
+
+@import "vendor/leaflet.awesome-markers";
+ 
+@import "partials/ship-icons";
 
 html, body {
     margin: 0;

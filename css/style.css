@@ -1,3 +1,19 @@
+/*  Created on : 14/01/2014, 4:20:55 PM Author     : Ray Walker <hello@raywalker.it>
+*/
+/*  Created on : 14/01/2014, 4:22:15 PM Author     : Ray Walker <hello@raywalker.it>
+*/
+/* line 9, ../scss/modules/_utility.scss */
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/* line 14, ../scss/modules/_utility.scss */
+.image-replacement { text-indent: 100%; white-space: nowrap; overflow: hidden; }
+
+/* line 34, ../scss/modules/_mixins.scss */
+.flip-horizontal { -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
+
+/* line 47, ../scss/modules/_mixins.scss */
+.flip-vertical { -moz-transform: scaleY(-1); -webkit-transform: scaleY(-1); -o-transform: scaleY(-1); transform: scaleY(-1); -ms-filter: flipv; /*IE*/ filter: flipv; /*IE*/ }
+
 /* HTML5 Boilerplate ==|== normalize.css ========================================================== */
 /* line 5, ../scss/modules/_normalize.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
@@ -18,7 +34,7 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 
 /* line 12, ../scss/modules/_normalize.scss */
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea { font-family: sans-serif; color: #222222; }
 
 /* line 14, ../scss/modules/_normalize.scss */
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -171,19 +187,6 @@ td { vertical-align: top; }
 /* line 72, ../scss/modules/_normalize.scss */
 .invisible { visibility: hidden; }
 
-/*  Created on : 14/01/2014, 4:20:55 PM Author     : Ray Walker <hello@raywalker.it>
-*/
-/*  Created on : 14/01/2014, 4:22:15 PM Author     : Ray Walker <hello@raywalker.it>
-*/
-/* line 9, ../scss/modules/_utility.scss */
-* { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
-
-/* line 14, ../scss/modules/_utility.scss */
-.image-replacement { text-indent: 100%; white-space: nowrap; overflow: hidden; }
-
-/* line 34, ../scss/modules/_mixins.scss */
-.flip-horizontal { -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
-
 /* line 2, ../scss/partials/_header.scss */
 .map-header { position: relative; z-index: 10; background: #66cc00; color: white; height: 50px; }
 /* line 12, ../scss/modules/_mixins.scss */
@@ -196,56 +199,68 @@ td { vertical-align: top; }
 .map-header h1 { position: fixed; left: 10px; height: 50px; width: 150px; margin: 0; float: left; background: transparent url(../img/logo.gif) left center no-repeat; }
 /* line 21, ../scss/partials/_header.scss */
 .map-header nav { position: fixed; right: 0; overflow: hidden; -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; }
-/* line 27, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger { -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; position: relative; height: 50px; width: 50px; font-size: 120%; /*float:right;*/ background: rgba(255, 255, 255, 0.1); padding: 0; border: none; text-align: center; }
-/* line 39, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span { position: absolute; left: 12px; height: 3px; background-color: white; top: 50%; margin-top: -2px; width: 30px; font-size: 0; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; /*                float:left; display:block; width: 36px; height:35px; background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/ }
-/* line 51, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span::before, .map-header nav .menu-trigger span::after { position: absolute; left: 0; width: 30px; height: 100%; background: #fff; content: ''; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
-/* line 62, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span::before { -webkit-transform: translateY(-300%); transform: translateY(-300%); }
-/* line 67, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger span::after { -webkit-transform: translateY(300%); transform: translateY(300%); }
-/* line 80, ../scss/partials/_header.scss */
-.map-header nav .menu-trigger:hover { background: rgba(255, 255, 255, 0.5); }
-/* line 87, ../scss/partials/_header.scss */
-.map-header nav.active .icon-menu { background-position-x: -36px; background-color: #eaecf3; }
-/* line 92, ../scss/partials/_header.scss */
-.map-header nav.active .menu-trigger span { background-color: transparent; }
+/* line 32, ../scss/partials/_header.scss */
+.map-header .menu-trigger { -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; position: fixed; right: 0; height: 50px; width: 50px; font-size: 120%; background: rgba(255, 255, 255, 0.1); padding: 0; border: none; text-align: center; }
+/* line 47, ../scss/partials/_header.scss */
+.map-header .menu-trigger span { position: absolute; left: 12px; height: 3px; background-color: white; top: 50%; margin-top: -2px; width: 30px; font-size: 0; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; /*                float:left; display:block; width: 36px; height:35px; background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/ }
+/* line 59, ../scss/partials/_header.scss */
+.map-header .menu-trigger span::before, .map-header .menu-trigger span::after { position: absolute; left: 0; width: 30px; height: 100%; background: #fff; content: ''; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
+/* line 70, ../scss/partials/_header.scss */
+.map-header .menu-trigger span::before { -webkit-transform: translateY(-300%); transform: translateY(-300%); }
+/* line 75, ../scss/partials/_header.scss */
+.map-header .menu-trigger span::after { -webkit-transform: translateY(300%); transform: translateY(300%); }
+/* line 90, ../scss/partials/_header.scss */
+.map-header .menu-trigger.active span { background-color: transparent; }
 /* line 95, ../scss/partials/_header.scss */
-.map-header nav.active .menu-trigger span::before { -webkit-transform: translateY(0) rotate(45deg); transform: translateY(0) rotate(45deg); }
-/* line 99, ../scss/partials/_header.scss */
-.map-header nav.active .menu-trigger span::after { -webkit-transform: translateY(0) rotate(-45deg); transform: translateY(0) rotate(-45deg); }
+.map-header .menu-trigger.active span::before { background-color: #183319; -webkit-transform: translateY(0) rotate(45deg); transform: translateY(0) rotate(45deg); }
+/* line 100, ../scss/partials/_header.scss */
+.map-header .menu-trigger.active span::after { background-color: #183319; -webkit-transform: translateY(0) rotate(-45deg); transform: translateY(0) rotate(-45deg); }
+/* line 109, ../scss/partials/_header.scss */
+.map-header .menu-trigger.active:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5; }
+/* line 113, ../scss/partials/_header.scss */
+.map-header .menu-trigger.active:hover span::before { -webkit-transform: translateY(0) rotate(30deg); transform: translateY(0) rotate(30deg); }
+/* line 118, ../scss/partials/_header.scss */
+.map-header .menu-trigger.active:hover span::after { -webkit-transform: translateY(0) rotate(-30deg); transform: translateY(0) rotate(-30deg); }
+/* line 126, ../scss/partials/_header.scss */
+.map-header .menu-trigger:hover { background: rgba(255, 255, 255, 0.5); }
 
-/* line 112, ../scss/partials/_header.scss */
-.map-menu { position: relative; margin: 0; display: none; padding-top: 50px; background: #5f6169; /*    .active & { display:block; }*/ }
-
-/* line 128, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu, .map-menu { clear: both; overflow-y: hidden; margin: 0; padding: 50px 0 0; float: left; width: 100%; /*    border-top:1px solid $multimediaColour; border-bottom:1px solid $multimediaColour;*/ list-style-type: none; border-bottom: 1px solid #66cc00; }
-/* line 140, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu a, .map-menu a { display: block; width: 100%; color: white; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: white; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; text-shadow: 0 1px 0 none; background-clip: padding-box; background: #5f6169; border-bottom: 1px solid #66cc00; }
-/* line 85, ../scss/bourbon/addons/_button.scss */
-body > #jPanelMenu-menu a:hover:not(:disabled), .map-menu a:hover:not(:disabled) { cursor: pointer; }
+/* line 132, ../scss/partials/_header.scss */
+.map-menu { position: relative; margin: 0; display: none; padding: 50px 20px 0; background: white; clear: both; overflow-y: auto !important; padding: 50px 0 0; float: left; width: 100%; list-style-type: none; border-bottom: 1px solid #66cc00; }
+/* line 147, ../scss/partials/_header.scss */
+.map-menu a, .map-menu a:visited { display: block; width: 100%; color: #183319; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; border-bottom: 1px solid #66cc00; }
+/* line 66, ../scss/bourbon/addons/_button.scss */
+.map-menu a:hover:not(:disabled), .map-menu a:visited:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
-body > #jPanelMenu-menu a:disabled, .map-menu a:disabled { opacity: 0.5; cursor: not-allowed; }
-/* line 149, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu button, .map-menu button { text-align: left; border: none; border-radius: 0; box-shadow: none; color: white; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; text-shadow: 0 1px 0 none; background-clip: padding-box; background: #5f6169; width: 100%; border-bottom: 1px solid #66cc00; }
-/* line 85, ../scss/bourbon/addons/_button.scss */
-body > #jPanelMenu-menu button:hover:not(:disabled), .map-menu button:hover:not(:disabled) { cursor: pointer; }
-/* line 46, ../scss/bourbon/addons/_button.scss */
-body > #jPanelMenu-menu button:disabled, .map-menu button:disabled { opacity: 0.5; cursor: not-allowed; }
+.map-menu a:disabled, .map-menu a:visited:disabled { opacity: 0.5; cursor: not-allowed; }
 /* line 156, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu ul, .map-menu ul { list-style-type: none; margin: 0; padding: 0; }
-/* line 161, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu ul button, .map-menu ul button { text-indent: 30px; /*@include button(flat, $multimediaColour);*/ }
-/* line 165, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu ul button.hideLayer, .map-menu ul button.hideLayer { color: #ccc; }
-/* line 170, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu ul.close, .map-menu ul.close { display: none; }
-/* line 175, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu li, .map-menu li { text-align: left; width: 100%; background: #5f6169; padding: 0; }
-/* line 182, ../scss/partials/_header.scss */
-body > #jPanelMenu-menu .ships, .map-menu .ships { border-top: 1px solid #66cc00; }
+.map-menu button { text-align: left; color: #183319; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; min-height: 55px; vertical-align: middle; width: 100%; border-bottom: 1px solid #66cc00; }
+/* line 66, ../scss/bourbon/addons/_button.scss */
+.map-menu button:hover:not(:disabled) { cursor: pointer; }
+/* line 46, ../scss/bourbon/addons/_button.scss */
+.map-menu button:disabled { opacity: 0.5; cursor: not-allowed; }
+/* line 166, ../scss/partials/_header.scss */
+.map-menu ul { list-style-type: none; margin: 0; padding: 0; }
+/* line 171, ../scss/partials/_header.scss */
+.map-menu ul button { text-indent: 10px; height: 40px; }
+/* line 176, ../scss/partials/_header.scss */
+.map-menu ul button .icon { margin-left: -10px; color: #004c00; font-size: 150%; width: 50px; text-align: center; margin-right: 1em; display: inline-block; }
+/* line 185, ../scss/partials/_header.scss */
+.map-menu ul button .icon::before { vertical-align: -2px; }
+/* line 190, ../scss/partials/_header.scss */
+.map-menu ul button i, .map-menu ul button img { display: block; }
+/* line 194, ../scss/partials/_header.scss */
+.map-menu ul button img { width: 40px; }
+/* line 198, ../scss/partials/_header.scss */
+.map-menu ul button.hideLayer { color: #ccc; }
+/* line 203, ../scss/partials/_header.scss */
+.map-menu ul.close { display: none; }
+/* line 208, ../scss/partials/_header.scss */
+.map-menu li { text-align: left; width: 100%; background: #5f6169; padding: 0; }
+/* line 215, ../scss/partials/_header.scss */
+.map-menu .ships { border-top: 1px solid #66cc00; }
+
+/* line 220, ../scss/partials/_header.scss */
+#jPanelMenu-menu .map-menu { display: block; }
 
 /* line 2, ../scss/partials/_footer.scss */
 .map-footer { position: fixed; padding: 5px; bottom: 0; left: 0; color: white; background: #4d535f; }
@@ -552,34 +567,120 @@ body > #jPanelMenu-menu .ships, .map-menu .ships { border-top: 1px solid #66cc00
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: rgba(255, 255, 255, 0.8); }
 
 /* line 37, ../scss/partials/_leaflet.scss */
-.leaflet-popup-content h1 { font-size: 12px; }
-/* line 43, ../scss/partials/_leaflet.scss */
-.leaflet-popup-content h2 { border-bottom: 1px solid #5f6169; }
-/* line 47, ../scss/partials/_leaflet.scss */
-.leaflet-popup-content time { display: block; color: #5f6169; }
+.leaflet-popup-pane a.leaflet-popup-close-button { text-align: right; padding: 3px 0 0; font-size: 20px; top: 10px; right: 10px; }
 
-/* line 14, ../scss/style.scss */
+/* line 46, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content { margin: 10px; min-width: 140px; }
+/* line 52, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content h1 { font-size: 14px; }
+/* line 55, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content h1 span { font-size: 90%; color: #a2a2a2; display: block; }
+/* line 63, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content time { display: block; color: #a2a2a2; }
+/* line 68, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content .summary { margin-bottom: 10px; }
+
+/*
+Author: L. Voogdt
+License: MIT
+Version: 1.0
+*/
+/* Marker setup */
+/* line 8, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker { background: url("../img/icons/markers-soft.png") no-repeat 0 0; width: 35px; height: 46px; position: absolute; left: 0; top: 0; display: block; text-align: center; }
+
+/* line 19, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-shadow { background: url("../img/icons/markers-shadow.png") no-repeat 0 0; width: 36px; height: 16px; }
+
+/* Retina displays */
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) { /* line 28, ../scss/vendor/_leaflet.awesome-markers.scss */
+  .awesome-marker { background-image: url("../img/icons/markers-soft@2x.png"); background-size: 465px 46px; }
+  /* line 32, ../scss/vendor/_leaflet.awesome-markers.scss */
+  .awesome-marker-shadow { background-image: url("../img/icons/markers-shadow@2x.png"); background-size: 35px 16px; } }
+/* line 38, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker i { color: #333; margin-top: 10px; display: inline-block; font-size: 14px; }
+
+/* line 45, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker .icon-white { color: #fff; }
+
+/* Colors */
+/* line 50, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-white { background-position: 0 0; }
+
+/* line 54, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-lightgrey { background-position: -36px 0; }
+
+/* line 58, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-darkgrey { background-position: -72px 0; }
+
+/* line 62, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-red { background-position: -108px 0; }
+
+/* line 66, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-darkred { background-position: -288px 0; }
+
+/* line 70, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-orange { background-position: -144px 0; }
+
+/* line 74, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-green { background-position: -180px 0; }
+
+/* line 78, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-darkgreen { background-position: -360px 0; }
+
+/* line 82, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-blue { background-position: -216px 0; }
+
+/* line 86, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-darkblue { background-position: -324px 0; }
+
+/* line 90, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-purple { background-position: -252px 0; }
+
+/* line 94, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-darkpurple { background-position: -396px 0; }
+
+/* line 98, ../scss/vendor/_leaflet.awesome-markers.scss */
+.awesome-marker-icon-cadetblue { background-position: -432px 0; }
+
+/*
+*/
+/*  Created on : 04/02/2014, 11:00:18 PM Author     : Ray Walker <hello@raywalker.it>
+*/
+/* line 8, ../scss/partials/_ship-icons.scss */
+.ship-icon { -webkit-transition: width 0.3s ease-out; -moz-transition: width 0.3s ease-out; transition: width 0.3s ease-out; }
+
+/* line 16, ../scss/partials/_ship-icons.scss */
+.zoom-2 .ship-icon, .zoom-3 .ship-icon, .zoom-4 .ship-icon, .zoom-5 .ship-icon { -webkit-transform: scale(0.3); -moz-transform: scale(0.3); -ms-transform: scale(0.3); -o-transform: scale(0.3); transform: scale(0.3); }
+
+/* line 22, ../scss/partials/_ship-icons.scss */
+.zoom-6 .ship-icon, .zoom-7 .ship-icon { -webkit-transform: scale(0.7); -moz-transform: scale(0.7); -ms-transform: scale(0.7); -o-transform: scale(0.7); transform: scale(0.7); }
+
+/* line 28, ../scss/partials/_ship-icons.scss */
+.zoom-8 .ship-icon { -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); }
+
+/* line 18, ../scss/style.scss */
 html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
 
-/* line 21, ../scss/style.scss */
+/* line 25, ../scss/style.scss */
 body { font-family: "Helvetica", Arial, sans-serif; }
 
-/* line 26, ../scss/style.scss */
+/* line 30, ../scss/style.scss */
 a, a:visited { text-decoration: none; color: #56b105; }
 
-/* line 31, ../scss/style.scss */
+/* line 35, ../scss/style.scss */
 a:hover { color: #003300; }
 
-/* line 36, ../scss/style.scss */
+/* line 40, ../scss/style.scss */
 a:focus, a:active { color: #56b105; }
 
-/* line 40, ../scss/style.scss */
+/* line 44, ../scss/style.scss */
 #shipping-map { z-index: 1; position: absolute; height: 100%; top: 0; bottom: 0; width: 100%; background-color: #5f6169; }
 
-/* line 51, ../scss/style.scss */
+/* line 55, ../scss/style.scss */
 .map-container { position: absolute; top: 50px; bottom: 0; width: 100%; opacity: 0; -webkit-transition: opacity 900ms; -moz-transition: opacity 900ms; transition: opacity 900ms; }
-/* line 60, ../scss/style.scss */
+/* line 64, ../scss/style.scss */
 .map-container.show { opacity: 1; }
 
-/* line 65, ../scss/style.scss */
+/* line 69, ../scss/style.scss */
 #map { position: relative; height: 100%; width: 100%; background: #5f6169; }

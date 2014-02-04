@@ -15,7 +15,8 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
-
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
         <![endif]-->
@@ -28,31 +29,44 @@
        
     </head>
     <body>
-        <!--[if lt IE 7]>
+        <!--[if lt IE 8]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <article id="shipping-map">
+            
             <header class="map-header">
                 <h1>
                     <span class="visuallyhidden">Greenpeace</span>
                 </h1>
-                <nav>
-
+                
+                <button class="menu-trigger"><span>Show Menu</span></button>
+                
+                <nav class="menu-container">
                     <script id="shipMenuTemplate" type="text/x-jsrender">
                         <li class={{:simpleName}}>
-                        <button data-ship-id="{{:id}}"><i class="toggle"></i>{{:name}}</button>
+                            <button data-ship-id="{{:id}}">
+                                <span class="icon">
+                                    <img src="{{:icon}}"></img>
+                                </span>
+                                {{:name}}
+                            </button>
                         </li>
                     </script>
                     
                     <script id="featureMenuTemplate" type="text/x-jsrender">
                         <li class={{:type}}>
-                        <button data-feature-type="{{:type}}"><i class="toggle"></i>{{:name}}</button>
+                            <button data-feature-type="{{:type}}">
+                                <span class="icon">
+                                    <i class="fa fa-{{:icon}}"></i>
+                                </span>
+                                {{:name}}
+                            </button>
                         </li>
                     </script>
                     
-                    <button class="menu-trigger"><span>Show Menu</span></button>
-                    <ul id="menu" class="map-menu">
+                    
+                    <ul class="map-menu">
                         <li class="ships">
                             <button class="toggleMenu">Display ships</button>
                             <ul>
@@ -75,19 +89,26 @@
                     </ul>
                 </nav>
             </header>
+            
             <div class="map-container">
                 
                 <script id="featurePopupTemplate" type="text/x-jsrender">
-                    <article data-ship-name="{{:nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:id}}">
+                    <article class="ship-popup" data-ship-name="{{:nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:id}}">
                         <header>
-                            <h1>{{:title}}</h1>
-                            {{if subtitle}}<h2>{{:subtitle}}</h2>{{/if}}
+                            <h1>
+                                <span class="type">
+                                    {{if icon}}<i class="fa-{{:icon}}"></i>{{/if}}
+                                    {{:eventType}}
+                                </span>
+                                {{:index + 1}}. {{:title}}
+                            </h1>
                             <time datetime="{{:datetime}}" title="{{:datetime}}">{{:humanTime}}</time>
                         </header>
-                        
-                        <p class="summary">{{:summary}}</p>
-                        {{if prev}}<button class="prev"></button>{{/if}}
-                        {{if next}}<button class="next">Next</button>{{/if}}
+                        <div class="summary">{{:summary}}</div>
+                        {{if prev || next }}<nav>
+                            {{if prev !== false}}<button class="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>{{/if}}
+                            {{if next !== false}}<button class="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>{{/if}}
+                        </nav>{{/if}}
                     </article>
                 </script>
                 
@@ -110,6 +131,7 @@
         <script src="js/vendor/leaflet.js"></script>
         <script src="js/vendor/plugins/leaflet.edgeMarker.js"></script>
         <script src="js/vendor/plugins/leaflet.polylineDecorator.js"></script>
+        <script src="js/vendor/plugins/leaflet.awesome-markers.min.js"></script>
         <script src="js/vendor/plugins/leaflet.markercluster-src.js"></script>
         <script src="js/vendor/plugins/jquery.jPanelMenu-1.3.0.js"></script>
         <script src="js/vendor/plugins/jRespond.min.js"></script>

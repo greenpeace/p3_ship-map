@@ -7,7 +7,7 @@
 
 // BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
 * {
-	@include box-sizing(content-box);    
+	@include box-sizing(border-box);    
 }
 
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/

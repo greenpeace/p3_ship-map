@@ -5,15 +5,33 @@
         api: {
             url: 'json/test1.json'
         },
-        tileSet: {
-            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+        options: {
+            debug: true,
+            showEdgeMarkers: true
+        },
+        map: {
+            minZoom: 2,
+            maxZoom: 10,
+            locations: {
+                center: {
+                    coords: [-42, 147],
+                    zoom: 6
+                }
+            },
+            tileSet: {
+                url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                apiKey: false,
+                retinaUrl: false,
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+            }
         },
         selectors: {
             mapContainer: '#shipping-map .map-container',
             map: '#map',
             menu: {
-                container: '.map-menu',
+                header: '.map-header',
+                trigger: '.menu-trigger',
+                container: '.map-header nav',
                 ship: '.map-menu .ships ul',
                 feature: '.map-menu .features ul'
             },
@@ -34,12 +52,6 @@
             laptop: 1200,
             desktop: 20000
         },
-        locations: {
-            center: {
-                coords: [-42, 147],
-                zoom: 6
-            }
-        },
         style: {
             point: {
                 default: {
@@ -52,7 +64,13 @@
                 }
             },
             icon: {
-                default: {
+                default: "fa-dot-circle-o",
+                events: {
+                    "noon-update": "circle",
+                    "ship-event": "dot-circle-o",
+                    "featured-event": "certificate"
+                },
+                ship: {
                     iconUrl: "img/icons/rainbow-warrior_100.png",
                     shadowUrl: "",
                     iconSize: [100, 100],
@@ -66,7 +84,8 @@
                 default: {
                     offset: 0,
                     repeat: '20px',
-                    pixelSize: 8,
+                    stroke: false,
+                    pixelSize: 1,
                     pathOptions: {
                         color: "#fff"
                     }
@@ -74,7 +93,8 @@
                 future: {
                     offset: 0,
                     repeat: '20px',
-                    pixelSize: 4,
+                    stroke: false,
+                    pixelSize: 1,
                     pathOptions: {
                         color: "#ccc",
                         opacity: 0.5
@@ -84,33 +104,33 @@
         }
     },
     jPM = undefined,
-    timeString = function(timestamp) {
-        var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
+        timeString = function(timestamp) {
+            var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
 
-        if (minutes < 1440) {
-            return 'today';
-        }
+            if (minutes < 1440) {
+                return 'today';
+            }
 
-        if (minutes >= 1440 && minutes < 2880) {
-            return 'yesterday';
-        }
+            if (minutes >= 1440 && minutes < 2880) {
+                return 'yesterday';
+            }
 
-        if (minutes >= 2880 && minutes < 10080) {
-            return Math.floor(minutes / 60 / 24) + ' days ago';
-        }
+            if (minutes >= 2880 && minutes < 10080) {
+                return Math.floor(minutes / 60 / 24) + ' days ago';
+            }
 
-        if (minutes >= 10080 && minutes < 20160) {
-            return 'a week ago';
-        }
+            if (minutes >= 10080 && minutes < 20160) {
+                return 'a week ago';
+            }
 
-        if (minutes >= 20160 && minutes < 80640) {
-            return Math.floor(minutes / 60 / 24 / 7) + ' weeks ago';
-        }
+            if (minutes >= 20160 && minutes < 80640) {
+                return Math.floor(minutes / 60 / 24 / 7) + ' weeks ago';
+            }
 
-        // more than 8 weeks
-        return Math.floor(minutes / 60 / 24 / 7 / 4) + ' months ago';
+            // more than 8 weeks
+            return Math.floor(minutes / 60 / 24 / 7 / 4) + ' months ago';
 
-    },
+        },
         buildPattern = function(path, style, className) {
             var pattern = {};
 
@@ -155,28 +175,30 @@
                 $mapHolder = $(config.selectors.mapContainer),
                 $shipsMenu = $(config.selectors.menu.ship),
                 $featuresMenu = $(config.selectors.menu.feature),
-                map = L.map('map');
+                map = L.map(config.selectors.map.replace('#','')).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
+                $map = $(config.selectors.map);
 
+            $('html').addClass('zoom-' + config.map.locations.center.zoom);
 
-            // Prepare templates
+            // Prepare side menu templates
             templates.menu.ship = $.templates(config.selectors.templates.menu.ship);
             templates.menu.feature = $.templates(config.selectors.templates.menu.feature);
-
+            // Prepare popup templates
             templates.popup.feature = $.templates(config.selectors.templates.popup.feature);
 
-            // Initialise the map
-            map.setView(config.locations.center.coords, config.locations.center.zoom);
-
-
-            // Add tiles
-            L.tileLayer(config.tileSet.url, {
-                attribution: config.tileSet.attribution,
-                minZoom: 2,
-                maxZoom: 12
+            // Add tile layer
+            L.tileLayer(config.map.tileSet.url, {
+                attribution: config.map.tileSet.attribution,
+                apiKey: config.map.tileSet.apiKey,
+                minZoom: config.map.minZoom,
+                maxZoom: config.map.maxZoom
             }).addTo(map);
 
-
-            // Iterate over each ship and perpare layer data
+            /* ================================================================
+             *
+             * Iterate over each ship and prepare layer data
+             *
+             */
             $.each(config.ships, function(i, ship) {
                 var j = 0,
                     len = ship.geojson.features.length,
@@ -199,14 +221,16 @@
                             paths: {}
                         }
                     },
+                    popups = [],
                 style = $.extend(true, config.style, ship.style);
 
-                console.log(' ===> Building data for ship ' + ship.name);
+//                console.log(' ===> Building data for ship ' + ship.name);
 
-                /*
-                 * Ship Featured Events
+                /* =============================================================
                  *
-                 * Adds each interactive feature to the map
+                 * Featured Events
+                 *
+                 * Adds each of this ship's interactive feature to the map
                  *
                  */
 
@@ -214,72 +238,94 @@
 
                     // Add this feature to the map
                     var feature,
+                        iconString = typeof f.properties.type.icon === 'string'
+                        // if this feature has a string, it overrides the default icon type for this feature
+                            ? f.properties.type.icon
+                            : typeof style.icon.events[f.properties.type.identifier] !== "undefined"
+                                // else if this feature type has a unique icon, use that
+                                ? style.icon.events[f.properties.type.identifier]
+                                // finally, fall back to the default icon
+                                : style.icon.default,
                         type = {
-                            identifier: makeSafeForCSS(f.properties.type),
-                            name: f.properties.type
+                            identifier: makeSafeForCSS(f.properties.type.identifier),
+                            name: f.properties.type.name,
+                            icon: iconString
                         };
 //                        markers = new L.MarkerClusterGroup();
 
                     feature = L.geoJson(f, {
                         style: style.point.default,
-                        // Add each point feature as a circle marker with its
+                        // Adds each point feature as a circle marker with its
                         // specific style
                         pointToLayer: function(feature, latlng) {
-                            var icon = undefined;
-                            // Point marker
+                            var icon = false,
+                                iconStyle = typeof style.point[f.properties.type.identifier] !== "undefined"
+                                        ? style.point[f.properties.type.identifier]
+                                        : style.point.default;
 
+                            // Point marker
                             if (index < len - 1) {
                                 // Standard event marker,
                                 // @todo Switch based on type
                                 previous = latlng;
 
-                                f.properties.icon = 'circle';
-
-                                return L.circleMarker(latlng, style.point);
+                                // FontAwesome icon string
+                                icon = L.AwesomeMarkers.icon({
+                                    prefix: 'fa',
+                                    icon: iconString,
+                                    iconColor: iconStyle.color,
+                                    markerColor: iconStyle.fillColor
+                                });
 
                             } else {
                                 // Last marker in the array, so show the ship icon
 
+                                // Show this element on the edge of the screen
+                                // if out of visible bounds
+                                f.properties.edgeMarker = true;
+
                                 // Show right facing icon if ship is moving east
                                 if (previous.lng && previous.lng < latlng.lng) {
-                                    style.icon.default.iconUrl = style.icon.default.iconUrl.replace('_100.', '_100_right.');
+                                    style.icon.ship.iconUrl = style.icon.ship.iconUrl.replace('_100.', '_100_right.');
                                 }
 
-                                icon = L.icon($.extend(true, style.icon.default, {className: 'ship-icon ' + ship.nameSimple}));
+                                style.icon.ship.className = 'ship-icon ' + ship.nameSimple;
 
-                                f.properties.edgeMarker = true;
-                                f.properties.icon = icon;
-
-                                return L.marker(latlng, {
-                                    icon: icon
-                                });
+                                icon = L.icon(style.icon.ship);
 
                             }
+
+                            f.properties.icon = icon;
+
+                            return L.marker(latlng, {
+                                icon: icon
+                            });
                         },
                         // Set popup content
                         onEachFeature: function(feature, layer) {
 
-                            layer.bindPopup(templates.popup.feature.render({
+                            popups[index] = layer.bindPopup(templates.popup.feature.render({
                                 index: index,
                                 name: ship.name,
                                 nameSimple: ship.nameSimple,
                                 id: ship.id,
                                 title: feature.properties.name,
-                                subtitle: feature.properties.type,
+                                eventType: feature.properties.type.name,
                                 timestamp: feature.properties.timestamp,
                                 humanTime: timeString(feature.properties.timestamp),
-                                summary: feature.properties.summary
+                                summary: feature.properties.summary,
+                                next: (index < len - 1) ? index + 1 : false,
+                                prev: (index > 0) ? index - 1 : false
                             }));
 
                         }
                     }).addTo(map);
 
-//                    markers.addLayer(feature);
-
+                    // If a feature of this type has not been added yet
                     if ($.grep(layers.data.features.types, function(item) {
                         return item.identifier === type.identifier;
                     }).length < 1) {
-                        console.log(i + '.' + j + ' data.features.' + type.identifier);
+//                        console.log(i + '.' + j + ' data.features.' + type.identifier);
 
                         // Store this in the ship specific data object
                         // for use in constructing the menu
@@ -302,32 +348,23 @@
 
                     features.data[type.identifier].push(feature);
 
-                    // Store it in the feature specific array
-//                    layers.data.features[type.identifier].push[feature];
 
                 }); // End ship.geojson.features
 
-
-                // Now that we have all the features,
-                // create ship-specific layerGroups from arrays of features
-//                $.each(layers.data.features.types, function(j, n) {
-//                    console.log(i + '.' + j + ' layerGroup: features.' + n.identifier);
-//                    layers.groups.features[n] = L.layerGroup(layers.data.features.types[n]);
-//                });
-
-
-                /*
+                /* =============================================================
+                 *
                  * Ship Paths
                  *
                  * Adds each path type to the map
                  *
                  */
                 $.each(ship.geojson.paths, function(j, path) {
+
                     var polylineDecorator,
                         coords = [],
                         period = {
-                            identifier: makeSafeForCSS(path.properties.period),
-                            name: path.properties.period
+                            identifier: makeSafeForCSS(path.properties.period.identifier),
+                            name: path.properties.period.name
                         };
 
                     $.each(path.coordinates, function(k, lnglat) {
@@ -353,6 +390,7 @@
                 // Store relevant variables for toggling from menu
                 ships[ship.id] = {
                     layers: layers,
+                    popups: popups,
                     name: ship.name,
                     nameSimple: ship.nameSimple,
                     id: ship.id,
@@ -364,12 +402,18 @@
                 $shipsMenu.append(templates.menu.ship.render({
                     name: ship.name,
                     simpleName: ship.nameSimple,
+                    icon: style.icon.menu.iconUrl,
                     id: ship.id
                 }));
 
                 console.log(' <=== End ' + ship.name);
 
             }); // End each ship
+
+            $map.data('ships', ships);
+
+            console.log(ships);
+
 
             // Build overall feature layer groups
 
@@ -380,7 +424,8 @@
                 /* @todo Should this really be built in javascript, or in the backend? */
                 $featuresMenu.append(templates.menu.feature.render({
                     name: type.name,
-                    type: type.identifier
+                    type: type.identifier,
+                    icon: type.icon
                 }));
 
                 /* Although the ships[n].groups.all object contains these features, and
@@ -424,6 +469,7 @@
 
             });
 
+
             /* Register sidemenu FEATURES button event handlers */
             $(document).on('click', '.map-menu .features button', function(e) {
 
@@ -449,20 +495,45 @@
 
             });
 
+            $(document).on('click', '.ship-popup button', function(e) {
+                var $this = $(this),
+                    event = $this.attr('data-trigger-index'),
+                    ship = ships[parseInt($this.closest('.ship-popup').attr('data-ship-id'),10)];
 
-            /* Add edge markers to offscreen icons
-             * @todo only show ship icons here
-             * @todo style icons to suit
-             */
-            L.edgeMarker({fillColor: 'pink'}).addTo(map);
-
-            map.on('click', function(e) {
-                L.popup()
-                    .setLatLng(e.latlng)
-                    .setContent("You clicked the map at " + e.latlng.toString())
-                    .openOn(map);
+                ship.popups[event].openPopup();
             });
 
+            map.on('zoomend', function(e) {
+                console.log(e);
+
+                $("html").removeClass (function (index, css) {
+                    return (css.match (/\bzoom-\S+/g) || []).join(' ');
+                }).addClass('zoom-' + e.target._zoom);
+            });
+
+
+
+            /* Add edge markers to offscreen icons
+             * @todo style icons to suit
+             */
+            if (config.options.showEdgeMarkers) {
+                L.edgeMarker({fillColor: 'pink'}).addTo(map);
+            }
+
+
+            if (config.options.debug) {
+                // Show coordinates on click
+                map.on('click', function(e) {
+                    L.popup()
+                        .setLatLng(e.latlng)
+                        .setContent("You clicked the map at " + e.latlng.toString())
+                        .openOn(map);
+                });
+            }
+
+            /*
+             * @todo style loading animation, see gulp
+             */
             setTimeout(function() {
                 $mapHolder.addClass('show');
             }, 1000);
@@ -471,7 +542,7 @@
             // Initalised jRespond with breakpoint
             var jRes = jRespond([
                 {
-                    label:'oldmobile',
+                    label: 'oldmobile',
                     enter: 0,
                     exit: config.breakpoint.oldmobile - 1
                 }, {
@@ -494,18 +565,20 @@
             ]);
 
             jPM = $.jPanelMenu({
-                    direction: 'right',
-                    closeOnContentClick: false,
-                    openPosition: config.breakpoint.oldmobile + 'px',
-                    afterOpen: function() {
-                        $('.jPanelMenu-panel nav').addClass('active');
-                        $('#shipping-map').addClass('narrow');
-                    },
-                    afterClose: function() {
-                        $('.jPanelMenu-panel nav').removeClass('active');
-                        $('#shipping-map').removeClass('narrow');
-                    }
-                });
+                menu: config.selectors.menu.container,
+                trigger: config.selectors.menu.trigger,
+                direction: 'right',
+                closeOnContentClick: false,
+                openPosition: config.breakpoint.oldmobile + 'px',
+                afterOpen: function() {
+                    $(config.selectors.menu.trigger).addClass('active');
+                    $('#shipping-map').addClass('narrow');
+                },
+                afterClose: function() {
+                    $(config.selectors.menu.trigger).removeClass('active');
+                    $('#shipping-map').removeClass('narrow');
+                }
+            });
 
             // Initialise jPanelMenu now that the templates have been built
             jPM.on();
@@ -529,9 +602,8 @@
                     }
                 }]);
 
-
-        }).fail(function() {
-            console.log('Error fetching ' + defaults.api.url);
+        }).fail(function(e) {
+            console.error('Error fetching ' + defaults.api.url, e);
         });
 
         //    function onMapMove() {

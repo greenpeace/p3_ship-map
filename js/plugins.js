@@ -30,6 +30,9 @@
  * @returns {string} CSS safe string
  */
 function makeSafeForCSS(name) {
+    if (typeof name === 'undefined') {
+        return 'undefined';
+    }
     return name.toLowerCase().replace(/[^a-z0-9]/g, function(s) {
         var c = s.charCodeAt(0);
         if (c === 32){

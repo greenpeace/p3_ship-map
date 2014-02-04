@@ -24,13 +24,21 @@
         overflow:hidden;
         @include transition(all 0.35s);
 
-        .menu-trigger {
+
+
+        
+    }
+    
+    .menu-trigger {
             @include transition(all 0.35s);
-            position:relative;
+            position:fixed;
+           
+            right:0;
+            
             height:$headerHeight;
             width:$headerHeight;
             font-size:120%;
-            /*float:right;*/
+            
             background:rgba(255,255,255,0.1);
             padding:0;
             border:none;
@@ -77,78 +85,80 @@
                 background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/
             }
 
+            &.active {
+            
+                span {
+                    
+                    background-color:transparent;
+                    
+                        
+                    &::before {
+                        background-color: $sidebarTextColour;
+                        -webkit-transform: translateY(0) rotate(45deg);
+                        transform: translateY(0) rotate(45deg);
+                    }
+                    &::after {
+                        background-color: $sidebarTextColour;
+                        -webkit-transform: translateY(0) rotate(-45deg);
+                        transform: translateY(0) rotate(-45deg);
+                    }
+
+                    
+                }
+                
+                &:hover {
+                        
+                        @include opacity(0.5);
+                        
+                        & span::before {
+                            -webkit-transform: translateY(0) rotate(30deg);
+                            transform: translateY(0) rotate(30deg);
+                        }
+                        
+                        & span::after {
+                            -webkit-transform: translateY(0) rotate(-30deg);
+                            transform: translateY(0) rotate(-30deg);
+                        }
+                    }
+                    
+            }
+            
             &:hover {
                 background:rgba(255,255,255,0.5);
             }
         }
-
-
-        &.active {
-            .icon-menu {         
-                background-position-x: -36px;
-                background-color:$sidebarColour;
-            }
-            
-            .menu-trigger span {
-                background-color:transparent;
-                
-                &::before {
-                    -webkit-transform: translateY(0) rotate(45deg);
-                    transform: translateY(0) rotate(45deg);
-                }
-                &::after {
-                    -webkit-transform: translateY(0) rotate(-45deg);
-                    transform: translateY(0) rotate(-45deg);
-                }
-                
-            }
-        }
-        
-        
-    }
-
 }
 
 .map-menu {
     position:relative;
     margin:0;
     display:none;
-    padding-top:$headerHeight;
-    background:$multimediaColour;
-
-/*    .active & {
-        display:block;
-    }*/
-
-    
-    
-}
-
-body > #jPanelMenu-menu,
-.map-menu {
+    padding:$headerHeight 20px 0;
+    background:white;
     clear:both;
-    overflow-y:hidden;
-    margin:0;
+    overflow-y:auto !important;
     padding:$headerHeight 0 0;
     float:left;
     width:100%;
-/*    border-top:1px solid $multimediaColour;
-    border-bottom:1px solid $multimediaColour;*/
     list-style-type:none;
     border-bottom:1px solid $bannerColour;
     
-    a {
+    a,
+    a:visited {
         display:block;
         width:100%;
-        color:$white;
+        color: $sidebarTextColour;
         background:$multimediaColour;
-        @include button(flat, $multimediaColour);
+        @include button(flat, #ffffff, $sidebarTextColour);
         border-bottom:1px solid $bannerColour;
     }
 
     button {
         text-align:left;
-        @include button(flat, $multimediaColour);
+        color: $sidebarTextColour;
+        @include button(flat, white, $sidebarTextColour);
+        min-height:55px; 
+        vertical-align:middle;
         width:100%;
         border-bottom:1px solid $bannerColour;
     }
@@ -159,8 +169,31 @@ body > #jPanelMenu-menu,
         padding:0;
   
         button {
-            text-indent:30px;
-            /*@include button(flat, $multimediaColour);*/
+            text-indent:10px;
+            
+            height: 40px;
+            
+            .icon {
+                margin-left:-10px;
+                color: #004c00;
+                font-size: 150%;
+                width:50px;
+                text-align:center;
+                margin-right: 1em;
+                display:inline-block;
+                
+                &::before {
+                    vertical-align: -2px;
+                }
+            }
+            
+            i,img {
+                display:block;
+            }
+            
+            img {
+                width:40px;
+            }
             
             &.hideLayer {
                 color:#ccc;
@@ -182,4 +215,8 @@ body > #jPanelMenu-menu,
     .ships {
         border-top:1px solid $bannerColour;
     }
+}
+
+#jPanelMenu-menu .map-menu {
+    display:block;
 }
