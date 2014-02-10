@@ -505,7 +505,29 @@
                 ship.popups[event].openPopup();
             });
 
-            map.on('zoomend', function(e) {
+            map.on('zoomstart zoomend load resize', function(e) {
+                var zoomLevel = e.type === 'load' || e.type === 'resize' ?  e.target._zoom : e.target._animateToZoom;
+
+                $('.ship-icon').each(function () {
+
+                    var defaultZoom = 7,
+                        scale = zoomLevel / defaultZoom,
+                        transform = $(this).attr('style').match(/\s((-\w*-)?transform.*\));/),
+                        style = transform[1].split(':'),
+                        property = style[0],
+                        value = style[1].replace(/,?\s?scale(3d)?.*\)/, '');
+
+//                    if (zoomLevel < 7) {
+
+                    value += ' scale(' + scale + ',' + scale +')';
+
+//                    }
+
+//                    console.log(property + ': '+ value);
+
+                    $(this).css(property, value);
+                });
+
                 $("html").removeClass(function(index, css) {
                     return (css.match(/\bzoom-\S+/g) || []).join(' ');
                 }).addClass('zoom-' + e.target._zoom);

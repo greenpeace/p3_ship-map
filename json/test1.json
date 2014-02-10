@@ -34,7 +34,7 @@
                         "shadowUrl": "",
                         "iconSize": [100, 100],
                         "shadowSize": [0, 0],
-                        "iconAnchor": [42, 80],
+                        "iconAnchor": [52, 60],
                         "shadowAnchor": [0, 0],
                         "popupAnchor": [5, -30]
                     },
@@ -203,7 +203,7 @@
                         "shadowUrl": "",
                         "iconSize": [100, 100],
                         "shadowSize": [0, 0],
-                        "iconAnchor": [50, 50],
+                        "iconAnchor": [50, 60],
                         "shadowAnchor": [0, 0],
                         "popupAnchor": [-3, 0]
                     },
