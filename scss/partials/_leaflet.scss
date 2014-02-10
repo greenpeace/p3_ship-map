@@ -14,8 +14,7 @@
 }
 
 
-#shipping-map > div.narrow {
-    position:relative;
+.narrow .map-container {
     left:$panel-width;
 }
 
@@ -28,8 +27,18 @@
     @include transition(none);
 }*/
 
+.simple-marker {
+    font-size:150%;
+}
+
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
     background:rgba(255,255,255,0.8);
+}
+
+.leaflet-control-container {
+    position:fixed;
+    left:0;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 }
 
 .leaflet-popup-pane {
@@ -41,6 +50,12 @@
         top:10px;
         right:10px;
     }
+}
+
+.edgeMarkerCircle {
+    border-radius: 50%;
+    background: white;
+    box-shadow: 3px 3px 9px rgba(0,0,0,0.3);
 }
 
 .leaflet-popup-content {

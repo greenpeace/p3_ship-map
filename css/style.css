@@ -5,7 +5,10 @@
 /* line 9, ../scss/modules/_utility.scss */
 * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-/* line 14, ../scss/modules/_utility.scss */
+/* line 13, ../scss/modules/_utility.scss */
+.quickFadeOut { -webkit-transition: opacity ease-out 150ms; -moz-transition: opacity ease-out 150ms; transition: opacity ease-out 150ms; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; }
+
+/* line 19, ../scss/modules/_utility.scss */
 .image-replacement { text-indent: 100%; white-space: nowrap; overflow: hidden; }
 
 /* line 34, ../scss/modules/_mixins.scss */
@@ -199,68 +202,70 @@ td { vertical-align: top; }
 .map-header h1 { position: fixed; left: 10px; height: 50px; width: 150px; margin: 0; float: left; background: transparent url(../img/logo.gif) left center no-repeat; }
 /* line 21, ../scss/partials/_header.scss */
 .map-header nav { position: fixed; right: 0; overflow: hidden; -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; }
-/* line 32, ../scss/partials/_header.scss */
+/* line 28, ../scss/partials/_header.scss */
 .map-header .menu-trigger { -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; position: fixed; right: 0; height: 50px; width: 50px; font-size: 120%; background: rgba(255, 255, 255, 0.1); padding: 0; border: none; text-align: center; }
-/* line 47, ../scss/partials/_header.scss */
+/* line 43, ../scss/partials/_header.scss */
 .map-header .menu-trigger span { position: absolute; left: 12px; height: 3px; background-color: white; top: 50%; margin-top: -2px; width: 30px; font-size: 0; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; /*                float:left; display:block; width: 36px; height:35px; background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/ }
-/* line 59, ../scss/partials/_header.scss */
+/* line 55, ../scss/partials/_header.scss */
 .map-header .menu-trigger span::before, .map-header .menu-trigger span::after { position: absolute; left: 0; width: 30px; height: 100%; background: #fff; content: ''; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
-/* line 70, ../scss/partials/_header.scss */
+/* line 66, ../scss/partials/_header.scss */
 .map-header .menu-trigger span::before { -webkit-transform: translateY(-300%); transform: translateY(-300%); }
-/* line 75, ../scss/partials/_header.scss */
+/* line 71, ../scss/partials/_header.scss */
 .map-header .menu-trigger span::after { -webkit-transform: translateY(300%); transform: translateY(300%); }
-/* line 90, ../scss/partials/_header.scss */
+/* line 86, ../scss/partials/_header.scss */
 .map-header .menu-trigger.active span { background-color: transparent; }
-/* line 95, ../scss/partials/_header.scss */
+/* line 91, ../scss/partials/_header.scss */
 .map-header .menu-trigger.active span::before { background-color: #183319; -webkit-transform: translateY(0) rotate(45deg); transform: translateY(0) rotate(45deg); }
-/* line 100, ../scss/partials/_header.scss */
+/* line 96, ../scss/partials/_header.scss */
 .map-header .menu-trigger.active span::after { background-color: #183319; -webkit-transform: translateY(0) rotate(-45deg); transform: translateY(0) rotate(-45deg); }
-/* line 109, ../scss/partials/_header.scss */
+/* line 105, ../scss/partials/_header.scss */
 .map-header .menu-trigger.active:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5; }
-/* line 113, ../scss/partials/_header.scss */
+/* line 109, ../scss/partials/_header.scss */
 .map-header .menu-trigger.active:hover span::before { -webkit-transform: translateY(0) rotate(30deg); transform: translateY(0) rotate(30deg); }
-/* line 118, ../scss/partials/_header.scss */
+/* line 114, ../scss/partials/_header.scss */
 .map-header .menu-trigger.active:hover span::after { -webkit-transform: translateY(0) rotate(-30deg); transform: translateY(0) rotate(-30deg); }
-/* line 126, ../scss/partials/_header.scss */
+/* line 122, ../scss/partials/_header.scss */
 .map-header .menu-trigger:hover { background: rgba(255, 255, 255, 0.5); }
 
-/* line 132, ../scss/partials/_header.scss */
+/* line 128, ../scss/partials/_header.scss */
 .map-menu { position: relative; margin: 0; display: none; padding: 50px 20px 0; background: white; clear: both; overflow-y: auto !important; padding: 50px 0 0; float: left; width: 100%; list-style-type: none; border-bottom: none; }
-/* line 147, ../scss/partials/_header.scss */
+/* line 143, ../scss/partials/_header.scss */
 .map-menu a, .map-menu a:visited { display: block; width: 100%; color: #183319; background: #5f6169; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; border-bottom: 1px solid #ccc; }
 /* line 66, ../scss/bourbon/addons/_button.scss */
 .map-menu a:hover:not(:disabled), .map-menu a:visited:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
 .map-menu a:disabled, .map-menu a:visited:disabled { opacity: 0.5; cursor: not-allowed; }
-/* line 156, ../scss/partials/_header.scss */
+/* line 152, ../scss/partials/_header.scss */
 .map-menu button { text-align: left; color: #183319; border: none; border-radius: 0; box-shadow: none; color: #183319; display: inline-block; font-size: 11px; font-weight: bold; padding: 7px 18px; text-decoration: none; background-clip: padding-box; background: white; min-height: 55px; vertical-align: middle; width: 100%; border-bottom: 1px solid #ccc; }
 /* line 66, ../scss/bourbon/addons/_button.scss */
 .map-menu button:hover:not(:disabled) { cursor: pointer; }
 /* line 46, ../scss/bourbon/addons/_button.scss */
 .map-menu button:disabled { opacity: 0.5; cursor: not-allowed; }
-/* line 166, ../scss/partials/_header.scss */
+/* line 162, ../scss/partials/_header.scss */
 .map-menu ul { list-style-type: none; margin: 0; padding: 0; }
-/* line 171, ../scss/partials/_header.scss */
+/* line 167, ../scss/partials/_header.scss */
 .map-menu ul button { text-indent: 10px; height: 40px; }
-/* line 176, ../scss/partials/_header.scss */
+/* line 172, ../scss/partials/_header.scss */
 .map-menu ul button .icon { margin-left: -10px; color: #004c00; font-size: 150%; width: 50px; text-align: center; margin-right: 1em; display: inline-block; }
-/* line 185, ../scss/partials/_header.scss */
+/* line 181, ../scss/partials/_header.scss */
 .map-menu ul button .icon::before { vertical-align: -2px; }
-/* line 190, ../scss/partials/_header.scss */
+/* line 186, ../scss/partials/_header.scss */
 .map-menu ul button i, .map-menu ul button img { display: block; }
-/* line 194, ../scss/partials/_header.scss */
+/* line 190, ../scss/partials/_header.scss */
 .map-menu ul button img { width: 40px; }
-/* line 198, ../scss/partials/_header.scss */
+/* line 194, ../scss/partials/_header.scss */
 .map-menu ul button.hideLayer { color: #ccc; }
-/* line 203, ../scss/partials/_header.scss */
+/* line 199, ../scss/partials/_header.scss */
 .map-menu ul.close { display: none; }
-/* line 208, ../scss/partials/_header.scss */
+/* line 204, ../scss/partials/_header.scss */
 .map-menu li { text-align: left; width: 100%; background: #5f6169; padding: 0; }
-/* line 215, ../scss/partials/_header.scss */
+/* line 211, ../scss/partials/_header.scss */
 .map-menu .ships { border-bottom: 1px solid #ccc; }
 
-/* line 220, ../scss/partials/_header.scss */
-#jPanelMenu-menu .map-menu { display: block; }
+/* line 216, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu { overflow-y: auto; }
+/* line 219, ../scss/partials/_header.scss */
+body > #jPanelMenu-menu .map-menu { display: block; }
 
 /* line 2, ../scss/partials/_footer.scss */
 .map-footer { position: fixed; padding: 5px; bottom: 0; left: 0; color: white; background: #4d535f; }
@@ -555,29 +560,38 @@ td { vertical-align: top; }
 .leaflet-bar, .leaflet-popup-content-wrapper, .leaflet-bar a:first-child, .leaflet-bar a:last-child { border-radius: 0; }
 
 /* line 17, ../scss/partials/_leaflet.scss */
-#shipping-map > div.narrow { position: relative; left: 320px; }
+.narrow .map-container { left: 320px; }
 
-/* line 22, ../scss/partials/_leaflet.scss */
+/* line 21, ../scss/partials/_leaflet.scss */
 .leaflet-bar { box-shadow: none; }
 
 /*
 .leaflet-popup-content-wrapper { @include transition(none);
 }*/
-/* line 31, ../scss/partials/_leaflet.scss */
+/* line 30, ../scss/partials/_leaflet.scss */
+.simple-marker { font-size: 150%; }
+
+/* line 34, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: rgba(255, 255, 255, 0.8); }
 
-/* line 37, ../scss/partials/_leaflet.scss */
-.leaflet-popup-pane a.leaflet-popup-close-button { text-align: right; padding: 3px 0 0; font-size: 20px; top: 10px; right: 10px; }
+/* line 38, ../scss/partials/_leaflet.scss */
+.leaflet-control-container { position: fixed; left: 0; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); }
 
 /* line 46, ../scss/partials/_leaflet.scss */
-.leaflet-popup-content { margin: 10px; min-width: 140px; }
-/* line 52, ../scss/partials/_leaflet.scss */
-.leaflet-popup-content h1 { font-size: 14px; }
+.leaflet-popup-pane a.leaflet-popup-close-button { text-align: right; padding: 3px 0 0; font-size: 20px; top: 10px; right: 10px; }
+
 /* line 55, ../scss/partials/_leaflet.scss */
+.edgeMarkerCircle { border-radius: 50%; background: white; box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3); }
+
+/* line 61, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content { margin: 10px; min-width: 140px; }
+/* line 67, ../scss/partials/_leaflet.scss */
+.leaflet-popup-content h1 { font-size: 14px; }
+/* line 70, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content h1 span { font-size: 90%; color: #a2a2a2; display: block; }
-/* line 63, ../scss/partials/_leaflet.scss */
+/* line 78, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content time { display: block; color: #a2a2a2; }
-/* line 68, ../scss/partials/_leaflet.scss */
+/* line 83, ../scss/partials/_leaflet.scss */
 .leaflet-popup-content .summary { margin-bottom: 10px; }
 
 /*
@@ -678,9 +692,9 @@ a:focus, a:active { color: #56b105; }
 #shipping-map { z-index: 1; position: absolute; height: 100%; top: 0; bottom: 0; width: 100%; background-color: #5f6169; }
 
 /* line 55, ../scss/style.scss */
-.map-container { position: absolute; top: 50px; bottom: 0; width: 100%; opacity: 0; -webkit-transition: opacity 900ms; -moz-transition: opacity 900ms; transition: opacity 900ms; }
-/* line 64, ../scss/style.scss */
+.map-container { position: absolute; top: 50px; bottom: 0; right: 0; left: 0; opacity: 0; -webkit-transition: opacity 900ms; -moz-transition: opacity 900ms; transition: opacity 900ms; }
+/* line 65, ../scss/style.scss */
 .map-container.show { opacity: 1; }
 
-/* line 69, ../scss/style.scss */
+/* line 70, ../scss/style.scss */
 #map { position: relative; height: 100%; width: 100%; background: #5f6169; }

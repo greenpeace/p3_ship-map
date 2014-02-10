@@ -29,8 +29,8 @@
                 },
                 "icon": {
                     "ship": {
-                        "iconUrl": "img/icons/AS_on_map_icon.svg",
-                        "iconRetinaUrl": "img/icons/AS_on_map_icon.svg",
+                        "iconUrl": "img/icons/AS_map.svg",
+                        "iconRetinaUrl": "img/icons/AS_map.svg",
                         "shadowUrl": "",
                         "iconSize": [100, 100],
                         "shadowSize": [0, 0],
@@ -39,26 +39,24 @@
                         "popupAnchor": [5, -30]
                     },
                     "menu": {
-                        "iconUrl": "img/icons/AS_legend.svg"
-                    },
-                    "events": {
-                        "fnord": "meh-o"
+                        "iconUrl": "img/icons/AS_legend.svg",
+                        "iconRetinaUrl": "img/icons/AS_legend.svg",
+                        "shadowUrl": "",
+                        "iconSize": [35, 35],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [18, 18],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [5, -10]
                     }
                 },
                 "path": {
                     "default": {
-                        "repeat": "10px",
                         "pathOptions": {
                             "color": "green"
                         }
                     },
                     "future": {
-                        "repeat": "10px",
-                        "pathOptions": {
-                            "color": "green",
-                            "clickable": true,
-                            "opacity": 0.5
-                        }
+                        "color": "#efefef"
                     }
                 }
             },
@@ -165,8 +163,8 @@
                             "name": "Current day",
                             "timestamp": "2014-01-07T20:49:00Z",
                             "type": {
-                                "identifier": "fnord",
-                                "name": "Fnord"
+                                "identifier": "noon-update",
+                                "name": "Noon update"
                             },
                             "summary": "As the final point in the 'history' path, this point is automatically replaced with the ship icon"
                         },
@@ -200,8 +198,8 @@
                 },
                 "icon": {
                     "ship": {
-                        "iconUrl": "img/icons/ES_on_map_icon.svg",
-                        "iconRetinaUrl": "img/icons/ES_on_map_icon.svg",
+                        "iconUrl": "img/icons/ES_map.svg",
+                        "iconRetinaUrl": "img/icons/ES_map.svg",
                         "shadowUrl": "",
                         "iconSize": [100, 100],
                         "shadowSize": [0, 0],
@@ -210,9 +208,15 @@
                         "popupAnchor": [-3, 0]
                     },
                     "menu": {
-                        "iconUrl": "img/icons/ES_legend.svg"
+                        "iconUrl": "img/icons/ES_legend.svg",
+                        "iconRetinaUrl": "img/icons/ES_legend.svg",
+                        "shadowUrl": "",
+                        "iconSize": [35, 35],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [18, 18],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [5, -10]
                     }
-
                 },
                 "path": {
                     "default": {

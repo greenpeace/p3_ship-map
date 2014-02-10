@@ -84,20 +84,19 @@
                 default: {
                     offset: 0,
                     repeat: '20px',
-                    stroke: false,
-                    pixelSize: 1,
+                    pixelSize: 10,
                     pathOptions: {
-                        color: "#fff"
+                        color: "#fff",
+                        weight: 2
                     }
                 },
                 future: {
                     offset: 0,
                     repeat: '20px',
-                    stroke: false,
-                    pixelSize: 1,
+                    pixelSize: 10,
                     pathOptions: {
                         color: "#ccc",
-                        opacity: 0.5
+                        weight: 2
                     }
                 }
             }
@@ -134,7 +133,13 @@
         buildPattern = function(path, style, className) {
             var pattern = {};
 
-            pattern.pathStyle = path.properties.period === 'future' ? style.path.future : style.path.default;
+            // paths can have their own styles based on period
+            if (typeof style.path[path.properties.period.identifier] !== 'undefined') {
+                pattern.pathStyle = style.path[path.properties.period.identifier];
+            } else {
+                // or they can use the default style
+                pattern.pathStyle = style.path.default;
+            }
 
             pattern.pathStyle.className = className;
 
@@ -175,7 +180,7 @@
                 $mapHolder = $(config.selectors.mapContainer),
                 $shipsMenu = $(config.selectors.menu.ship),
                 $featuresMenu = $(config.selectors.menu.feature),
-                map = L.map(config.selectors.map.replace('#','')).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
+                map = L.map(config.selectors.map.replace('#', '')).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
                 $map = $(config.selectors.map);
 
             $('html').addClass('zoom-' + config.map.locations.center.zoom);
@@ -221,8 +226,8 @@
                             paths: {}
                         }
                     },
-                    popups = [],
-                style = $.extend(true, config.style, ship.style);
+                popups = [],
+                    style = $.extend(true, $.extend(true, {}, config.style), ship.style);
 
 //                console.log(' ===> Building data for ship ' + ship.name);
 
@@ -239,13 +244,14 @@
                     // Add this feature to the map
                     var feature,
                         iconString = typeof f.properties.type.icon === 'string'
-                        // if this feature has a string, it overrides the default icon type for this feature
-                            ? f.properties.type.icon
-                            : typeof style.icon.events[f.properties.type.identifier] !== "undefined"
-                                // else if this feature type has a unique icon, use that
-                                ? style.icon.events[f.properties.type.identifier]
-                                // finally, fall back to the default icon
-                                : style.icon.default,
+                        // if this feature has a string as properties.type.icon,
+                        // it overrides the default icon type for this feature
+                        ? f.properties.type.icon
+                        : typeof style.icon.events[f.properties.type.identifier] !== "undefined"
+                        // else if this feature type has a unique icon, use that
+                        ? style.icon.events[f.properties.type.identifier]
+                        // finally, fall back to the default icon
+                        : style.icon.default,
                         type = {
                             identifier: makeSafeForCSS(f.properties.type.identifier),
                             name: f.properties.type.name,
@@ -260,8 +266,8 @@
                         pointToLayer: function(feature, latlng) {
                             var icon = false,
                                 iconStyle = typeof style.point[f.properties.type.identifier] !== "undefined"
-                                        ? style.point[f.properties.type.identifier]
-                                        : style.point.default;
+                                ? style.point[f.properties.type.identifier]
+                                : style.point.default;
 
                             // Point marker
                             if (index < len - 1) {
@@ -270,11 +276,9 @@
                                 previous = latlng;
 
                                 // FontAwesome icon string
-                                icon = L.AwesomeMarkers.icon({
-                                    prefix: 'fa',
+                                icon = L.SimpleMarkers.icon({
                                     icon: iconString,
-                                    iconColor: iconStyle.color,
-                                    markerColor: iconStyle.fillColor
+                                    iconColor: iconStyle.color
                                 });
 
                             } else {
@@ -282,7 +286,7 @@
 
                                 // Show this element on the edge of the screen
                                 // if out of visible bounds
-                                f.properties.edgeMarker = true;
+                                f.properties.edgeMarker = style.icon.menu;
 
                                 // Show right facing icon if ship is moving east
                                 if (previous.lng && previous.lng < latlng.lng) {
@@ -361,11 +365,11 @@
                 $.each(ship.geojson.paths, function(j, path) {
 
                     var polylineDecorator,
-                        coords = [],
-                        period = {
-                            identifier: makeSafeForCSS(path.properties.period.identifier),
-                            name: path.properties.period.name
-                        };
+                        coords = [];
+//                        period = {
+//                            identifier: makeSafeForCSS(path.properties.period.identifier),
+//                            name: path.properties.period.name
+//                        };
 
                     $.each(path.coordinates, function(k, lnglat) {
                         // geojson coordinate system is the reverse of leaflet default
@@ -411,8 +415,6 @@
             }); // End each ship
 
             $map.data('ships', ships);
-
-            console.log(ships);
 
 
             // Build overall feature layer groups
@@ -498,16 +500,14 @@
             $(document).on('click', '.ship-popup button', function(e) {
                 var $this = $(this),
                     event = $this.attr('data-trigger-index'),
-                    ship = ships[parseInt($this.closest('.ship-popup').attr('data-ship-id'),10)];
+                    ship = ships[parseInt($this.closest('.ship-popup').attr('data-ship-id'), 10)];
 
                 ship.popups[event].openPopup();
             });
 
             map.on('zoomend', function(e) {
-                console.log(e);
-
-                $("html").removeClass (function (index, css) {
-                    return (css.match (/\bzoom-\S+/g) || []).join(' ');
+                $("html").removeClass(function(index, css) {
+                    return (css.match(/\bzoom-\S+/g) || []).join(' ');
                 }).addClass('zoom-' + e.target._zoom);
             });
 
@@ -517,18 +517,18 @@
              * @todo style icons to suit
              */
             if (config.options.showEdgeMarkers) {
-                L.edgeMarker({fillColor: 'white'}).addTo(map);
+                L.edgeMarker({radius: 50, fillColor: 'white'}).addTo(map);
             }
 
 
             if (config.options.debug) {
                 // Show coordinates on click
-                map.on('click', function(e) {
-                    L.popup()
-                        .setLatLng(e.latlng)
-                        .setContent("You clicked the map at " + e.latlng.toString())
-                        .openOn(map);
-                });
+//                map.on('click', function(e) {
+//                    L.popup()
+//                        .setLatLng(e.latlng)
+//                        .setContent("You clicked the map at " + e.latlng.toString())
+//                        .openOn(map);
+//                });
             }
 
             /*
@@ -569,14 +569,22 @@
                 trigger: config.selectors.menu.trigger,
                 direction: 'right',
                 closeOnContentClick: false,
+                keyboardShortcuts: false,
                 openPosition: config.breakpoint.oldmobile + 'px',
+                beforeOpen: function() {
+                    $('.jPanelMenu-panel').addClass('narrow');
+                },
                 afterOpen: function() {
                     $(config.selectors.menu.trigger).addClass('active');
-                    $('#shipping-map').addClass('narrow');
+                    map.invalidateSize();
+                },
+                beforeClose: function() {
+                    $('.jPanelMenu-panel').removeClass('narrow');
+
                 },
                 afterClose: function() {
                     $(config.selectors.menu.trigger).removeClass('active');
-                    $('#shipping-map').removeClass('narrow');
+                    map.invalidateSize();
                 }
             });
 

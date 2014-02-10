@@ -23,10 +23,6 @@
         right:0;
         overflow:hidden;
         @include transition(all 0.35s);
-
-
-
-        
     }
     
     .menu-trigger {
@@ -217,6 +213,10 @@
     }
 }
 
-#jPanelMenu-menu .map-menu {
+body > #jPanelMenu-menu {
+    overflow-y:auto;
+    
+    .map-menu {
     display:block;
+}   
 }

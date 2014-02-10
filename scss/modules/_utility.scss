@@ -10,6 +10,11 @@
 	@include box-sizing(border-box);    
 }
 
+.quickFadeOut {
+    @include transition(opacity ease-out 150ms);
+    @include opacity(0);
+}
+
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 .image-replacement {
     text-indent: 100%;
