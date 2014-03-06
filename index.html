@@ -65,7 +65,6 @@
                         </li>
                     </script>
                     
-                    
                     <ul class="map-menu">
                         <li class="ships">
                             <button class="toggleMenu">Display ships</button>
@@ -93,22 +92,62 @@
             <div class="map-container">
                 
                 <script id="featurePopupTemplate" type="text/x-jsrender">
-                    <article class="ship-popup" data-ship-name="{{:nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:id}}">
+                    <article class="ship-popup {{:extraClasses}}" data-ship-name="{{:nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:id}}">
                         <header>
                             <h1>
                                 <span class="type">
-                                    {{if icon}}<i class="fa-{{:icon}}"></i>{{/if}}
-                                    {{:eventType}}
+                                    {{if feature.icon}}<i class="fa-{{:icon}}"></i>{{/if}}
+                                    {{:feature.type.name}}
                                 </span>
-                                {{:index + 1}}. {{:title}}
+                                {{:index + 1}}. {{:feature.name}}
                             </h1>
-                            <time datetime="{{:datetime}}" title="{{:datetime}}">{{:humanTime}}</time>
+                            
                         </header>
-                        <div class="summary">{{:summary}}</div>
-                        {{if prev || next }}<nav>
-                            {{if prev !== false}}<button class="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>{{/if}}
-                            {{if next !== false}}<button class="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>{{/if}}
-                        </nav>{{/if}}
+                        
+                        <div class="popupContent">
+                            {{if feature.image}}
+                            <figure>
+                                <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
+                                {{if feature.image.caption}}
+                                <figcaption>
+                                    {{:feature.image.caption}}
+                                </figcaption>
+                                {{/if}}
+                            </figure>
+                            {{/if}}
+                            <div class="summary">
+                                {{:feature.summary}}
+                            </div>
+                            {{if feature.url}}
+                                <a href="{{:feature.url}}" title="">Read more...</a>
+                            {{/if}}
+                        </div>
+                        
+                        <footer>
+                        
+                            {{if feature.location}}
+                            <p class="location">
+                                {{:feature.location}}
+                            </p>
+                            {{/if}}
+                                    
+                            <div class="meta">
+                            
+                                <time datetime="{{:feature.timestamp}}">
+                                    <abbr title="{{:feature.timestamp}}">{{:humanTime}}</abbr>
+                                </time>
+                            
+                            {{if prev || next }}
+                                <nav>
+                                    <button {{if prev === false}} disabled="disabled" {{/if}}class="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>
+                                    <button {{if next === false}} disabled="disabled" {{/if}}class="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>
+                                </nav>
+                            {{/if}}
+                            
+                            </div>
+                            
+                        </footer>
+                    
                     </article>
                 </script>
                 

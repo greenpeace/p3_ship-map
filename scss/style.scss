@@ -1,80 +1,27 @@
+@import "config/variables";
+
 // See modules/_base.scss
 @import "modules/base";
 
 // CSS normalize.css reset
 @import "modules/normalize";
 
+@import "vendor/leaflet";
+@import "vendor/leaflet.awesome-markers";
+
 @import "partials/header";
 @import "partials/footer";
+
 @import "partials/ie";
 
-@import "vendor/leaflet";
 @import "partials/leaflet";
-
-@import "vendor/leaflet.awesome-markers";
  
 @import "partials/ship-icons";
 
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow:hidden;
-}
+@import "partials/popup";
 
-body {
-    @include typeface;
-}
+@import "partials/base";
 
-a,
-a:visited {
-    text-decoration:none;
-    color:$submenuColour;
-}
-
-a:hover {
-    color:$titlesColour;
-}
-
-a:focus,
-a:active {
-    color:$submenuColour;
-}
-
-#shipping-map {
-    z-index:1;
-    position:absolute;
-    height:100%;
-    top:0;
-    bottom:0;
-    width:100%;
-    background-color: $multimediaColour;
-}
-
-
-.map-container {
-    position:absolute;
-    top:50px;
-    bottom:0;
-    right:0;
-    left:0;
-    opacity:0;
-    @include transition (opacity 900ms);
-    
-        
-    &.show {
-        opacity:1;
-    }
-}
-
-#map {
-    position:relative;
-    height:100%;
-    width:100%;
-    background:$multimediaColour; 
-    
-    
-}
 
 
 

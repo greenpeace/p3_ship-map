@@ -1,4 +1,4 @@
-(function($, L, w, undef) {
+(function($, L, global, doc, undef) {
     'use strict';
 
     var defaults = {
@@ -8,6 +8,14 @@
         options: {
             debug: true,
             showEdgeMarkers: true
+        },
+        behaviour: {
+            keyboard: {
+                eventNavigation: true
+            },
+            point: {
+                centerOnOpen: true
+            }
         },
         map: {
             minZoom: 2,
@@ -102,7 +110,9 @@
             }
         }
     },
-    jPM = undefined,
+    _document = $(doc),
+    _window = $(global),
+        jPM = undefined,
         timeString = function(timestamp) {
             var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
 
@@ -151,17 +161,17 @@
             return pattern;
         };
 
-    $(document).ready(function() {
+    _document.ready(function() {
         var templates = {
-            menu: {
-                ship: {},
-                feature: {}
+                menu: {
+                    ship: {},
+                    feature: {}
+                },
+                popup: {
+                    feature: {}
+                }
             },
-            popup: {
-                feature: {}
-            }
-        },
-        ships = {},
+            ships = {},
             features = {
                 data: {
                     types: [] // Stores metadata about the features, such as identifiers and human-readable names
@@ -180,7 +190,9 @@
                 $mapHolder = $(config.selectors.mapContainer),
                 $shipsMenu = $(config.selectors.menu.ship),
                 $featuresMenu = $(config.selectors.menu.feature),
-                map = L.map(config.selectors.map.replace('#', '')).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
+                map = L.map(config.selectors.map.replace('#', ''), {
+                    keyboard: config.behaviour.keyboard.eventNavigation ? false : true
+                }).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
                 $map = $(config.selectors.map);
 
             $('html').addClass('zoom-' + config.map.locations.center.zoom);
@@ -188,6 +200,7 @@
             // Prepare side menu templates
             templates.menu.ship = $.templates(config.selectors.templates.menu.ship);
             templates.menu.feature = $.templates(config.selectors.templates.menu.feature);
+
             // Prepare popup templates
             templates.popup.feature = $.templates(config.selectors.templates.popup.feature);
 
@@ -198,6 +211,8 @@
                 minZoom: config.map.minZoom,
                 maxZoom: config.map.maxZoom
             }).addTo(map);
+
+
 
             /* ================================================================
              *
@@ -229,7 +244,6 @@
                 popups = [],
                     style = $.extend(true, $.extend(true, {}, config.style), ship.style);
 
-//                console.log(' ===> Building data for ship ' + ship.name);
 
                 /* =============================================================
                  *
@@ -313,14 +327,14 @@
                                 name: ship.name,
                                 nameSimple: ship.nameSimple,
                                 id: ship.id,
-                                title: feature.properties.name,
-                                eventType: feature.properties.type.name,
-                                timestamp: feature.properties.timestamp,
+                                extraClasses: feature.properties.image ? 'image' : false,
+                                feature: feature.properties,
                                 humanTime: timeString(feature.properties.timestamp),
-                                summary: feature.properties.summary,
                                 next: (index < len - 1) ? index + 1 : false,
                                 prev: (index > 0) ? index - 1 : false
-                            }));
+                            }), {
+                                maxWidth:600
+                            });
 
                         }
                     }).addTo(map);
@@ -362,7 +376,7 @@
                  * Adds each path type to the map
                  *
                  */
-                $.each(ship.geojson.paths, function(j, path) {
+                $.each(ship.geojson.paths, function(unused, path) {
 
                     var polylineDecorator,
                         coords = [];
@@ -371,7 +385,7 @@
 //                            name: path.properties.period.name
 //                        };
 
-                    $.each(path.coordinates, function(k, lnglat) {
+                    $.each(path.coordinates, function(unused, lnglat) {
                         // geojson coordinate system is the reverse of leaflet default
                         coords.push([lnglat[1], lnglat[0]]);
                     });
@@ -414,13 +428,15 @@
 
             }); // End each ship
 
+            // Store ship data in DOM data
             $map.data('ships', ships);
 
-
-            // Build overall feature layer groups
+            /*
+             * Build feature layer groups
+             */
 
             // For each feature type, we need to build a submenu item, and create its layerGroup
-            $.each(features.data.types, function(i, type) {
+            $.each(features.data.types, function(unused, type) {
 
                 // Render submenu
                 /* @todo Should this really be built in javascript, or in the backend? */
@@ -436,8 +452,10 @@
                 features.groups[type.identifier] = L.layerGroup(features.data[type.identifier]).addTo(map);
             });
 
-            /* Register sidemenu SHIPS button event handlers */
-            $(document).on('click', '.map-menu .ships button', function(e) {
+            /*
+             * Register sidemenu SHIPS button event handlers
+             */
+            _document.on('click', '.map-menu .ships button', function(e) {
 
                 var $this = $(this),
                     id = $this.attr('data-ship-id');
@@ -454,7 +472,7 @@
                     } else {
                         map.addLayer(ships[id].layers.groups.all);
 
-                        $.each(features.data.types, function(i, type) {
+                        $.each(features.data.types, function(unused, type) {
                             if ($('button[data-feature-type="' + type.identifier + '"]').hasClass('hideLayer')) {
                                 // This is a bit of a hack isn't it....
                                 map.addLayer(features.groups[type.identifier])
@@ -472,8 +490,10 @@
             });
 
 
-            /* Register sidemenu FEATURES button event handlers */
-            $(document).on('click', '.map-menu .features button', function(e) {
+            /*
+             * Register sidemenu FEATURES button event handlers
+             */
+            _document.on('click', '.map-menu .features button', function(e) {
 
                 var $this = $(this),
                     type = $this.attr('data-feature-type');
@@ -497,18 +517,63 @@
 
             });
 
-            $(document).on('click', '.ship-popup button', function(e) {
-                var $this = $(this),
-                    event = $this.attr('data-trigger-index'),
-                    ship = ships[parseInt($this.closest('.ship-popup').attr('data-ship-id'), 10)];
 
-                ship.popups[event].openPopup();
+            /*
+             * Event next/prev navigation within ship series
+             */
+            _document.on('click', '.ship-popup button', function(e) {
+                var $this = $(this),
+                    index = $this.attr('data-trigger-index'),
+                    ship = ships[parseInt($('.ship-popup').attr('data-ship-id'), 10)];
+
+                ship.popups[index].openPopup();
             });
 
-            map.on('zoomstart zoomend load resize', function(e) {
-                var zoomLevel = e.type === 'load' || e.type === 'resize' ?  e.target._zoom : e.target._animateToZoom;
+            /*
+             * Next / prev event navigation by keypress
+             */
+            if (config.behaviour.keyboard.eventNavigation) {
 
-                $('.ship-icon').each(function () {
+                _window.keydown(function (e) {
+
+                    // If left arrow or right arrow was pressed
+                    if (e.which === 37 || e.which === 39) {
+                        e.preventDefault();
+
+                        var ship = ships[parseInt($('.ship-popup').attr('data-ship-id'), 10)],
+                            eventIndex = $('.ship-popup .' + (e.which === 37 ? 'prev' : 'next')).attr('data-trigger-index');
+
+                        if (ship && eventIndex) {
+                            ship.popups[eventIndex].openPopup();
+                        }
+                    }
+
+                });
+            }
+
+            /*
+             * Center on popup when it opens
+             */
+            if (config.behaviour.point.centerOnOpen) {
+                map.on('popupopen', function (e) {
+
+                    var point = map.options.crs.latLngToPoint(e.popup._latlng, e.popup._map._zoom);
+
+                    /**
+                     * @todo Offset point to allow room for popup height
+                     */
+                    map.panTo(map.options.crs.pointToLatLng(L.point(point.x, point.y - 150), e.popup._map._zoom));
+                });
+            }
+
+
+            /*
+             * Scale ship map icons to suit zoom level
+             */
+            map.on('zoomstart zoomend load resize shiptoggle', function(e) {
+                var zoomLevel = e.type === 'load' || e.type === 'resize' ? e.target._zoom : e.target._animateToZoom;
+
+                $('.ship-icon').each(function() {
 
                     var defaultZoom = 7,
                         scale = zoomLevel / defaultZoom,
@@ -519,7 +584,7 @@
 
 //                    if (zoomLevel < 7) {
 
-                    value += ' scale(' + scale + ',' + scale +')';
+                    value += ' scale(' + scale + ',' + scale + ')';
 
 //                    }
 
@@ -530,9 +595,8 @@
 
                 $("html").removeClass(function(index, css) {
                     return (css.match(/\bzoom-\S+/g) || []).join(' ');
-                }).addClass('zoom-' + e.target._zoom);
+                }).addClass('zoom-' + zoomLevel);
             });
-
 
 
             /* Add edge markers to offscreen icons
@@ -560,8 +624,9 @@
                 $mapHolder.addClass('show');
             }, 1000);
 
-
-            // Initalised jRespond with breakpoint
+            /*
+             * Initalise jRespond with breakpoints
+             */
             var jRes = jRespond([
                 {
                     label: 'oldmobile',
@@ -586,6 +651,9 @@
                 }
             ]);
 
+            /*
+             * Initalise jPanelMenu sidemenu map controls
+             */
             jPM = $.jPanelMenu({
                 menu: config.selectors.menu.container,
                 trigger: config.selectors.menu.trigger,
@@ -598,13 +666,14 @@
                 },
                 afterOpen: function() {
                     $(config.selectors.menu.trigger).addClass('active');
+                    // Tell leaflet the map size has changed
                     map.invalidateSize();
                 },
                 beforeClose: function() {
                     $('.jPanelMenu-panel').removeClass('narrow');
-
                 },
                 afterClose: function() {
+                    // Tell leaflet the map size has changed
                     $(config.selectors.menu.trigger).removeClass('active');
                     map.invalidateSize();
                 }
@@ -656,5 +725,5 @@
     }); // End document.ready()
 
 
-}(jQuery, L, this));
+}(jQuery, L, this, document));
 

@@ -102,7 +102,9 @@
                                 "identifier": "noon-update",
                                 "name": "Noon update"
                             },
-                            "summary": "This is the beginning of the voyage as bounded by the search results for this time period"
+                            "summary": "This is the beginning of the voyage as bounded by the search results for this time period",
+                            "url": "#",
+                            "location": "Somewhere over the rainbow"
                         },
                         "geometry": {
                             "type": "Point",
@@ -118,7 +120,9 @@
                                 "identifier": "ship-event",
                                 "name": "Ship Event"
                             },
-                            "summary": "And another thing happened.  "
+                            "summary": "And another thing happened.  ",
+                            "url": "#",
+                            "location": "Somewhere over the rainbow"
                         },
                         "geometry": {
                             "type": "Point",
@@ -134,7 +138,15 @@
                                 "name": "Featured Event"
                             },
                             "timestamp": "2013-12-14T20:49:00Z",
-                            "summary": "<abbr title=\"HTML is supported in summaries, including images\">Now with added HTML!<\/abbr><br/><img width=\"150\" height=\"150\" src=\"http:\/\/placekitten.com\/150\/150\"\/>"
+                            "image": {
+                                "src": "http:\/\/placekitten.com\/150\/150\"",
+                                "width": 150,
+                                "height": 150,
+                                "caption": "Kittens!"
+                            },
+                            "summary": "<abbr title=\"HTML is supported in summaries\">Now with added HTML!<\/abbr><br/>",
+                            "url": "#",
+                            "location": "Somewhere over the rainbow"
                         },
                         "geometry": {
                             "type": "Point",
@@ -150,7 +162,9 @@
                                 "identifier": "noon-update",
                                 "name": "Noon update"
                             },
-                            "summary": "Found another kitten... <img width=\"200\" height=\"100\" src=\"http:\/\/placekitten.com\/200\/100\"\/>"
+                            "summary": "Found another kitten... <img width=\"200\" height=\"100\" src=\"http:\/\/placekitten.com\/200\/100\"\/>",
+                            "url": "#",
+                            "location": "Somewhere over the rainbow"
                         },
                         "geometry": {
                             "type": "Point",
@@ -166,7 +180,9 @@
                                 "identifier": "noon-update",
                                 "name": "Noon update"
                             },
-                            "summary": "As the final point in the 'history' path, this point is automatically replaced with the ship icon"
+                            "summary": "As the final point in the 'history' path, this point is automatically replaced with the ship icon",
+                            "url": "#",
+                            "location": "Somewhere over the rainbow"
                         },
                         "geometry": {
                             "type": "Point",
@@ -240,7 +256,7 @@
                             },                            
                             "timestamp": "2013-10-25T20:49:00Z",
                             "summary": "Fnord",
-                            "longContent": ""
+                            "location": "Outside over there"
                         },
                         "coordinates": [[140.1, -43], [143, -43], [142, -44]]
                     }
@@ -256,7 +272,8 @@
                                 "name": "Noon update"
                             },
                             "timestamp": "2012-10-25T20:49:00Z",
-                            "summary": "KerPow!"
+                            "summary": "KerPow!",
+                            "location": "Outside over there"
                         },
                         "geometry": {
                             "type": "Point",
@@ -272,7 +289,15 @@
                                 "name": "Featured Event"
                             },
                             "timestamp": "2013-03-25T20:49:00Z",
-                            "summary": "Blam!"
+                            "summary": "Blam!",
+                            "location": "Outside over there",
+                            "image": {
+                                "src": "http:\/\/placekitten.com\/200\/200\"",
+                                "width": 200,
+                                "height": 200,
+                                "caption": "Bigger Kittens!"
+                            },
+                            "url": "#"
                         },
                         "geometry": {
                             "type": "Point",
@@ -288,7 +313,9 @@
                                 "name": "Ship Event"
                             },
                             "timestamp": "2013-06-25T20:49:00Z",
-                            "summary": "Thud!"
+                            "summary": "Thud!",
+                            "location": "Outside over there",
+                            "url": "#"
                         },
                         "geometry": {
                             "type": "Point",
@@ -304,7 +331,9 @@
                                 "name": "Noon update"
                             },
                             "timestamp": "2013-12-25T20:49:00Z",
-                            "summary": "Zowie!"
+                            "summary": "Zowie!",
+                            "location": "Outside over there",
+                            "url": "#"
                         },
                         "geometry": {
                             "type": "Point",
