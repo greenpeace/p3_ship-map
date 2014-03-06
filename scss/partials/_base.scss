@@ -27,16 +27,16 @@ body {
 a,
 a:visited {
     text-decoration:none;
-    color:$submenuColour;
+    color:$linkColour;
 }
 
 a:hover {
-    color:$titlesColour;
+    color:$linkHoverColour;
 }
 
 a:focus,
 a:active {
-    color:$submenuColour;
+    color:$linkVisitedColour;
 }
 
 /*

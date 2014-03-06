@@ -27,7 +27,17 @@ $debugColor:    pink;
 $borderRadius: 0;
 
 $marginPx: 10px;
+
 $headerHeight: 50px;
+
+
+// Links
+
+$linkColour: $submenuColour;
+
+$linkHoverColour: lighten($linkColour, 20%);
+
+$linkVisitedColour: darken($linkColour, 20%);
 
 
 // Media query breakpoints
@@ -40,4 +50,10 @@ $panel-width: 320px;
 
 // Popup configuration
 
+$figureHeight: 176px;
+$figureWidth: 45%;
+
+$popupContentHeight: 180px;
 $popupFooterHeight: 25px;
+
+

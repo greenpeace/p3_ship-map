@@ -3,13 +3,8 @@
     "ttl": 3600,
     "map": {
         "minZoom": 4,
-        "maxZoom": 8,
-        "tileSet": {
-            "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
-            "url": "http://{s}.tile.cloudmade.com/{apiKey}/998/256/{z}/{x}/{y}.png",
-            "retinaUrl": "http://{s}.tile.cloudmade.com/{apiKey}/998@2x/256/{z}/{x}/{y}.png",
-            "attribution": "This is also parsed from server-generated json"
-        }   
+        "maxZoom": 8
+
     },
     "ships": [
         {
@@ -84,9 +79,7 @@
                                 "identifier": "future",
                                 "name": "Future Course"
                             },                            
-                            "timestamp": "2013-10-22T20:49:00Z",
-                            "summary": "Fnord ptang wibble",
-                            "content": ""
+                            "timestamp": "2013-10-22T20:49:00Z"
                         },
                         "coordinates": [[153.12, -41.8], [171.95, -40.1]]
                     }
@@ -102,9 +95,15 @@
                                 "identifier": "noon-update",
                                 "name": "Noon update"
                             },
-                            "summary": "This is the beginning of the voyage as bounded by the search results for this time period",
+                            "summary": "This is the beginning of the voyage as bounded by the search results for this time period. The image to the left is an oversize portrait image, and should be vertically centered and scaled down",
                             "url": "#",
-                            "location": "Somewhere over the rainbow"
+                            "location": "Somewhere over the rainbow",
+                            "image": {
+                                "src": "http://www.fillmurray.com/350/650",
+                                "width": 350,
+                                "height": 650,
+                                "caption": "Oversized portrait image (350x650)"
+                            }
                         },
                         "geometry": {
                             "type": "Point",
@@ -120,9 +119,15 @@
                                 "identifier": "ship-event",
                                 "name": "Ship Event"
                             },
-                            "summary": "And another thing happened.  ",
+                            "summary": "And another thing happened.",
                             "url": "#",
-                            "location": "Somewhere over the rainbow"
+                            "location": "Way up high",
+                            "image": {
+                                "src": "http://www.fillmurray.com/350/150",
+                                "width": 350,
+                                "height": 150,
+                                "caption": "Small Landscape image"
+                            }
                         },
                         "geometry": {
                             "type": "Point",
@@ -132,21 +137,20 @@
                         "type": "Feature",
                         "id": "fish",
                         "properties": {
-                            "name": "Here be kittens",
+                            "name": "Here be Murrays",
                             "type": {
                                 "identifier": "featured-event",
                                 "name": "Featured Event"
                             },
                             "timestamp": "2013-12-14T20:49:00Z",
                             "image": {
-                                "src": "http:\/\/placekitten.com\/150\/150\"",
-                                "width": 150,
-                                "height": 150,
-                                "caption": "Kittens!"
+                                "src": "//www.fillmurray.com/350/350",
+                                "width": 350,
+                                "height": 350,
+                                "caption": "A large image, scaled down"
                             },
-                            "summary": "<abbr title=\"HTML is supported in summaries\">Now with added HTML!<\/abbr><br/>",
-                            "url": "#",
-                            "location": "Somewhere over the rainbow"
+                            "summary": "<abbr title=\"HTML is supported in summaries\">Now with added HTML<\/abbr><br/>Note this has no 'Read more' link, they are an optional property of an event",
+                            "location": "A place that I dreamt of"
                         },
                         "geometry": {
                             "type": "Point",
@@ -162,9 +166,8 @@
                                 "identifier": "noon-update",
                                 "name": "Noon update"
                             },
-                            "summary": "Inline images instead of sidebar (showcasing HTML content in summaries)... <img width=\"200\" height=\"100\" src=\"http:\/\/placekitten.com\/200\/100\"\/>",
-                            "url": "#",
-                            "location": "Somewhere over the rainbow"
+                            "summary": "Demonstrating inline images instead of in the sidebar, coincidentally showcasing HTML content in summaries. <img style=\"float:right\" width=\"200\" height=\"100\" src=\"//fillmurray.com/200/100\"/>",
+                            "location": "Eastbound and down"
                         },
                         "geometry": {
                             "type": "Point",
@@ -273,7 +276,14 @@
                             },
                             "timestamp": "2012-10-25T20:49:00Z",
                             "summary": "KerPow!",
-                            "location": "Outside over there"
+                            "location": "Outside over there",
+                            "image": {
+                                "src": "http://fillmurray.com/150/100",
+                                "width": 150,
+                                "height": 100,
+                                "caption": "Small"
+                            }
+                            
                         },
                         "geometry": {
                             "type": "Point",
@@ -292,10 +302,10 @@
                             "summary": "Blam!",
                             "location": "Outside over there",
                             "image": {
-                                "src": "http:\/\/placekitten.com\/200\/200\"",
-                                "width": 200,
+                                "src": "http://fillmurray.com/400/200",
+                                "width": 400,
                                 "height": 200,
-                                "caption": "Bigger Kittens!"
+                                "caption": "Biggerer"
                             },
                             "url": "#"
                         },
@@ -313,7 +323,30 @@
                                 "name": "Ship Event"
                             },
                             "timestamp": "2013-06-25T20:49:00Z",
-                            "summary": "Thud!",
+                            "summary": "No caption on this image",
+                            "location": "Outside over there",
+                            "image": {
+                                "src": "http://fillmurray.com/440/240",
+                                "width": 440,
+                                "height": 240
+                            },
+                            "url": "#"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [142, -42.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Point 4",
+                            "type": {
+                                "identifier": "ship-event",
+                                "name": "Ship Event"
+                            },
+                            "timestamp": "2013-06-26T20:49:00Z",
+                            "summary": "This point is in exactly the same place as point 3",
                             "location": "Outside over there",
                             "url": "#"
                         },
@@ -325,7 +358,7 @@
                         "type": "Feature",
                         "id": "fisht",
                         "properties": {
-                            "name": "Point 4",
+                            "name": "Point 5",
                             "type": {
                                 "identifier": "noon-update",
                                 "name": "Noon update"

@@ -324,9 +324,8 @@
 
                             popups[index] = layer.bindPopup(templates.popup.feature.render({
                                 index: index,
-                                name: ship.name,
-                                nameSimple: ship.nameSimple,
-                                id: ship.id,
+                                ship: ship,
+                                shipIcon: style.icon.menu.iconUrl,
                                 extraClasses: feature.properties.image ? 'image' : false,
                                 feature: feature.properties,
                                 humanTime: timeString(feature.properties.timestamp),

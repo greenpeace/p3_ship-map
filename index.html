@@ -33,7 +33,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <article id="shipping-map">
+        <section id="shipping-map">
             
             <header class="map-header">
                 <h1>
@@ -92,23 +92,22 @@
             <div class="map-container">
                 
                 <script id="featurePopupTemplate" type="text/x-jsrender">
-                    <article class="ship-popup {{:extraClasses}}" data-ship-name="{{:nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:id}}">
+                    <article class="ship-popup {{:extraClasses}}" data-ship-name="{{:ship.nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:ship.id}}">
                         <header>
                             <h1>
                                 <span class="type">
                                     {{if feature.icon}}<i class="fa-{{:icon}}"></i>{{/if}}
                                     {{:feature.type.name}}
                                 </span>
-                                {{:name}} #{{:index + 1}} 
+                                <img src="{{:shipIcon}}"/> {{:ship.name}} #{{:index + 1}} 
                             </h1>
-                            
                         </header>
                         
                         <div class="popupContent">
 
                             {{if feature.image}}
                             <figure>
-                                <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
+                                <span></span><img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
                                 {{if feature.image.caption}}
                                 <figcaption>
                                     {{:feature.image.caption}}
@@ -120,11 +119,14 @@
                                 <h2>
                                     {{:feature.name}}
                                 </h2>
+                                <p>
                                 {{:feature.summary}}
+                                </p>
+                                {{if feature.url}}
+                                    <a href="{{:feature.url}}" title="">Read more...</a>
+                                {{/if}}
                             </div>
-                            {{if feature.url}}
-                                <a href="{{:feature.url}}" title="">Read more...</a>
-                            {{/if}}
+                            
                         </div>
                         
                         <footer>
@@ -163,7 +165,7 @@
                 &COPY; Greenpeace | 2013 <a href="#">Legal</a>
             </footer>
 
-        </article>
+        </section>
 
         <!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                 <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>-->
