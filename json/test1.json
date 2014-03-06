@@ -162,7 +162,7 @@
                                 "identifier": "noon-update",
                                 "name": "Noon update"
                             },
-                            "summary": "Found another kitten... <img width=\"200\" height=\"100\" src=\"http:\/\/placekitten.com\/200\/100\"\/>",
+                            "summary": "Inline images instead of sidebar (showcasing HTML content in summaries)... <img width=\"200\" height=\"100\" src=\"http:\/\/placekitten.com\/200\/100\"\/>",
                             "url": "#",
                             "location": "Somewhere over the rainbow"
                         },

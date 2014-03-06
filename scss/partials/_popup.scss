@@ -36,14 +36,14 @@
     h1 {
         font-size:16px;
         line-height:20px;
+        font-weight:400;
+        color:lighten($fontColor, 50%);
         
         span {
             text-transform:uppercase;
             font-size:80%;
             position:absolute;
-            font-weight:400;
             right:35px;
-            color:lighten($fontColor, 50%);
             display:block;
         }
     }
@@ -58,6 +58,11 @@
         margin-bottom:10px;
         max-height:200px;
         overflow-y: auto;
+        
+        h2 {
+            margin:0 0 10px;
+            color:lighten($fontColor, 30%);
+        }
     }
 
     .image {

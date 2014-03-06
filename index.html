@@ -99,12 +99,13 @@
                                     {{if feature.icon}}<i class="fa-{{:icon}}"></i>{{/if}}
                                     {{:feature.type.name}}
                                 </span>
-                                {{:index + 1}}. {{:feature.name}}
+                                {{:name}} #{{:index + 1}} 
                             </h1>
                             
                         </header>
                         
                         <div class="popupContent">
+
                             {{if feature.image}}
                             <figure>
                                 <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
@@ -116,6 +117,9 @@
                             </figure>
                             {{/if}}
                             <div class="summary">
+                                <h2>
+                                    {{:feature.name}}
+                                </h2>
                                 {{:feature.summary}}
                             </div>
                             {{if feature.url}}
