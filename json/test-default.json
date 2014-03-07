@@ -3,13 +3,7 @@
     "ttl": 3600,
     "map": {
         "minZoom": 4,
-        "maxZoom": 8,
-        "tileSet": {
-            "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
-            "url": "http://{s}.tile.cloudmade.com/{apiKey}/998/256/{z}/{x}/{y}.png",
-            "retinaUrl": "http://{s}.tile.cloudmade.com/{apiKey}/998@2x/256/{z}/{x}/{y}.png",
-            "attribution": "This is also parsed from server-generated json"
-        }   
+        "maxZoom": 8 
     },
     "ships": [
         {
