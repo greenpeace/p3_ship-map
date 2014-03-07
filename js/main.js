@@ -3,7 +3,7 @@
 
     var defaults = {
         api: {
-            url: 'json/test-cloudmade.json'
+            url: 'json/test-default.json'
         },
         options: {
             debug: true,
