@@ -1,0 +1,211 @@
+/*
+*/
+/* 
+    Created on : 07/03/2014, 11:55:46 AM
+    Author     : Ray Walker <hello@raywalker.it>
+*/
+
+.menu-container {
+    position:fixed;
+    right:0;
+    overflow-y:auto;
+    background:#efefef;
+    @include transition(all 0.35s);
+}
+
+.menu-trigger {
+    @include transition(all 0.35s);
+    position:fixed;
+
+    right:0;
+
+    height:$headerHeight;
+    width:$headerHeight;
+    font-size:120%;
+
+    background:rgba(255,255,255,0.1);
+    padding:0;
+    border:none;
+    text-align:center;
+
+    span {
+        position:absolute;
+        left:12px;
+        height:3px;
+        background-color:$white;
+        top:50%;
+        margin-top:-2px;
+        width:30px;
+        font-size:0;
+        @include transition(all 0.3s);
+
+        &::before,
+        &::after {
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background: #fff;
+            content: '';
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+        }
+
+        &::before {
+            -webkit-transform: translateY(-300%);
+            transform: translateY(-300%);
+        }
+
+        &::after {
+            -webkit-transform: translateY(300%);
+            transform: translateY(300%);
+        }
+
+
+        /*                float:left;
+                        display:block;
+                        width: 36px;
+                        height:35px;
+                        background:transparent url(../img/icons/general-nav.png) top left no-repeat;*/
+    }
+
+    &.active {
+
+        span {
+
+            background-color:transparent;
+
+
+            &::before {
+                background-color: $sidebarTextColour;
+                -webkit-transform: translateY(0) rotate(45deg);
+                transform: translateY(0) rotate(45deg);
+            }
+            &::after {
+                background-color: $sidebarTextColour;
+                -webkit-transform: translateY(0) rotate(-45deg);
+                transform: translateY(0) rotate(-45deg);
+            }
+
+
+        }
+
+        &:hover {
+
+            @include opacity(0.5);
+
+            & span::before {
+                -webkit-transform: translateY(0) rotate(30deg);
+                transform: translateY(0) rotate(30deg);
+            }
+
+            & span::after {
+                -webkit-transform: translateY(0) rotate(-30deg);
+                transform: translateY(0) rotate(-30deg);
+            }
+        }
+
+    }
+
+    &:hover {
+        background:rgba(255,255,255,0.5);
+    }
+}
+
+.map-menu {
+    position:relative;
+    margin:0;
+    display:none;
+    padding:$headerHeight 20px 0;
+    background:#efefef;
+    clear:both;
+    padding:$headerHeight 0 0;
+    float:left;
+    width:100%;
+    list-style-type:none;
+    border-bottom:none;
+    
+    a, button {
+        font-size:110%;
+        @include transition(all 0.25s ease-out);
+        line-height:$sideMenuHeight;
+        
+        &:hover {
+            @include opacity(0.8);
+        }
+        
+        &.hideLayer {
+            @include greyscale;
+            color:#888;
+        }
+    }
+
+    a,
+    a:visited {
+        display:block;
+        width:100%;
+        background:$multimediaColour;
+        @include button(flat, #ffffff, $linkColour);
+        border-bottom:1px solid #ccc;
+    }
+
+    button {
+        text-align:left;
+        color: $linkColour;
+        @include button(flat, white, $linkColour);
+        vertical-align:middle;
+        width:100%;
+        border-bottom:1px solid #ccc;
+    }
+
+    ul {
+        list-style-type: none;
+        margin:0;
+        padding:0;
+
+        button {
+            text-indent:10px;
+            height: $sideMenuHeight;
+
+            img {
+                text-align:center;
+            }
+
+            .fa, img {
+                margin:0 10px 0 -10px;
+                width:$sideMenuHeight;
+                display:inline-block;
+            }
+
+            .fa {
+                vertical-align:middle;
+                font-size:150%;
+            }
+            
+
+        }
+
+        &.close {
+            display:none;
+        }
+    }
+
+    li {
+        text-align:left;
+        width:100%;
+        background:$linkColour;
+        padding:0;
+    }
+
+    .ships {
+        border-bottom:none;
+    }
+}
+
+#jPanelMenu-menu {
+    overflow-y:auto !important;
+    
+    .map-menu {
+        display:block;
+    }   
+}

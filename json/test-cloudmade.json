@@ -1,0 +1,387 @@
+{
+    "status": "success",
+    "ttl": 3600,
+    "map": {
+        "minZoom": 4,
+        "maxZoom": 8,
+        "tileSet": {
+            "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
+            "url": "http://{s}.tile.cloudmade.com/{apiKey}/998/256/{z}/{x}/{y}.png",
+            "retinaUrl": "http://{s}.tile.cloudmade.com/{apiKey}/998@2x/256/{z}/{x}/{y}.png",
+            "attribution": "This is also parsed from server-generated json"
+        }   
+    },
+    "ships": [
+        {
+            "name": "Arctic Sunrise",
+            "nameSimple": "arctic-sunrise",
+            "id": 23,
+            "style": {
+                "point": {
+                    "default": {
+                        "radius": 8,
+                        "fillColor": "white",
+                        "color": "green",
+                        "weight": 12,
+                        "opacity": 0.4,
+                        "fillOpacity": 0.8
+                    }
+                },
+                "icon": {
+                    "ship": {
+                        "iconUrl": "img/icons/AS_map.svg",
+                        "iconRetinaUrl": "img/icons/AS_map.svg",
+                        "shadowUrl": "",
+                        "iconSize": [100, 100],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [52, 60],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [5, -30]
+                    },
+                    "menu": {
+                        "iconUrl": "img/icons/AS_legend.svg",
+                        "iconRetinaUrl": "img/icons/AS_legend.svg",
+                        "shadowUrl": "",
+                        "iconSize": [35, 35],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [18, 18],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [5, -10]
+                    }
+                },
+                "path": {
+                    "default": {
+                        "pathOptions": {
+                            "color": "green"
+                        }
+                    },
+                    "future": {
+                        "color": "#efefef"
+                    }
+                }
+            },
+            "geojson": {
+                "paths": [
+                    {
+                        "type": "LineString",
+                        "properties": {
+                            "name": "Things done",
+                            "period": {
+                                "identifier": "default",
+                                "name": "Default"
+                            },
+                            "timestamp": "2013-10-22T20:49:00Z",
+                            "summary": "Fnord ptang wibble",
+                            "content": ""
+                        },
+                        "coordinates": [[144.52, -40.01], [144, -41], [144.5, -43.5], [144, -44.5], [146.66, -45.1], [153.12, -41.8]]
+                    }, {
+                        "type": "LineString",
+                        
+                        "properties": {
+                            "name": "Things to do",
+                            "period": {
+                                "identifier": "future",
+                                "name": "Future Course"
+                            },                            
+                            "timestamp": "2013-10-22T20:49:00Z"
+                        },
+                        "coordinates": [[153.12, -41.8], [171.95, -40.1]]
+                    }
+                ],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "id": "fishes",
+                        "properties": {
+                            "name": "First point in recent history",
+                            "timestamp": "2013-05-22T20:49:00Z",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
+                            "summary": "This is the beginning of the voyage as bounded by the search results for this time period. The image to the left is an oversize portrait image, and should be vertically centered and scaled down",
+                            "url": "#",
+                            "location": "Somewhere over the rainbow",
+                            "image": {
+                                "src": "http://www.fillmurray.com/350/650",
+                                "width": 350,
+                                "height": 650,
+                                "caption": "Oversized portrait image (350x650)"
+                            }
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [144.25, -42.21]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fished",
+                        "properties": {
+                            "name": "Then we went here",
+                            "timestamp": "2013-10-23T20:49:00Z",
+                            "type": {
+                                "identifier": "ship-event",
+                                "name": "Ship Event"
+                            },
+                            "summary": "And another thing happened.",
+                            "url": "#",
+                            "location": "Way up high",
+                            "image": {
+                                "src": "http://www.fillmurray.com/350/150",
+                                "width": 350,
+                                "height": 150,
+                                "caption": "Small Landscape image"
+                            }
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [144.5, -43.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Here be Murrays",
+                            "type": {
+                                "identifier": "featured-event",
+                                "name": "Featured Event"
+                            },
+                            "timestamp": "2013-12-14T20:49:00Z",
+                            "image": {
+                                "src": "//www.fillmurray.com/350/350",
+                                "width": 350,
+                                "height": 350,
+                                "caption": "A large image, scaled down"
+                            },
+                            "summary": "<abbr title=\"HTML is supported in summaries\">Now with added HTML<\/abbr><br/><br/>Note this has no <em>'Read more'</em> link, they are an optional property of an event<br/><br/>Note, if there's no URL, then the image isn't clickable",
+                            "location": "A place that I dreamt of"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [144, -44.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Nearly to the end of this path",
+                            "timestamp": "2013-12-24T20:49:00Z",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
+                            "summary": "Demonstrating inline images instead of in the sidebar, coincidentally showcasing HTML content in summaries. <img style=\"float:right\" width=\"200\" height=\"100\" src=\"//fillmurray.com/200/100\"/>",
+                            "location": "Eastbound and down"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [146.66, -45.1]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Current day",
+                            "timestamp": "2014-01-07T20:49:00Z",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
+                            "summary": "As the final point in the 'history' path, this point is automatically replaced with the ship icon",
+                            "url": "#",
+                            "location": "21 Jump Street"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [153.12, -41.8]
+                        }
+                    }
+                ]
+            }
+
+        }, {
+            "name": "Esperanza",
+            "nameSimple": "esperanza",
+            "id": 42,
+            "style": {
+                "point": {
+                    "default": {
+                        "radius": 2,
+                        "fillColor": "lightGrey",
+                        "color": "green",
+                        "weight": 12,
+                        "opacity": 0.5,
+                        "fillOpacity": 1
+                    }
+                },
+                "default": {
+                    "color": "#efefef",
+                    "weight": 2,
+                    "opacity": 0.65
+                },
+                "icon": {
+                    "ship": {
+                        "iconUrl": "img/icons/ES_map.svg",
+                        "iconRetinaUrl": "img/icons/ES_map.svg",
+                        "shadowUrl": "",
+                        "iconSize": [100, 100],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [50, 60],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [-3, 0]
+                    },
+                    "menu": {
+                        "iconUrl": "img/icons/ES_legend.svg",
+                        "iconRetinaUrl": "img/icons/ES_legend.svg",
+                        "shadowUrl": "",
+                        "iconSize": [35, 35],
+                        "shadowSize": [0, 0],
+                        "iconAnchor": [18, 18],
+                        "shadowAnchor": [0, 0],
+                        "popupAnchor": [5, -10]
+                    }
+                },
+                "path": {
+                    "default": {
+                        "pixelSize": 4,
+                        "repeat": "30px",
+                        "pathOptions": {
+                            "color": "green"
+                        }
+                    }
+                }
+            },
+            "geojson": {
+                "paths": [
+                    {
+                        "type": "LineString",
+                        "properties": {
+                            "name": "Thing doing",
+                            "period": {
+                                "identifier": "default",
+                                "name": "Default"
+                            },                            
+                            "timestamp": "2013-10-25T20:49:00Z",
+                            "summary": "Fnord",
+                            "location": "Outside over there"
+                        },
+                        "coordinates": [[140.1, -43], [143, -43], [142, -44]]
+                    }
+                ],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "id": "fishes",
+                        "properties": {
+                            "name": "Point 1",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
+                            "timestamp": "2012-10-25T20:49:00Z",
+                            "summary": "KerPow!",
+                            "location": "Outside over there",
+                            "image": {
+                                "src": "http://fillmurray.com/150/100",
+                                "width": 150,
+                                "height": 100,
+                                "caption": "Small"
+                            }
+                            
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [140.1, -43]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fished",
+                        "properties": {
+                            "name": "Point 2",
+                            "type": {
+                                "identifier": "featured-event",
+                                "name": "Featured Event"
+                            },
+                            "timestamp": "2013-03-25T20:49:00Z",
+                            "summary": "Blam!",
+                            "location": "Where the Wild Things Are",
+                            "image": {
+                                "src": "http://fillmurray.com/400/200",
+                                "width": 400,
+                                "height": 200,
+                                "caption": "Biggerer"
+                            },
+                            "url": "#"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [140.9, -42.3]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Point 3",
+                            "type": {
+                                "identifier": "ship-event",
+                                "name": "Ship Event"
+                            },
+                            "timestamp": "2013-06-25T20:49:00Z",
+                            "summary": "No caption on this image",
+                            "location": "Timbuktu",
+                            "image": {
+                                "src": "http://fillmurray.com/440/240",
+                                "width": 440,
+                                "height": 240
+                            },
+                            "url": "#"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [142, -42.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fish",
+                        "properties": {
+                            "name": "Point 4",
+                            "type": {
+                                "identifier": "ship-event",
+                                "name": "Ship Event"
+                            },
+                            "timestamp": "2013-06-26T20:49:00Z",
+                            "summary": "This point is in exactly the same place as point 3",
+                            "location": "Alberquerque",
+                            "url": "#"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [142, -42.5]
+                        }
+                    }, {
+                        "type": "Feature",
+                        "id": "fisht",
+                        "properties": {
+                            "name": "Point 5",
+                            "type": {
+                                "identifier": "noon-update",
+                                "name": "Noon update"
+                            },
+                            "timestamp": "2013-12-25T20:49:00Z",
+                            "summary": "Zowie!",
+                            "location": "Fnord",
+                            "url": "#"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [142.3, -42]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+
+

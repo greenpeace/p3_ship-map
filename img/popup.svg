@@ -7,12 +7,12 @@
 	<g id="Layer_6">
 		<g id="PICTURE">
 			<g id="POPUP_NOOM_copy_2">
-				<polygon fill="#E6E7E8" points="76.3,71.8 81.2,83.1 86.1,71.8 				"/>
 				<g>
 					<path fill="#FFFFFF" stroke="#E7E7E7" stroke-width="0.25" stroke-miterlimit="10" d="M152.4,3.4H5.6c-0.6,0-1,0.5-1,1v70.2
 						c0,0.6,0.4,1,1,1H157c0.6,0,1-0.5,1-1l0-65.7L152.4,3.4z"/>
 				</g>
 				<path fill="#E6E7E8" d="M158,68.8v5.8c0,0.6-0.4,1-1,1H5.6c-0.6,0-1-0.4-1-1v-5.8"/>
+				<polyline fill="#E6E7E8" points="81.2,83.1 86.1,75.6 76.3,75.6 				"/>
 			</g>
 		</g>
 	</g>

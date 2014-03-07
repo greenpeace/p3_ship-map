@@ -40,14 +40,14 @@
         color:lighten($fontColor, 50%);
         text-transform: uppercase;
 
-        
+
         span {
             /*font-size:80%;*/
             position:absolute;
             right:35px;
             display:block;
         }
-        
+
         img {
             height:20px;
             position:relative;
@@ -64,7 +64,7 @@
         margin-bottom:10px;
         max-height:200px;
         overflow-y: auto;
-        
+
         h2 {
             margin:0 0 10px;
             color:lighten($fontColor, 30%);
@@ -72,7 +72,7 @@
     }
 
     .image {
-        
+
         figure {
             position:relative;
             height:$popupContentHeight;
@@ -82,6 +82,7 @@
             margin-right:4%;
             text-align:center;
             display:table-cell;
+            background: #888 url(../img/pattern-light.svg) top left repeat;
 
             span {
                 display:inline-block;
@@ -99,8 +100,15 @@
                 display: table-cell; /*IE8 Hack*/
                 vertical-align:middle; /*IE8 Hack*/
                 *margin-top: expression((parentNode.offsetHeight.offsetHeight/2)-(parseInt(this.offsetHeight)/2) +'px'); /*IE7 Hack*/
+
+
             }
-            
+
+            a:hover {
+                @include opacity(0.8);
+
+            }
+
             figcaption {
                 background:rgba(255,255,255,0.7);
                 color:#222;
@@ -143,7 +151,7 @@
                 line-height:$popupFooterHeight;
                 display:inline-block;
                 color:lighten($fontColor, 30%);
-                
+
                 abbr { 
                     text-decoration:none;
                     border-bottom: 1px dotted #ccc;
@@ -176,7 +184,7 @@
                 }
             }
         }
-        
+
     }
 }
 

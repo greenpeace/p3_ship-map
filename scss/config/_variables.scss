@@ -8,6 +8,8 @@ $white:             #ffffff;
 
 $fontColor:         #222222;
 
+$iconGreen:         #46803C; // yet another green
+
 $bannerColour:      #66cc00; // bright green
 
 $submenuColour:     #56b105; // slightly darker green
@@ -30,10 +32,14 @@ $marginPx: 10px;
 
 $headerHeight: 50px;
 
+// Sidemenu
+
+$sideMenuHeight: 40px;
+
 
 // Links
 
-$linkColour: $submenuColour;
+$linkColour: $iconGreen;
 
 $linkHoverColour: lighten($linkColour, 20%);
 

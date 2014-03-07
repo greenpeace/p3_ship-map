@@ -3,7 +3,7 @@
 
     var defaults = {
         api: {
-            url: 'json/test1.json'
+            url: 'json/test-cloudmade.json'
         },
         options: {
             debug: true,
@@ -467,7 +467,6 @@
                     if ($this.toggleClass('hideLayer').hasClass('hideLayer')) {
                         // Remove paths,
                         map.removeLayer(ships[id].layers.groups.all);
-
                     } else {
                         map.addLayer(ships[id].layers.groups.all);
 
@@ -583,7 +582,7 @@
 
 //                    if (zoomLevel < 7) {
 
-                    value += ' scale(' + scale + ',' + scale + ')';
+                    value += ' scale(' + scale * scale + ',' + scale * scale+ ')';
 
 //                    }
 

@@ -5,8 +5,9 @@
     Author     : Ray Walker <hello@raywalker.it>
 */
 
+// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
 * {
-    box-sizing:border-box;
+	@include box-sizing(border-box);    
 }
 
 html, body {

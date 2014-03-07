@@ -46,9 +46,7 @@
                     <script id="shipMenuTemplate" type="text/x-jsrender">
                         <li class={{:simpleName}}>
                             <button data-ship-id="{{:id}}">
-                                <span class="icon">
-                                    <img src="{{:icon}}"></img>
-                                </span>
+                                <img src="{{:icon}}"></img>
                                 {{:name}}
                             </button>
                         </li>
@@ -57,9 +55,7 @@
                     <script id="featureMenuTemplate" type="text/x-jsrender">
                         <li class={{:type}}>
                             <button data-feature-type="{{:type}}">
-                                <span class="icon">
-                                    <i class="fa fa-{{:icon}}"></i>
-                                </span>
+                                <i class="fa fa-{{:icon}}"></i>
                                 {{:name}}
                             </button>
                         </li>
@@ -107,7 +103,9 @@
 
                             {{if feature.image}}
                             <figure>
-                                <span></span><img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
+                                {{if feature.url}}<a href="{{:feature.url}}">{{/if}}
+                                <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
+                                {{if feature.url}}</a>{{/if}}
                                 {{if feature.image.caption}}
                                 <figcaption>
                                     {{:feature.image.caption}}

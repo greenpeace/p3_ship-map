@@ -9,7 +9,13 @@
 @import "vendor/leaflet";
 @import "vendor/leaflet.awesome-markers";
 
+@import "partials/base";
+
+
 @import "partials/header";
+
+@import "partials/sidemenu";
+
 @import "partials/footer";
 
 @import "partials/ie";
@@ -20,7 +26,6 @@
 
 @import "partials/popup";
 
-@import "partials/base";
 
 
 
