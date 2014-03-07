@@ -280,13 +280,13 @@
                                 "name": "Noon update"
                             },
                             "timestamp": "2012-10-25T20:49:00Z",
-                            "summary": "KerPow!",
+                            "summary": "KerPow!<br><br>This image is only 150x100, scaled up to fill the area",
                             "location": "Outside over there",
                             "image": {
                                 "src": "http://fillmurray.com/150/100",
                                 "width": 150,
                                 "height": 100,
-                                "caption": "Small"
+                                "caption": "Small image, scaled up"
                             }
                             
                         },

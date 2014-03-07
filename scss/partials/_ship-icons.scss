@@ -6,7 +6,7 @@
 */
 
 .ship-icon {
-    @include transition(width 0.3s ease-out);
+    @include transition(all 0.3s ease-out);
 }
 
 .zoom-2,

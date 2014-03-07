@@ -111,7 +111,7 @@
         }
     },
     _document = $(doc),
-    _window = $(global),
+        _window = $(global),
         jPM = undefined,
         timeString = function(timestamp) {
             var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
@@ -163,15 +163,15 @@
 
     _document.ready(function() {
         var templates = {
-                menu: {
-                    ship: {},
-                    feature: {}
-                },
-                popup: {
-                    feature: {}
-                }
+            menu: {
+                ship: {},
+                feature: {}
             },
-            ships = {},
+            popup: {
+                feature: {}
+            }
+        },
+        ships = {},
             features = {
                 data: {
                     types: [] // Stores metadata about the features, such as identifiers and human-readable names
@@ -332,7 +332,7 @@
                                 next: (index < len - 1) ? index + 1 : false,
                                 prev: (index > 0) ? index - 1 : false
                             }), {
-                                maxWidth:600
+                                maxWidth: 600
                             });
 
                         }
@@ -515,16 +515,40 @@
 
             });
 
+            function tryOpeningPopup(ship, index) {
+                return ship.popups[index] && ship.popups[index].openPopup()._map;
+            }
+
+            function eventNavigation(direction) {
+                var $this = $('.ship-popup'),
+                    ship = ships[parseInt($this.attr('data-ship-id'), 10)],
+                    index = $this.attr('data-ship-event-index'),
+                    length = ship.popups.length;
+
+                switch (direction) {
+                    case 'prev':
+                        while (index >= 0) {
+                            if (tryOpeningPopup(ship, --index)) {
+                                break;
+                            }
+                        }
+                        break;
+                    case 'next':
+                        while (index < length) {
+                            if (tryOpeningPopup(ship, ++index)) {
+                                break;
+                            }
+                        }
+                        break;
+                }
+            }
+
 
             /*
              * Event next/prev navigation within ship series
              */
             _document.on('click', '.ship-popup button', function(e) {
-                var $this = $(this),
-                    index = $this.attr('data-trigger-index'),
-                    ship = ships[parseInt($('.ship-popup').attr('data-ship-id'), 10)];
-
-                ship.popups[index].openPopup();
+                eventNavigation($(this).attr('data-direction'));
             });
 
             /*
@@ -532,20 +556,12 @@
              */
             if (config.behaviour.keyboard.eventNavigation) {
 
-                _window.keydown(function (e) {
-
-                    // If left arrow or right arrow was pressed
+                _document.keydown(function(e) {
+                    // If left arrow (37) or right arrow (39) was pressed
                     if (e.which === 37 || e.which === 39) {
                         e.preventDefault();
-
-                        var ship = ships[parseInt($('.ship-popup').attr('data-ship-id'), 10)],
-                            eventIndex = $('.ship-popup .' + (e.which === 37 ? 'prev' : 'next')).attr('data-trigger-index');
-
-                        if (ship && eventIndex) {
-                            ship.popups[eventIndex].openPopup();
-                        }
+                        eventNavigation(e.which === 37 ? 'prev' : 'next');
                     }
-
                 });
             }
 
@@ -553,7 +569,7 @@
              * Center on popup when it opens
              */
             if (config.behaviour.point.centerOnOpen) {
-                map.on('popupopen', function (e) {
+                map.on('popupopen', function(e) {
 
                     var point = map.options.crs.latLngToPoint(e.popup._latlng, e.popup._map._zoom);
 
@@ -582,7 +598,7 @@
 
 //                    if (zoomLevel < 7) {
 
-                    value += ' scale(' + scale * scale + ',' + scale * scale+ ')';
+                    value += ' scale(' + scale * scale + ',' + scale * scale + ')';
 
 //                    }
 

@@ -143,8 +143,8 @@
                             
                             {{if prev || next }}
                                 <nav>
-                                    <button {{if prev === false}} disabled="disabled" {{/if}}class="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>
-                                    <button {{if next === false}} disabled="disabled" {{/if}}class="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>
+                                    <button {{if prev === false}} disabled="disabled" {{/if}}class="prev" data-direction="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>
+                                    <button {{if next === false}} disabled="disabled" {{/if}}class="next" data-direction="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>
                                 </nav>
                             {{/if}}
                             
