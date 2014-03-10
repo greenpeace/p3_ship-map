@@ -3,7 +3,7 @@
 
     var defaults = {
         api: {
-            url: 'json/test-default.json'
+            url: 'json/test-cloudmade.json'
         },
         options: {
             debug: true,
@@ -91,8 +91,8 @@
             path: {
                 default: {
                     offset: 0,
-                    repeat: '20px',
-                    pixelSize: 10,
+                    repeat: '6px',
+                    pixelSize: 2,
                     pathOptions: {
                         color: "#fff",
                         weight: 2
@@ -100,8 +100,8 @@
                 },
                 future: {
                     offset: 0,
-                    repeat: '20px',
-                    pixelSize: 10,
+                    repeat: '6px',
+                    pixelSize: 2,
                     pathOptions: {
                         color: "#ccc",
                         weight: 2
@@ -195,6 +195,8 @@
                 }).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
                 $map = $(config.selectors.map);
 
+            /* @todo Parse GET parameters to override json. Security? */
+
             $('html').addClass('zoom-' + config.map.locations.center.zoom);
 
             // Prepare side menu templates
@@ -203,6 +205,7 @@
 
             // Prepare popup templates
             templates.popup.feature = $.templates(config.selectors.templates.popup.feature);
+
 
             // Add tile layer
             L.tileLayer(config.map.tileSet.url, {
@@ -477,6 +480,8 @@
                                     .removeLayer(features.groups[type.identifier]);
                             }
                         });
+
+                        map.fire('shiptoggle');
                     }
 
                 } else if ($this.hasClass('toggleMenu')) {
@@ -580,36 +585,53 @@
                 });
             }
 
-
             /*
              * Scale ship map icons to suit zoom level
              */
-            map.on('zoomstart zoomend load resize shiptoggle', function(e) {
-                var zoomLevel = e.type === 'load' || e.type === 'resize' ? e.target._zoom : e.target._animateToZoom;
+            function resizeShips(scale) {
+                if (isNaN(scale)) {
+                    return;
+                }
 
                 $('.ship-icon').each(function() {
 
-                    var defaultZoom = 7,
-                        scale = zoomLevel / defaultZoom,
-                        transform = $(this).attr('style').match(/\s((-\w*-)?transform.*\));/),
-                        style = transform[1].split(':'),
-                        property = style[0],
-                        value = style[1].replace(/,?\s?scale(3d)?.*\)/, '');
+                    var $this = $(this);
 
-//                    if (zoomLevel < 7) {
+                    $.each(['width','height','margin-left','margin-top'], function(i, prop) {
+                        if (!$this.data(prop)) {
+                            $this.data(prop, $this.css(prop).replace('px',''));
+                        }
+                        $this.css(prop, $this.data(prop) * scale * scale);
+                    });
 
-                    value += ' scale(' + scale * scale + ',' + scale * scale + ')';
-
-//                    }
-
-//                    console.log(property + ': '+ value);
-
-                    $(this).css(property, value);
+                    $map.data('iconScale', scale);
                 });
+            }
 
-                $("html").removeClass(function(index, css) {
-                    return (css.match(/\bzoom-\S+/g) || []).join(' ');
-                }).addClass('zoom-' + zoomLevel);
+            map.on('zoomstart zoomend load resize shiptoggle', function(e) {
+                var scale,
+                    defaultZoom = config.map.locations.center.zoom;
+
+                switch (e.type) {
+                    case 'load':
+                    case 'resize':
+                        scale = e.target._zoom / defaultZoom;
+                        break;
+                    case 'zoomstart':
+                    case 'zoomend':
+                        scale = e.target._animateToZoom / defaultZoom;
+                        break;
+                    case 'shiptoggle':
+                        scale = $map.data('iconScale');
+                        break;
+                    default:
+                        scale = 1;
+                }
+
+                // Store for use on toggle
+                $map.data('iconScale', scale);
+
+                resizeShips(scale);
             });
 
 
@@ -701,6 +723,7 @@
             jRes.addFunc([{
                     breakpoint: ['handheld'],
                     enter: function() {
+                        $('body').addClass('handheld');
                         jPM.close();
                     },
                     exit: function() {
@@ -717,7 +740,9 @@
 
         }).fail(function(e) {
             console.error('Error fetching ' + defaults.api.url, e);
-        });
+        });  // End $.getJSON
+
+
 
         //    function onMapMove() {
         //        var bounds = map.getBounds();

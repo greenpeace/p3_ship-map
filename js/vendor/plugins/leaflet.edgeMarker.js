@@ -88,16 +88,19 @@
             this._borderMarkerLayer.clearLayers();
 
             var features = this._map._getFeatures(),
-                marker = undefined;
+                markerDiv = false,
+                markerIcon = false,
+                that = this;
 
-            for (var i = 0; i < features.length; i++) {
+            $.each(features, function (i, feature) {
+                var f = feature.feature;
 
-                if (typeof features[i].feature.properties.edgeMarker !== "undefined") {
+                if (typeof f.properties.edgeMarker !== "undefined") {
 
-                    var icon = $.extend(true, {className: this.options.className}, features[i].feature.properties.edgeMarker),
-                        latlng = features[i].getLatLng(),
-                        currentMarkerPosition = this._map.latLngToContainerPoint(latlng),
-                        mapPixelBounds = this._map.getSize();
+                    var icon = $.extend(true, {className: that.options.className}, f.properties.edgeMarker),
+                        latlng = feature.getLatLng(),
+                        currentMarkerPosition = that._map.latLngToContainerPoint(latlng),
+                        mapPixelBounds = that._map.getSize();
 
                     if (currentMarkerPosition.y < 0 ||
                         currentMarkerPosition.y > mapPixelBounds.y ||
@@ -125,26 +128,32 @@
                             icon.iconAnchor[0] = icon.iconAnchor[0] - x_offset;
                         }
 
-                        if (typeof features[i].feature.properties.icon === 'object') {
-                            L.marker(this._map.containerPointToLatLng([x, y]), { icon: L.divIcon({ className : this.options.className + ' edgeMarkerCircle',
-                                         iconSize : [ this.options.radius * 2, this.options.radius * 2 ]}) }).addTo(this._borderMarkerLayer);
+                        if (typeof f.properties.icon === 'object') {
+                            markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), { icon: L.divIcon({ className : that.options.className + ' edgeMarkerCircle',
+                                         iconSize : [ that.options.radius * 2, that.options.radius * 2 ]}) }).addTo(that._borderMarkerLayer);
 
-                            marker = L.marker(this._map.containerPointToLatLng([x, y]), { icon: L.icon(icon) })
-                                .addTo(this._borderMarkerLayer);
+                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), { icon: L.icon(icon) })
+                                .addTo(that._borderMarkerLayer);
 
                         } else {
-                            marker = L.circleMarker(this._map.containerPointToLatLng([x, y]), this.options)
-                                .addTo(this._borderMarkerLayer);
+                            markerIcon = L.circleMarker(that._map.containerPointToLatLng([x, y]), that.options)
+                                .addTo(that._borderMarkerLayer);
                         }
 
-                        marker.on('click', function (e) {
-                            this._map.setView(e.latlng, this._map.getZoom(), { animate: true });
+                        markerIcon.on('click', function (e) {
+                            that._map.panTo(latlng, { animate: true });
                         });
+
+                        if (markerDiv) {
+                            markerDiv.on('click', function() {
+                                that._map.panTo(latlng, { animate: true });
+                            });
+                        }
 
                     }
                 }
 
-            }
+            });
             if (!this._map.hasLayer(this._borderMarkerLayer)) {
                 this._borderMarkerLayer.addTo(this._map);
             }

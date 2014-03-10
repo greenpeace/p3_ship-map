@@ -77,12 +77,12 @@
 
 
             &::before {
-                background-color: $sidebarTextColour;
+                background-color: white;
                 -webkit-transform: translateY(0) rotate(45deg);
                 transform: translateY(0) rotate(45deg);
             }
             &::after {
-                background-color: $sidebarTextColour;
+                background-color: white;
                 -webkit-transform: translateY(0) rotate(-45deg);
                 transform: translateY(0) rotate(-45deg);
             }
@@ -117,7 +117,7 @@
     margin:0;
     display:none;
     padding:$headerHeight 20px 0;
-    background:#efefef;
+    background:$bannerColour;
     clear:both;
     padding:$headerHeight 0 0;
     float:left;

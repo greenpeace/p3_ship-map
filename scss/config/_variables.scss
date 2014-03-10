@@ -56,10 +56,18 @@ $panel-width: 320px;
 
 // Popup configuration
 
-$figureHeight: 176px;
-$figureWidth: 45%;
+$popupWidth:590px;
+$popupHeight: $popupWidth / 2.12;
 
-$popupContentHeight: 180px;
-$popupFooterHeight: 25px;
+$popupContentHeight: $popupWidth / 3;
+
+
+$figureHeight: 176px;
+$imageWidth: 45%;
+$imageContentWidth: 50%;
+
+$popupFooterColour: #e5e5e5;
+
+$popupFooterHeight: $popupHeight / 10;
 
 

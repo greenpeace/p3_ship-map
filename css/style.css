@@ -603,9 +603,9 @@ a:focus, a:active { color: #203b1b; }
 /* line 74, ../scss/partials/_sidemenu.scss */
 .menu-trigger.active span { background-color: transparent; }
 /* line 79, ../scss/partials/_sidemenu.scss */
-.menu-trigger.active span::before { background-color: #183319; -webkit-transform: translateY(0) rotate(45deg); transform: translateY(0) rotate(45deg); }
+.menu-trigger.active span::before { background-color: white; -webkit-transform: translateY(0) rotate(45deg); transform: translateY(0) rotate(45deg); }
 /* line 84, ../scss/partials/_sidemenu.scss */
-.menu-trigger.active span::after { background-color: #183319; -webkit-transform: translateY(0) rotate(-45deg); transform: translateY(0) rotate(-45deg); }
+.menu-trigger.active span::after { background-color: white; -webkit-transform: translateY(0) rotate(-45deg); transform: translateY(0) rotate(-45deg); }
 /* line 93, ../scss/partials/_sidemenu.scss */
 .menu-trigger.active:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5; }
 /* line 97, ../scss/partials/_sidemenu.scss */
@@ -616,7 +616,7 @@ a:focus, a:active { color: #203b1b; }
 .menu-trigger:hover { background: rgba(255, 255, 255, 0.5); }
 
 /* line 115, ../scss/partials/_sidemenu.scss */
-.map-menu { position: relative; margin: 0; display: none; padding: 50px 20px 0; background: #efefef; clear: both; padding: 50px 0 0; float: left; width: 100%; list-style-type: none; border-bottom: none; }
+.map-menu { position: relative; margin: 0; display: none; padding: 50px 20px 0; background: #66cc00; clear: both; padding: 50px 0 0; float: left; width: 100%; list-style-type: none; border-bottom: none; }
 /* line 128, ../scss/partials/_sidemenu.scss */
 .map-menu a, .map-menu button { font-size: 110%; -webkit-transition: all 0.25s ease-out; -moz-transition: all 0.25s ease-out; transition: all 0.25s ease-out; line-height: 40px; }
 /* line 133, ../scss/partials/_sidemenu.scss */
@@ -706,54 +706,60 @@ a:focus, a:active { color: #203b1b; }
 /*  Created on : 06/03/2014, 3:17:50 PM Author     : Ray Walker <hello@raywalker.it>
 */
 /* line 10, ../scss/partials/_popup.scss */
-.leaflet-popup-pane a.leaflet-popup-close-button { text-align: right; padding: 3px 0 0; font-size: 20px; top: 11px; right: 15px; z-index: 3; }
+.leaflet-popup-pane a.leaflet-popup-close-button { text-align: right; padding: 0; font-size: 20px; top: 13px; right: 15px; z-index: 3; }
 /* line 19, ../scss/partials/_popup.scss */
-.leaflet-popup-pane .leaflet-popup-content-wrapper { position: relative; background-image: url(../img/popup.svg); background-size: cover; }
-
-/* line 29, ../scss/partials/_popup.scss */
-.leaflet-popup-content { margin: 0; width: 540px; height: 270px; padding: 0 20px; }
+.leaflet-popup-pane .leaflet-popup-content-wrapper { width: 590px; height: 278.30189px; position: relative; background: transparent url(../img/popup.svg) center top no-repeat; background-size: cover; }
+/* line 26, ../scss/partials/_popup.scss */
+.handheld .leaflet-popup-pane .leaflet-popup-content-wrapper { -webkit-transform: scale(0.8); -moz-transform: scale(0.8); -ms-transform: scale(0.8); -o-transform: scale(0.8); transform: scale(0.8); }
+/* line 31, ../scss/partials/_popup.scss */
+.leaflet-popup-pane .leaflet-popup-tip-container { height: 27px; background: transparent url(../img/popup.svg) center bottom no-repeat; background-size: 540px, 270px; }
 /* line 36, ../scss/partials/_popup.scss */
+.leaflet-popup-pane .leaflet-popup-tip-container .leaflet-popup-tip { display: none; }
+
+/* line 43, ../scss/partials/_popup.scss */
+.leaflet-popup-content { margin: 0; width: 100%; height: 100%; padding: 0 20px; }
+/* line 49, ../scss/partials/_popup.scss */
 .leaflet-popup-content h1 { font-size: 14px; line-height: 20px; font-weight: 400; color: #a2a2a2; text-transform: uppercase; }
-/* line 44, ../scss/partials/_popup.scss */
+/* line 57, ../scss/partials/_popup.scss */
 .leaflet-popup-content h1 span { /*font-size:80%;*/ position: absolute; right: 35px; display: block; }
-/* line 51, ../scss/partials/_popup.scss */
+/* line 64, ../scss/partials/_popup.scss */
 .leaflet-popup-content h1 img { height: 20px; position: relative; top: -2px; }
-/* line 59, ../scss/partials/_popup.scss */
+/* line 72, ../scss/partials/_popup.scss */
 .leaflet-popup-content .popupContent { overflow: hidden; }
-/* line 63, ../scss/partials/_popup.scss */
-.leaflet-popup-content .summary { margin-bottom: 10px; max-height: 200px; overflow-y: auto; }
-/* line 68, ../scss/partials/_popup.scss */
-.leaflet-popup-content .summary h2 { margin: 0 0 10px; color: #6f6f6f; }
 /* line 76, ../scss/partials/_popup.scss */
-.leaflet-popup-content .image figure { position: relative; height: 180px; float: left; width: 45%; overflow: hidden; margin-right: 4%; text-align: center; display: table-cell; background: #888888 url(../img/pattern-light.svg) top left repeat; }
-/* line 87, ../scss/partials/_popup.scss */
+.leaflet-popup-content .summary { margin-bottom: 10px; max-height: 196.66667px; overflow-y: auto; }
+/* line 81, ../scss/partials/_popup.scss */
+.leaflet-popup-content .summary h2 { margin: 0 0 10px; color: #6f6f6f; }
+/* line 89, ../scss/partials/_popup.scss */
+.leaflet-popup-content .image figure { position: relative; height: 196.66667px; float: left; width: 45%; overflow: hidden; margin-right: 4%; text-align: center; display: table-cell; background: #888888 url(../img/pattern-light.svg) top left repeat; }
+/* line 100, ../scss/partials/_popup.scss */
 .leaflet-popup-content .image figure span { display: inline-block; height: 100%; width: 1px; }
-/* line 93, ../scss/partials/_popup.scss */
-.leaflet-popup-content .image figure img { position: absolute; top: 0; bottom: 0; margin: auto; width: auto; min-height: 180px; display: table-cell; /*IE8 Hack*/ vertical-align: middle; /*IE8 Hack*/ *margin-top: expression((parentNode.offsetHeight.offsetHeight/2)-(parseInt(this.offsetHeight)/2) +'px'); /*IE7 Hack*/ }
-/* line 107, ../scss/partials/_popup.scss */
+/* line 106, ../scss/partials/_popup.scss */
+.leaflet-popup-content .image figure img { position: absolute; top: 0; bottom: 0; margin: auto; width: auto; min-height: 196.66667px; display: table-cell; /*IE8 Hack*/ vertical-align: middle; /*IE8 Hack*/ *margin-top: expression((parentNode.offsetHeight.offsetHeight/2)-(parseInt(this.offsetHeight)/2) +'px'); /*IE7 Hack*/ }
+/* line 120, ../scss/partials/_popup.scss */
 .leaflet-popup-content .image figure a:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80); opacity: 0.8; }
-/* line 112, ../scss/partials/_popup.scss */
-.leaflet-popup-content .image figure figcaption { background: rgba(255, 255, 255, 0.7); color: #222; position: absolute; bottom: -2px; padding: 0 5px; line-height: 20px; }
-/* line 122, ../scss/partials/_popup.scss */
+/* line 125, ../scss/partials/_popup.scss */
+.leaflet-popup-content .image figure figcaption { background: rgba(255, 255, 255, 0.7); color: #222; position: absolute; bottom: -2px; padding: 2px 5px; line-height: 20px; }
+/* line 135, ../scss/partials/_popup.scss */
 .leaflet-popup-content .image .summary { width: 50%; float: left; }
-/* line 128, ../scss/partials/_popup.scss */
-.leaflet-popup-content footer { clear: both; left: 0; width: 100%; position: absolute; bottom: 25px; overflow: hidden; padding: 0 2px 0 20px; }
-/* line 137, ../scss/partials/_popup.scss */
-.leaflet-popup-content footer .location { line-height: 25px; margin: 0; float: left; width: 45%; color: #6f6f6f; }
-/* line 145, ../scss/partials/_popup.scss */
+/* line 141, ../scss/partials/_popup.scss */
+.leaflet-popup-content footer { clear: both; left: 0; width: 100%; position: absolute; bottom: 0; overflow: hidden; padding: 1px 2px 1px 20px; background: #e5e5e5; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+/* line 152, ../scss/partials/_popup.scss */
+.leaflet-popup-content footer .location { line-height: 27.83019px; margin: 0; float: left; width: 45%; color: #6f6f6f; }
+/* line 160, ../scss/partials/_popup.scss */
 .leaflet-popup-content footer .meta { float: right; width: 45%; text-align: right; }
-/* line 150, ../scss/partials/_popup.scss */
-.leaflet-popup-content footer .meta time { line-height: 25px; display: inline-block; color: #6f6f6f; }
-/* line 155, ../scss/partials/_popup.scss */
+/* line 165, ../scss/partials/_popup.scss */
+.leaflet-popup-content footer .meta time { line-height: 27.83019px; display: inline-block; color: #6f6f6f; }
+/* line 170, ../scss/partials/_popup.scss */
 .leaflet-popup-content footer .meta time abbr { text-decoration: none; border-bottom: 1px dotted #ccc; }
-/* line 161, ../scss/partials/_popup.scss */
-.leaflet-popup-content footer .meta nav { margin-left: 1em; line-height: 25px; display: inline-block; }
-/* line 166, ../scss/partials/_popup.scss */
-.leaflet-popup-content footer .meta nav button { color: #6f6f6f; border: none; height: 21px; width: 21px; background: rgba(255, 255, 255, 0.6); }
-/* line 173, ../scss/partials/_popup.scss */
+/* line 176, ../scss/partials/_popup.scss */
+.leaflet-popup-content footer .meta nav { margin-left: 1em; line-height: 27.83019px; display: inline-block; }
+/* line 181, ../scss/partials/_popup.scss */
+.leaflet-popup-content footer .meta nav button { color: #6f6f6f; border: none; height: 23.83019px; width: 23.83019px; background: rgba(255, 255, 255, 0.6); }
+/* line 188, ../scss/partials/_popup.scss */
 .leaflet-popup-content footer .meta nav button:hover { color: #46803c; background: white; }
-/* line 178, ../scss/partials/_popup.scss */
+/* line 193, ../scss/partials/_popup.scss */
 .leaflet-popup-content footer .meta nav button:disabled { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5; pointer-events: none; color: #ccc; }
 
-/* line 191, ../scss/partials/_popup.scss */
+/* line 206, ../scss/partials/_popup.scss */
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background-color: transparent; box-shadow: none; }
