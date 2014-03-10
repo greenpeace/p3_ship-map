@@ -6,4 +6,9 @@
     left:0;
     color:$white;
     background:$mobileFooterColour;
+    
+    #shipping-map & a {
+        color:$bannerColour;
+    }
+    
 }

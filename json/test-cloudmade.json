@@ -8,7 +8,7 @@
             "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
             "url": "http://{s}.tile.cloudmade.com/{apiKey}/998/256/{z}/{x}/{y}.png",
             "retinaUrl": "http://{s}.tile.cloudmade.com/{apiKey}/998@2x/256/{z}/{x}/{y}.png",
-            "attribution": "This is also parsed from server-generated json"
+            "attribution": "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>"
         }   
     },
     "ships": [

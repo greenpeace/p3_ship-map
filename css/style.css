@@ -547,29 +547,26 @@ html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
 
 /* TYPOGRAPHY
 */
-/* line 24, ../scss/partials/_base.scss */
+/* line 23, ../scss/partials/_base.scss */
 body { font-family: "Helvetica", Arial, sans-serif; }
-
-/* line 29, ../scss/partials/_base.scss */
-a, a:visited { text-decoration: none; color: #46803c; }
-
-/* line 34, ../scss/partials/_base.scss */
-a:hover { color: #75b969; }
-
-/* line 39, ../scss/partials/_base.scss */
-a:focus, a:active { color: #203b1b; }
 
 /* MAP BASE STYLES
 */
-/* line 47, ../scss/partials/_base.scss */
+/* line 33, ../scss/partials/_base.scss */
 #shipping-map { z-index: 1; position: absolute; height: 100%; top: 0; bottom: 0; width: 100%; background-color: #5f6169; }
+/* line 43, ../scss/partials/_base.scss */
+#shipping-map a, #shipping-map a:visited { text-decoration: none; color: #46803c; }
+/* line 48, ../scss/partials/_base.scss */
+#shipping-map a:hover { color: #75b969; }
+/* line 52, ../scss/partials/_base.scss */
+#shipping-map a:active { color: #203b1b; }
 
-/* line 58, ../scss/partials/_base.scss */
+/* line 59, ../scss/partials/_base.scss */
 .map-container { position: absolute; top: 50px; bottom: 0; right: 0; left: 0; opacity: 0; -webkit-transition: opacity 900ms; -moz-transition: opacity 900ms; transition: opacity 900ms; }
-/* line 68, ../scss/partials/_base.scss */
+/* line 70, ../scss/partials/_base.scss */
 .map-container.show { opacity: 1; }
 
-/* line 73, ../scss/partials/_base.scss */
+/* line 75, ../scss/partials/_base.scss */
 #map { position: relative; height: 100%; width: 100%; background: #5f6169; }
 
 /* line 2, ../scss/partials/_header.scss */
@@ -659,6 +656,8 @@ a:focus, a:active { color: #203b1b; }
 
 /* line 2, ../scss/partials/_footer.scss */
 .map-footer { position: fixed; padding: 5px; bottom: 0; left: 0; color: white; background: #4d535f; }
+/* line 10, ../scss/partials/_footer.scss */
+#shipping-map .map-footer a { color: #66cc00; }
 
 /*
 */
@@ -674,15 +673,15 @@ a:focus, a:active { color: #203b1b; }
 .leaflet-bar { box-shadow: none; }
 
 /* line 25, ../scss/partials/_leaflet.scss */
-.leaflet-control-container { position: fixed; left: 0; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); }
+.leaflet-control-container { position: fixed; left: 0; right: 0; bottom: 0; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); }
 
 /*
 .leaflet-popup-content-wrapper { @include transition(none);
 }*/
-/* line 36, ../scss/partials/_leaflet.scss */
+/* line 38, ../scss/partials/_leaflet.scss */
 .simple-marker { font-size: 150%; }
 
-/* line 40, ../scss/partials/_leaflet.scss */
+/* line 42, ../scss/partials/_leaflet.scss */
 .edgeMarkerCircle { border-radius: 50%; background: white; box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3); }
 
 /*
