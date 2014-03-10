@@ -366,7 +366,9 @@
                     // Store in the features array for toggling entire ship
                     layers.data.all.push(feature);
 
-                    features.data[type.identifier].push(feature);
+                    if (index < len - 1) {
+                        features.data[type.identifier].push(feature);
+                    }
 
 
                 }); // End ship.geojson.features

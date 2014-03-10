@@ -92,23 +92,33 @@
 
         &:hover {
 
-            @include opacity(0.5);
+            background:lighten($bannerColour, 15%);
 
             & span::before {
-                -webkit-transform: translateY(0) rotate(30deg);
-                transform: translateY(0) rotate(30deg);
+                -webkit-transform: translateY(0) rotate(36deg);
+                transform: translateY(0) rotate(36deg);
             }
 
             & span::after {
-                -webkit-transform: translateY(0) rotate(-30deg);
-                transform: translateY(0) rotate(-30deg);
+                -webkit-transform: translateY(0) rotate(-36deg);
+                transform: translateY(0) rotate(-36deg);
             }
         }
 
     }
 
     &:hover {
-        background:rgba(255,255,255,0.5);
+        background:lighten($bannerColour, 15%);
+        
+        span::before {
+            -webkit-transform: translateY(-350%);
+            transform: translateY(-350%);
+        }
+
+        span::after {
+            -webkit-transform: translateY(350%);
+            transform: translateY(350%);
+        }
     }
 }
 

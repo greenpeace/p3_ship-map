@@ -27,12 +27,18 @@
             @include transform(scale(0.8));
         }
     }
-
+    
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background-color: transparent;
+        box-shadow:none;
+    }
+    
     .leaflet-popup-tip-container {
         height:27px;
         background:transparent url(../img/popup.svg) center bottom no-repeat;
         background-size: 540px, 270px;
-        
+        margin-bottom:5px;
+
         .leaflet-popup-tip{
             display:none;
         }
@@ -203,10 +209,7 @@
     }
 }
 
-.leaflet-popup-content-wrapper, .leaflet-popup-tip {
-    background-color: transparent;
-    box-shadow:none;
-}
+
 
 
 
