@@ -18,7 +18,7 @@
             className: 'edgeMarker'
         },
         timer: false,
-        delay:100,
+        delay: 100,
         initialize: function(options) {
             L.setOptions(this, options);
         },
@@ -39,7 +39,7 @@
                 }
             });
 
-            map.on('move', function () {
+            map.on('move', function() {
                 var that = this;
 
                 if (typeof this._borderMarkerLayer !== 'undefined') {
@@ -56,7 +56,7 @@
 
             }, this);
 
-            map.on('viewreset', function () {
+            map.on('viewreset', function() {
                 var that = this;
 
                 if (typeof this._borderMarkerLayer !== 'undefined') {
@@ -92,7 +92,7 @@
                 markerIcon = false,
                 that = this;
 
-            $.each(features, function (i, feature) {
+            $.each(features, function(i, feature) {
                 var f = feature.feature;
 
                 if (typeof f.properties.edgeMarker !== "undefined") {
@@ -114,7 +114,7 @@
 
                         if (currentMarkerPosition.y < 0) {
                             y = 0;
-                            icon.iconAnchor[1] = icon.iconAnchor[1] - y_offset ;
+                            icon.iconAnchor[1] = icon.iconAnchor[1] - y_offset;
                         } else if (currentMarkerPosition.y > mapPixelBounds.y) {
                             y = mapPixelBounds.y;
                             icon.iconAnchor[1] = icon.iconAnchor[1] + y_offset;
@@ -129,10 +129,10 @@
                         }
 
                         if (typeof f.properties.icon === 'object') {
-                            markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), { icon: L.divIcon({ className : that.options.className + ' edgeMarkerCircle',
-                                         iconSize : [ that.options.radius * 2, that.options.radius * 2 ]}) }).addTo(that._borderMarkerLayer);
+                            markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon({className: that.options.className + ' edgeMarkerCircle',
+                                    iconSize: [that.options.radius * 2, that.options.radius * 2]})}).addTo(that._borderMarkerLayer);
 
-                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), { icon: L.icon(icon) })
+                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.icon(icon)})
                                 .addTo(that._borderMarkerLayer);
 
                         } else {
@@ -140,13 +140,13 @@
                                 .addTo(that._borderMarkerLayer);
                         }
 
-                        markerIcon.on('click', function (e) {
-                            that._map.panTo(latlng, { animate: true });
+                        markerIcon.on('click', function(e) {
+                            that._map.panTo(latlng, {animate: true});
                         });
 
                         if (markerDiv) {
                             markerDiv.on('click', function() {
-                                that._map.panTo(latlng, { animate: true });
+                                that._map.panTo(latlng, {animate: true});
                             });
                         }
 

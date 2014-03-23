@@ -109,7 +109,7 @@
 
     &:hover {
         background:lighten($bannerColour, 15%);
-        
+
         span::before {
             -webkit-transform: translateY(-350%);
             transform: translateY(-350%);
@@ -134,16 +134,16 @@
     width:100%;
     list-style-type:none;
     border-bottom:none;
-    
+
     a, button {
         font-size:110%;
         @include transition(all 0.25s ease-out);
         line-height:$sideMenuHeight;
-        
+
         &:hover {
             @include opacity(0.8);
         }
-        
+
         &.hideLayer {
             @include greyscale;
             color:#888;
@@ -176,24 +176,24 @@
         button {
             text-indent:10px;
             height: $sideMenuHeight;
-
-            img {
-                text-align:center;
-            }
-
-            .fa, img {
-                margin:0 10px 0 -10px;
-                width:$sideMenuHeight;
-                display:inline-block;
-            }
-
-            .fa {
-                vertical-align:middle;
-                font-size:150%;
-            }
-            
-
         }
+
+        .ship span {
+            margin:0 20px 0 -10px;
+            width:$sideMenuHeight;
+            display:inline-block;
+        }
+
+        .fa {
+            width:$sideMenuHeight;
+            margin-right:10px;
+            vertical-align:middle;
+            font-size:150%;
+        }
+
+        img {
+            text-align:center;
+        } 
 
         &.close {
             display:none;
@@ -214,7 +214,7 @@
 
 #jPanelMenu-menu {
     overflow-y:auto !important;
-    
+
     .map-menu {
         display:block;
     }   

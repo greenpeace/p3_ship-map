@@ -44,16 +44,19 @@
                 
                 <nav class="menu-container">
                     <script id="shipMenuTemplate" type="text/x-jsrender">
-                        <li class={{:simpleName}}>
+                        <li class="ship {{:simpleName}}">
                             <button data-ship-id="{{:id}}">
+                                <span>
                                 <img src="{{:icon}}"></img>
+                                </span>
                                 {{:name}}
+                                
                             </button>
                         </li>
                     </script>
                     
                     <script id="featureMenuTemplate" type="text/x-jsrender">
-                        <li class={{:type}}>
+                        <li class="feature {{:type}}">
                             <button data-feature-type="{{:type}}">
                                 <i class="fa fa-{{:icon}}"></i>
                                 {{:name}}

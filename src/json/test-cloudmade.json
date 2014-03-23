@@ -39,8 +39,8 @@
                         "popupAnchor": [5, -30]
                     },
                     "menu": {
-                        "iconUrl": "img/icons/AS_legend.svg",
-                        "iconRetinaUrl": "img/icons/AS_legend.svg",
+                        "iconUrl": "img/icons/AS_legend_L.svg",
+                        "iconRetinaUrl": "img/icons/AS_legend_L.svg",
                         "shadowUrl": "",
                         "iconSize": [35, 35],
                         "shadowSize": [0, 0],
@@ -232,8 +232,8 @@
                         "popupAnchor": [-3, 0]
                     },
                     "menu": {
-                        "iconUrl": "img/icons/ES_legend.svg",
-                        "iconRetinaUrl": "img/icons/ES_legend.svg",
+                        "iconUrl": "img/icons/ES_legend_L.svg",
+                        "iconRetinaUrl": "img/icons/ES_legend_L.svg",
                         "shadowUrl": "",
                         "iconSize": [35, 35],
                         "shadowSize": [0, 0],

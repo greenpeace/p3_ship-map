@@ -640,12 +640,12 @@ body { font-family: "Helvetica", Arial, sans-serif; }
 .map-menu ul { list-style-type: none; margin: 0; padding: 0; }
 /* line 176, ../scss/partials/_sidemenu.scss */
 .map-menu ul button { text-indent: 10px; height: 40px; }
-/* line 180, ../scss/partials/_sidemenu.scss */
-.map-menu ul button img { text-align: center; }
-/* line 184, ../scss/partials/_sidemenu.scss */
-.map-menu ul button .fa, .map-menu ul button img { margin: 0 10px 0 -10px; width: 40px; display: inline-block; }
-/* line 190, ../scss/partials/_sidemenu.scss */
-.map-menu ul button .fa { vertical-align: middle; font-size: 150%; }
+/* line 181, ../scss/partials/_sidemenu.scss */
+.map-menu ul .ship span { margin: 0 20px 0 -10px; width: 40px; display: inline-block; }
+/* line 187, ../scss/partials/_sidemenu.scss */
+.map-menu ul .fa { width: 40px; margin-right: 10px; vertical-align: middle; font-size: 150%; }
+/* line 194, ../scss/partials/_sidemenu.scss */
+.map-menu ul img { text-align: center; }
 /* line 198, ../scss/partials/_sidemenu.scss */
 .map-menu ul.close { display: none; }
 /* line 203, ../scss/partials/_sidemenu.scss */
