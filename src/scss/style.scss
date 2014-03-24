@@ -1,16 +1,17 @@
 @import "config/variables";
 
-// See modules/_base.scss
-@import "modules/base";
+// Core imports
+@import "vendor/normalize";
+@import "vendor/bourbon/bourbon";
 
-// CSS normalize.css reset
-@import "modules/normalize";
+@import "modules/mixins";
 
+// Import Leaflet styles
 @import "vendor/leaflet";
 @import "vendor/leaflet.awesome-markers";
 
-@import "partials/base";
-
+// Import page styles
+@import "partials/page-base";
 
 @import "partials/header";
 

@@ -155,14 +155,14 @@
         display:block;
         width:100%;
         background:$multimediaColour;
-        @include button(flat, #ffffff, $linkColour);
+        @include flat-button(#ffffff, $linkColour);
         border-bottom:1px solid #ccc;
     }
 
     button {
         text-align:left;
         color: $linkColour;
-        @include button(flat, white, $linkColour);
+        @include flat-button(white, $linkColour);
         vertical-align:middle;
         width:100%;
         border-bottom:1px solid #ccc;

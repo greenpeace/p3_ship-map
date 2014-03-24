@@ -3,7 +3,16 @@
     Author     : Ray Walker <hello@raywalker.it>
 */
 
+/**
+ * Includes legacy browser support IE6/7
+ *
+ * Set to false if you want to drop support for IE6 and IE7
+ */
+$legacy_browser_support: true;
 
+/**
+ * Project colour palette
+ */
 $white:             #ffffff;
 
 $fontColor:         #222222;
@@ -26,9 +35,14 @@ $sidebarColour:     #eaecf3; // very light grey
 
 $debugColor:    pink; 
 
+
+// Some default styles
+
 $borderRadius: 0;
 
 $marginPx: 10px;
+
+// Header
 
 $headerHeight: 50px;
 
