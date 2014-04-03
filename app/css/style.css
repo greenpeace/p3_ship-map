@@ -435,6 +435,14 @@ table {
 td, th {
   padding: 0; }
 
+/* 
+    Created on : 24/03/2014, 7:23:02 PM
+    Author     : Ray Walker <hello@raywalker.it>
+*/
+* {
+  box-sizing: border-box;
+  outline: none; }
+
 /**
     @mixin opacity Sets opacity to element with vendor prefixes.
     @param decimal - decimal point for opacity
@@ -1011,7 +1019,7 @@ body {
 
 .map-container {
   position: absolute;
-  top: 50px;
+  top: 0;
   bottom: 0;
   right: 0;
   left: 0;
@@ -1030,7 +1038,6 @@ body {
 
 .map-header {
   *zoom: 1;
-  position: relative;
   z-index: 10;
   background: #66cc00;
   color: #ffffff;
@@ -1041,11 +1048,10 @@ body {
   .map-header:after {
     clear: both; }
   .map-header h1 {
-    position: fixed;
     left: 10px;
     height: 50px;
     width: 150px;
-    margin: 0;
+    margin: 0 0 0 10px;
     float: left;
     background: transparent url(../img/logo.gif) left center no-repeat; }
 
@@ -1239,13 +1245,17 @@ body {
 
 .map-footer {
   position: fixed;
+  z-index: 10;
   padding: 5px;
   bottom: 0;
   left: 0;
   color: #ffffff;
   background: #4d535f; }
-  #shipping-map .map-footer a {
+  .map-footer a {
+    text-decoration: none;
     color: #66cc00; }
+    .map-footer a:hover {
+      color: #84ff00; }
 
 /*
 */
@@ -1384,7 +1394,7 @@ body {
     float: left;
     width: 45%;
     overflow: hidden;
-    margin-right: 4%;
+    margin: 0 4% 1em 0;
     text-align: center;
     display: table-cell;
     background: #888 url(../img/pattern-light.svg) top left repeat; }
@@ -1403,6 +1413,10 @@ body {
       /*IE8 Hack*/
       vertical-align: middle;
       /*IE8 Hack*/ }
+    .leaflet-popup-content .image figure a {
+      -webkit-transition: all 250ms ease-out;
+      -moz-transition: all 250ms ease-out;
+      transition: all 250ms ease-out; }
     .leaflet-popup-content .image figure a:hover {
       -webkit-opacity: 0.8;
       -ms-opacity: 0.8;

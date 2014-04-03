@@ -13,13 +13,6 @@ module.exports = function(grunt) {
         config: config,
         pkg: grunt.file.readJSON('package.json'),
         bower: grunt.file.readJSON('./.bowerrc'),
-//        compass: {
-//            src: {
-//                options: {
-//                    config: 'config.rb'
-//                }
-//            }
-//        },
         concat: {
             options: {
                 separator: '\n;',
@@ -62,21 +55,14 @@ module.exports = function(grunt) {
                     "<%= config.src %>/js/vendor/jsrender.js": "<%= bower.directory %>/jsrender/jsrender.js",
                     "<%= config.src %>/js/vendor/compat/json.min.js": "<%= bower.directory %>/json3/lib/json3.min.js",
                     "<%= config.src %>/js/vendor/jquery/jquery.min.js": "<%= bower.directory %>/jquery/dist/jquery.min.js",
-                    "<%= config.src %>/js/vendor/jquery/plugins/jquery.jpanelmenu.js": "<%= bower.directory %>/jpanelmenu-raywalker/jquery.jPanelMenu-raywalker-transform.js"
+                    "<%= config.src %>/js/vendor/jquery/plugins/jquery.jpanelmenu.js": "<%= bower.directory %>/jpanelmenu-raywalker/jquery.jPanelMenu-raywalker-transform.js",
+                    "<%= config.src %>/js/vendor/leaflet/leaflet.js": "<%= bower.directory %>/leaflet/dist/leaflet-src.js",
+                    "<%= config.src %>/js/vendor/leaflet/plugins/leaflet.edgeMarker-raywalker.js": "<%= bower.directory %>/leaflet-edgemarker-raywalker/leaflet.edgeMarker-raywalker.js"
                 }
             },
             // Copy required source files to the app folder
-            srcToApp: {
+            base: {
                 files: [
-                    {// Base files
-                        "<%= config.app %>/index.html": "<%= config.src %>/index.html",
-                        "<%= config.app %>/robots.txt": "<%= config.src %>/robots.txt",
-                        "<%= config.app %>/favicon.ico": "<%= config.src %>/favicon.ico",
-                        "<%= config.app %>/css/style.css": "<%= config.src %>/css/style.css",
-                        "<%= config.app %>/js/app.js": "<%= config.src %>/js/app.js",
-                        "<%= config.app %>/js/jquery.min.js": "<%= config.src %>/js/vendor/jquery/jquery.min.js",
-                        "<%= config.app %>/js/modernizr.js": "<%= config.src %>/js/vendor/modernizr.js"
-                    },
                     {// Img directory
                         expand: true,
                         cwd: '<%= config.src %>/img/',
@@ -88,6 +74,33 @@ module.exports = function(grunt) {
                         cwd: '<%= config.src %>/',
                         src: ['*.md'],
                         dest: '<%= config.app %>/'
+                    },{// Base files
+                        "<%= config.app %>/robots.txt": "<%= config.src %>/robots.txt",
+                        "<%= config.app %>/favicon.ico": "<%= config.src %>/favicon.ico"
+                    }
+                ]
+
+            },
+            css: {
+                files: [
+                    {
+                        "<%= config.app %>/css/style.css": "<%= config.src %>/css/style.css",
+                    }
+                ]
+            },
+            js: {
+                files: [
+                    {
+                        "<%= config.app %>/js/app.js": "<%= config.src %>/js/app.js",
+                        "<%= config.app %>/js/jquery.min.js": "<%= config.src %>/js/vendor/jquery/jquery.min.js",
+                        "<%= config.app %>/js/modernizr.js": "<%= config.src %>/js/vendor/modernizr.js"
+                    }
+                ]
+            },
+            html: {
+                files: [
+                    {
+                        "<%= config.app %>/index.html": "<%= config.src %>/index.html"
                     }
                 ]
             }
@@ -192,16 +205,41 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            grunt: {
+                files: ['/Gruntfile.js'],
+                tasks: ['default'],
+                options: {
+                    spawn: false
+                }
+            },
+            // Watch for SCSS changes
             scss: {
-                files: ['src/**/*.scss'],
+                files: ['<%= config.src %>/**/*.scss'],
                 tasks: ['scss'],
                 options: {
                     spawn: false
                 }
             },
+            // Watch for javascript changes
             js: {
-                files: ['src/**/*.js'],
+                files: ['<%= config.src %>/**/*.js'],
                 tasks: ['javascript'],
+                options: {
+                    spawn: false
+                }
+            },
+            // HTML files
+            html: {
+                files: ["<%= config.src %>/index.html"],
+                tasks: ['html'],
+                options: {
+                    spawn: false
+                }
+            },
+            // Everything else
+            base: {
+                files: ['<%= config.src %>*.md', '<%= config.src %>/*.ico', '<%= config.src %>/*.txt'],
+                tasks: ['copy:base'],
                 options: {
                     spawn: false
                 }
@@ -237,10 +275,12 @@ module.exports = function(grunt) {
 
     // Default task
     grunt.registerTask('default', [
-        'sass',
+        'sass',             //
         'modernizr',
         'jshint',
-        'copy:srcToApp',
+        'copy:css',
+        'copy:js',
+        'copy:html',
         'concat',
         'uglify'
     ]);
@@ -251,18 +291,25 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('javascript', [
-//        'copy:bowerJS',
-        'modernizr',
         'jshint',
-        'copy:srcToApp',
+        'copy:js',
+//        'concat',
+//        'uglify'
+    ]);
+
+    grunt.registerTask('scss', [
+        'sass',
+        'copy:css'
+    ]);
+
+    grunt.registerTask('html', [
+        'copy:html'
+    ]);
+
+    // Prepares final distribution folder
+    grunt.registerTask('dist', [
         'concat',
         'uglify'
     ]);
 
-    grunt.registerTask('scss', [
-//        'copy:bowerCSS',
-        'sass',
-        'modernizr',
-        'copy:srcToApp'
-    ]);
 };

@@ -37,9 +37,8 @@
             mapContainer: '#shipping-map .map-container',
             map: '#map',
             menu: {
-                header: '.map-header',
                 trigger: '.menu-trigger',
-                container: '.map-header nav',
+                container: '.menu-container',
                 ship: '.map-menu .ships ul',
                 feature: '.map-menu .features ul'
             },
@@ -700,6 +699,7 @@
             jPM = $.jPanelMenu({
                 menu: config.selectors.menu.container,
                 trigger: config.selectors.menu.trigger,
+                excludedPanelContent: '.map-header, .map-footer, style, script',
                 direction: 'right',
                 closeOnContentClick: false,
                 keyboardShortcuts: false,

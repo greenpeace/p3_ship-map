@@ -1,18 +1,16 @@
 
 .map-header {
     @include clearfix;
-    position:relative;
     z-index:10;
     background:$bannerColour;
     color:$white;
     height:50px;
 
     h1 {
-        position:fixed;
         left:$marginPx;
         height:$headerHeight;
         width:150px;
-        margin:0;
+        margin:0 0 0 10px;
         float:left;
         background: transparent url(../img/logo.gif) left center no-repeat;
     }

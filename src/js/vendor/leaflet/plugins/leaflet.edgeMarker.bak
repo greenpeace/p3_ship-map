@@ -15,7 +15,8 @@
             color: 'white',
             fillColor: 'white',
             fillOpacity: 1,
-            className: 'edgeMarker'
+            className: 'edgeMarker',
+            transitionClass: 'quickFadeOut'
         },
         timer: false,
         delay: 100,
@@ -43,7 +44,7 @@
                 var that = this;
 
                 if (typeof this._borderMarkerLayer !== 'undefined') {
-                    $('.' + this.options.className).addClass('quickFadeOut');
+                    $('.' + this.options.className).addClass(this.options.transitionClass);
                 }
 
                 if (timer) {
@@ -80,9 +81,9 @@
         },
         onAdd: function() {
         },
-        _borderMarkerLayer: undefined,
+        _borderMarkerLayer: false,
         _addEdgeMarkers: function() {
-            if (typeof this._borderMarkerLayer === 'undefined') {
+            if (!this._borderMarkerLayer) {
                 this._borderMarkerLayer = new L.LayerGroup();
             }
             this._borderMarkerLayer.clearLayers();

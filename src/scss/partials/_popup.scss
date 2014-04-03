@@ -72,7 +72,6 @@
         }
     }
 
-
     .popupContent {
         overflow:hidden;
     }
@@ -96,11 +95,11 @@
             float:left;
             width:$imageWidth;
             overflow:hidden;
-            margin-right:4%;
+            margin:0 4% 1em 0;
             text-align:center;
             display:table-cell;
             background: #888 url(../img/pattern-light.svg) top left repeat;
-
+            
             span {
                 display:inline-block;
                 height:100%;
@@ -115,12 +114,14 @@
                 width:auto;
                 min-height:$popupContentHeight;
                 display: table-cell; /*IE8 Hack*/
-                vertical-align:middle; /*IE8 Hack*/
-            }
+                vertical-align:middle; /*IE8 Hack*/            
 
+            }
+            a {
+                @include transition(all 250ms ease-out);
+            }
             a:hover {
                 @include opacity(0.8);
-
             }
 
             figcaption {
