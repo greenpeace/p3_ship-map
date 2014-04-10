@@ -23,56 +23,7 @@
  */
 (function($, L, M) {
     'use strict';
-
-    var testSucceded = false,
-        imageCapabilities = $.Deferred(),
-        pngBrowsers = ['Safari'],
-        goodBrowser = $.inArray(get_browser(), pngBrowsers) === -1 ? true : false;
-
-    M.load([
-        // SVG is supported, it is a retina display, browser is not safari
-        // > load retina-ready SVG images
-        {
-            test: M.svg && M.highresdisplay && goodBrowser,
-            yep: ['css!css/retina-svg.css'],
-            callback: function(result) {
-                console.log('SVG support, retina display: '+ result);
-                testSucceded = true;
-                imageCapabilities.resolve();
-            }
-        },
-        // SVG supported, not a retina display, browser is okay
-        // > load non-retina SVG images
-        {
-            test: M.svg && !M.highresdisplay && goodBrowser,
-            yep: ['css!css/images-svg.css'],
-            callback: function(result) {
-                testSucceded = true;
-                console.log('SVG support, non retina display: '+ result);
-                imageCapabilities.resolve();
-            }
-        },
-        // SVG is not supported, or browser is problematic
-        // > load PNG images
-        {
-            test: !M.svg || !goodBrowser,
-            yep: ['css!css/images-url.css'],
-            callback: function(result) {
-                testSucceded = true;
-                console.log('No SVG support or problematic browser: ' + result);
-                imageCapabilities.resolve();
-            }
-        }
-    ]);
-
-
-    $.when(imageCapabilities).done(function() {
-
-        if (!testSucceded) {
-             M.load('css/images-url.css');
-        }
-
-        var defaults = {
+var defaults = {
             api: {
                 url: '../test/json/test-generated.json'
             },
@@ -191,89 +142,145 @@
             }
         },
         $document = $(document),
-            jPM,
-            timeString = function(timestamp) {
-                var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
+        data = false,
+        jPM,
+        timeString = function(timestamp) {
+            var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
 
-                if (minutes < 1440) {
-                    return 'today';
-                }
+            if (minutes < 1440) {
+                return 'today';
+            }
 
-                if (minutes >= 1440 && minutes < 2880) {
-                    return 'yesterday';
-                }
+            if (minutes >= 1440 && minutes < 2880) {
+                return 'yesterday';
+            }
 
-                if (minutes >= 2880 && minutes < 10080) {
-                    return Math.floor(minutes / 60 / 24) + ' days ago';
-                }
+            if (minutes >= 2880 && minutes < 10080) {
+                return Math.floor(minutes / 60 / 24) + ' days ago';
+            }
 
-                if (minutes >= 10080 && minutes < 20160) {
-                    return 'a week ago';
-                }
+            if (minutes >= 10080 && minutes < 20160) {
+                return 'a week ago';
+            }
 
-                if (minutes >= 20160 && minutes < 80640) {
-                    return Math.floor(minutes / 60 / 24 / 7) + ' weeks ago';
-                }
+            if (minutes >= 20160 && minutes < 80640) {
+                return Math.floor(minutes / 60 / 24 / 7) + ' weeks ago';
+            }
 
-                // more than 8 weeks
-                return Math.floor(minutes / 60 / 24 / 7 / 4) + ' months ago';
+            // more than 8 weeks
+            return Math.floor(minutes / 60 / 24 / 7 / 4) + ' months ago';
 
-            },
-            buildPattern = function(path, style, className) {
-                var pattern = {};
+        },
+        buildPattern = function(path, style, className) {
+            var pattern = {};
 
-                // paths can have their own styles based on period
-                if (typeof style.path[path.properties.period.identifier] !== 'undefined') {
-                    pattern.pathStyle = style.path[path.properties.period.identifier];
-                } else {
-                    // or they can use the default style
-                    pattern.pathStyle = style.path.default;
-                }
+            // paths can have their own styles based on period
+            if (typeof style.path[path.properties.period.identifier] !== 'undefined') {
+                pattern.pathStyle = style.path[path.properties.period.identifier];
+            } else {
+                // or they can use the default style
+                pattern.pathStyle = style.path.default;
+            }
 
-                pattern.pathStyle.className = className;
+            pattern.pathStyle.className = className;
 
-                pattern.offset = pattern.pathStyle.offset;
-                pattern.repeat = pattern.pathStyle.repeat;
+            pattern.offset = pattern.pathStyle.offset;
+            pattern.repeat = pattern.pathStyle.repeat;
 
-                pattern.symbol = new L.Symbol.Dash(pattern.pathStyle);
+            pattern.symbol = new L.Symbol.Dash(pattern.pathStyle);
 
-                return pattern;
-            };
+            return pattern;
+        },
+        testSucceded = false,
+        imageCapabilities = $.Deferred(),
+        jsonLoaded = $.Deferred(),
+        pngBrowsers = ['Safari'],
+        goodBrowser = $.inArray(get_browser(), pngBrowsers) === -1 ? true : false;
+
+    M.load([
+        // SVG is supported, it is a retina display, browser is not safari
+        // > load retina-ready SVG images
+        {
+            test: M.svg && M.highresdisplay && goodBrowser,
+            yep: ['css!css/retina-svg.css'],
+            callback: function(result) {
+                console.log('SVG support, retina display: '+ result);
+                testSucceded = true;
+                imageCapabilities.resolve();
+            }
+        },
+        // SVG supported, not a retina display, browser is okay
+        // > load non-retina SVG images
+        {
+            test: M.svg && !M.highresdisplay && goodBrowser,
+            yep: ['css!css/images-svg.css'],
+            callback: function(result) {
+                testSucceded = true;
+                console.log('SVG support, non retina display: '+ result);
+                imageCapabilities.resolve();
+            }
+        },
+        // SVG is not supported, or browser is problematic
+        // > load PNG images
+        {
+            test: !M.svg || !goodBrowser,
+            yep: ['css!css/images-png.css'],
+            callback: function(result) {
+                testSucceded = true;
+                console.log('No SVG support or problematic browser: ' + result);
+                imageCapabilities.resolve();
+            }
+        }
+    ]);
+
+    $.getJSON(defaults.api.url, function(json) {
+        console.log('API response complete');
+
+        data = json;
+
+        jsonLoaded.resolve();
+
+    }).fail(function(e) {
+        console.error('Error fetching ' + defaults.api.url, e);
+    });  // End $.getJSON;
+
+    $.when(imageCapabilities, jsonLoaded).done(function() {
+        console.log('Initialising application');
+
+        if (!testSucceded) {
+             M.load('css/images-url.css');
+        }
 
         $document.ready(function() {
             var templates = {
-                menu: {
-                    ship: {},
-                    feature: {}
-                },
-                popup: {
-                    feature: {}
-                }
-            },
-            ships = {},
-                features = {
-                    data: {
-                        types: [] // Stores metadata about the features, such as identifiers and human-readable names
-                            // Will also contain arrays of features for later grouping
+                    menu: {
+                        ship: {},
+                        feature: {}
                     },
-                    groups: {
-                        all: {}   // A utility layerGroup containing all map features
-                        // Additional groups will be created under the type identifier property
+                    popup: {
+                        feature: {}
                     }
-                };
-
-            // Fetch geoJSON data
-            $.getJSON(defaults.api.url, function(data) {
-
-                var config = $.extend(true, defaults, data),
-                    $mapHolder = $(config.selectors.mapContainer),
-                    $shipsMenu = $(config.selectors.menu.ship),
-                    $featuresMenu = $(config.selectors.menu.feature),
-                    map = L.map(config.selectors.map.replace('#', ''), {
-                        keyboard: config.behaviour.keyboard.eventNavigation ? false : true,
-                        reuseTiles: true,
-                    }).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
-                    $map = $(config.selectors.map);
+                },
+                ships = {},
+                    features = {
+                        data: {
+                            types: [] // Stores metadata about the features, such as identifiers and human-readable names
+                                // Will also contain arrays of features for later grouping
+                        },
+                        groups: {
+                            all: {}   // A utility layerGroup containing all map features
+                            // Additional groups will be created under the type identifier property
+                        }
+                    },
+                config = $.extend(true, defaults, data),
+                $mapHolder = $(config.selectors.mapContainer),
+                $shipsMenu = $(config.selectors.menu.ship),
+                $featuresMenu = $(config.selectors.menu.feature),
+                map = L.map(config.selectors.map.replace('#', ''), {
+                    keyboard: config.behaviour.keyboard.eventNavigation ? false : true,
+                    reuseTiles: true,
+                }).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
+                $map = $(config.selectors.map);
 
                 /* @todo Parse GET parameters to override json. Security? */
 
@@ -844,9 +851,7 @@
                         }
                     }]);
 
-            }).fail(function(e) {
-                console.error('Error fetching ' + defaults.api.url, e);
-            });  // End $.getJSON
+            });
 
 
 
@@ -868,7 +873,6 @@
 
 
         }); // End document.ready()
-    });
 
 
 }(jQuery, L, Modernizr));
