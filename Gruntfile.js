@@ -1042,7 +1042,7 @@ module.exports = function(grunt) {
                                     break;
                                 case 9:
                                     // image
-                                    if (val.length && val !== '/') {
+                                    if (val !== 'null' && val.length && val !== '/') {
                                         f.properties.image.src = 'img/features/' + val + '.jpg';
                                     }
                                     break;
