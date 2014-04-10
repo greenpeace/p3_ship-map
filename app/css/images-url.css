@@ -1,0 +1,22 @@
+/* Source: src/css/bg-pattern-url.css */
+.pattern-light { background-image: url('../img/pattern/png/light.min.png'); background-repeat: no-repeat; }
+
+
+.popup-bg { background-image: url('../img/popup/png/bg.min.png'); background-repeat: no-repeat; width: 588px; height: 317px; background-size: 588px 317px; }
+
+
+/* Source: src/css/icon-legend-url.css */
+.icon-AS-legend { background-image: url('../img/icon/png/AS-legend.min.png'); background-repeat: no-repeat; width: 40px; height: 40px; background-size: contain }
+
+.icon-ES-legend { background-image: url('../img/icon/png/ES-legend.min.png'); background-repeat: no-repeat; width: 40px; height: 40px; background-size: contain }
+
+.icon-RW-legend { background-image: url('../img/icon/png/RW-legend.min.png'); background-repeat: no-repeat; width: 40px; height: 40px; background-size: contain }
+
+
+/* Source: src/css/icon-map-url.css */
+.icon-AS-map { background-image: url('../img/icon/png/AS-map.min.png'); background-repeat: no-repeat; width: 100px; height: 100px; background-size: contain }
+
+.icon-ES-map { background-image: url('../img/icon/png/ES-map.min.png'); background-repeat: no-repeat; width: 100px; height: 100px; background-size: contain }
+
+.icon-RW-map { background-image: url('../img/icon/png/RW-map.min.png'); background-repeat: no-repeat; width: 100px; height: 100px; background-size: contain }
+

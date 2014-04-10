@@ -179,9 +179,14 @@
         }
 
         .ship span {
-            margin:0 20px 0 -10px;
             width:$sideMenuHeight;
-            display:inline-block;
+            display:inline;
+            
+            i {
+                display:block;
+                float:left;
+                margin:0 5px 0 10px;
+            }
         }
 
         .fa {
@@ -203,7 +208,6 @@
     li {
         text-align:left;
         width:100%;
-        background:$linkColour;
         padding:0;
     }
 

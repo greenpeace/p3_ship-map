@@ -11,8 +11,6 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
         <link rel="stylesheet" href="css/style.css">
         
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -22,7 +20,7 @@
         <![endif]-->
 
         <script src="js/modernizr.js"></script>
-       
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -38,12 +36,10 @@
                 
                 <nav class="menu-container">
                     <script id="shipMenuTemplate" type="text/x-jsrender">
-                        <li class="{{:simpleName}}">
+                        <li class="ship {{:simpleName}}">
                             <button data-ship-id="{{:id}}">
-                                <span>
-                                <img src="{{:icon}}"></img>
-                                </span>
-                                {{:name}}
+                                <span><i class="{{:className}}"></i>
+                                {{:name}}</span>
                             </button>
                         </li>
                     </script>
@@ -51,7 +47,7 @@
                     <script id="featureMenuTemplate" type="text/x-jsrender">
                         <li class="{{:type}}">
                             <button data-feature-type="{{:type}}">
-                                <i class="fa fa-{{:icon}}"></i>
+                                <i class="fa {{:icon}}"></i>
                                 {{:name}}
                             </button>
                         </li>
@@ -83,21 +79,23 @@
             <div class="map-container">
                 
                 <script id="featurePopupTemplate" type="text/x-jsrender">
-                    <article class="ship-popup {{:extraClasses}}" data-ship-name="{{:ship.nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:ship.id}}">
+                    <article class="ship-popup {{:extraClasses}} popup-bg" data-ship-name="{{:ship.nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:ship.shipID}}">
                         <header>
                             <h1>
-                                <span class="type">
-                                    {{if feature.icon}}<i class="fa-{{:icon}}"></i>{{/if}}
+                                <span class="type">                                    
                                     {{:feature.type.name}}
+                                    <a href="#close" class="close-button">
+                                        <i class="fa fa-times"></i>
+                                    </a>
                                 </span>
-                                <img src="{{:shipIcon}}"/> {{:ship.name}} #{{:index + 1}} 
+                                <i class="icon-{{:ship.shipID}}-legend">&nbsp;</i> {{:ship.name}} #{{:index + 1}}
                             </h1>
                         </header>
                         
                         <div class="popupContent">
 
-                            {{if feature.image}}
-                            <figure>
+                            {{if feature.image.src}}
+                            <figure class="pattern-light">
                                 {{if feature.url}}<a href="{{:feature.url}}">{{/if}}
                                 <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
                                 {{if feature.url}}</a>{{/if}}
@@ -157,11 +155,13 @@
         <footer class="map-footer">
             &COPY; Greenpeace | 2013 <a href="#">Legal</a>
         </footer>
+        
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js">\x3C/script>');</script>
 
         <script src="js/leaflet.js"></script>
         <script src="js/plugins.js"></script>
+        
         <script src="js/app.js"></script>
 
         <!-- Analytics -->

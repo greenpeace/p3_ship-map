@@ -1,0 +1,1861 @@
+{
+  "status": "success",
+  "ttl": 3600,
+  "map": {
+    "minZoom": 4,
+    "maxZoom": 8,
+    "tileSet": {
+      "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
+      "url": "http://{s}.tile.cloudmade.com/{apiKey}/998/256/{z}/{x}/{y}.png",
+      "retinaUrl": "http://{s}.tile.cloudmade.com/{apiKey}/998@2x/256/{z}/{x}/{y}.png",
+      "attribution": "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>"
+    }
+  },
+  "ships": [
+    {
+      "name": "Arctic Sunrise",
+      "nameSimple": "arctic-sunrise",
+      "shipID": "AS",
+      "style": {
+        "point": {
+          "default": {
+            "radius": 8,
+            "fillColor": "white",
+            "color": "green",
+            "weight": 12,
+            "opacity": 0.4,
+            "fillOpacity": 0.8
+          }
+        },
+        "icon": {
+          "map": {
+            "className": "icon-AS-map",
+            "iconUrl": "img/icon/map/svg/AS_map.min.svg",
+            "iconRetinaUrl": "img/icon/map/png/retina/AS_map.min.svg",
+            "shadowUrl": "",
+            "iconSize": [
+              100,
+              100
+            ],
+            "shadowSize": [
+              0,
+              0
+            ],
+            "iconAnchor": [
+              52,
+              60
+            ],
+            "shadowAnchor": [
+              0,
+              0
+            ],
+            "popupAnchor": [
+              5,
+              -30
+            ]
+          },
+          "menu": {
+            "className": "icon-AS-legend",
+            "iconUrl": "img/icon/legend/svg/AS_legend.min.svg",
+            "iconRetinaUrl": "img/icon/legend/svg/retina/AS_legend.min.svg",
+            "shadowUrl": "",
+            "iconSize": [
+              40,
+              40
+            ],
+            "shadowSize": [
+              0,
+              0
+            ],
+            "iconAnchor": [
+              20,
+              20
+            ],
+            "shadowAnchor": [
+              0,
+              0
+            ],
+            "popupAnchor": [
+              5,
+              -10
+            ]
+          }
+        },
+        "path": {
+          "default": {
+            "pathOptions": {
+              "color": "green"
+            }
+          },
+          "future": {
+            "color": "#efefef"
+          }
+        }
+      },
+      "geojson": {
+        "paths": [
+          {
+            "type": "LineString",
+            "properties": {
+              "name": "",
+              "period": {
+                "identifier": "default",
+                "name": "Default"
+              }
+            },
+            "coordinates": [
+              [
+                5.41667,
+                53.18333
+              ],
+              [
+                5.11667,
+                53.32222
+              ],
+              [
+                2.63333,
+                37.5
+              ],
+              [
+                25.24722,
+                37.19444
+              ],
+              [
+                2,
+                41
+              ],
+              [
+                4,
+                52
+              ],
+              [
+                5.31944,
+                60.40833
+              ],
+              [
+                30.03333,
+                69.73611
+              ],
+              [
+                33.00333,
+                69.0675
+              ],
+              [
+                33.1025,
+                69.0675
+              ],
+              [
+                33.1025,
+                69.0675
+              ],
+              [
+                33.1025,
+                69.0675
+              ]
+            ]
+          }
+        ],
+        "features": [
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-01-11T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Ice on deck",
+              "url": "",
+              "location": "Nieuwe Visserhaven, Harlingen (NLD)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "18",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                5.41667,
+                53.18333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-02-11T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "ETD HARLINGEN 10:00",
+              "url": "",
+              "location": "Nieuwe Visserhaven (NLD)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "16",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                5.11667,
+                53.32222
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-08T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Boat training with the MYAS sailing",
+              "url": "",
+              "location": "Palma de Mallorca (ESP)",
+              "image": {
+                "src": "img/features/AS2.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "23",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                2.63333,
+                37.5
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-30T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "MAR 30th: 6 Campaign Team Members attended Fisheries meeting in Paroikia (Nisos Paros)",
+              "url": "",
+              "location": "Paros (GRC)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                25.24722,
+                37.19444
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-05-05T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "The fuel was checked by Chief Eng Dave.",
+              "url": "",
+              "location": "Barcelona Maremagnum, barcelona (ESP)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "18",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                2,
+                41
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-07-21T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "moved from dry dock to pier",
+              "url": "",
+              "location": "Oranjewerf, Amsterdam (NLD)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "14",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                4,
+                52
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-07-26T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Stop ME, 23:45 Star ME",
+              "url": "",
+              "location": "Festivingskaien, Bergen (NOR)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                5.31944,
+                60.40833
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-08-09T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Ship Shifted form position 6 to 5 Kimek shipyard",
+              "url": "",
+              "location": "Kimek Ship Yard dock, Kirkenes (NOR)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "20",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                30.03333,
+                69.73611
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-23T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "AS under tow by Russian Coast Guard Vessel \"LADOGA\", Course  252, speed 2k, destination Murmansk..AS stopped -made fast to Russian Coast Guard Vessel \"LADOGA\" anchored off Murmansk... AS fast to Russian Coast Guard Vessel \"LADOGA\" anchored off Murmansk, last position alert from SSAS, all 30 persons including crew taken off AS and sent to various locations at Murmansk for detention /investigation. Ships",
+              "url": "",
+              "location": "Barents Sea (RUS)",
+              "image": {
+                "src": "img/features/AS5.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "22",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                33.00333,
+                69.0675
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-24T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "AS fast to Russian Coast Guard Vessel \"LADOGA\" anchored off Murmansk, no poistion alerts, ship immobilized and unmanned",
+              "url": "",
+              "location": "Murmansk (RUS) anch",
+              "image": {
+                "src": "img/features/AS3.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "17",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                33.1025,
+                69.0675
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-25T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "AS fast to Russian Coast Guard Vessel \"LADOGA\" anchored off Murmansk, no poistion alerts, ship immobilized and unmanned.Court proceedings for al 30 persons most detained for 2 months pending piracy investigation by FSB",
+              "url": "",
+              "location": "Murmansk (RUS) anch",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "15",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                33.1025,
+                69.0675
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-29T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "AS fast to Russian Coast Guard Vessel \"LADOGA\" anchored off Murmansk, no poistion alerts, ship immobilized and unmanned. Reports received indicate FSB investigators on board to collect evidence during daytime . Not clear",
+              "url": "",
+              "location": "Murmansk (RUS) anch",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "16",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                33.1025,
+                69.0675
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Esperanza",
+      "nameSimple": "esperanza",
+      "shipID": "ES",
+      "style": {
+        "point": {
+          "default": {
+            "radius": 2,
+            "fillColor": "lightGrey",
+            "color": "green",
+            "weight": 12,
+            "opacity": 0.5,
+            "fillOpacity": 1
+          }
+        },
+        "default": {
+          "color": "#efefef",
+          "weight": 2,
+          "opacity": 0.65
+        },
+        "icon": {
+          "map": {
+            "className": "icon-ES-map",
+            "iconUrl": "img/icon/map/svg/ES_map.min.svg",
+            "iconRetinaUrl": "img/icon/map/svg/retina/ES_map.min.svg",
+            "shadowUrl": "",
+            "iconSize": [
+              100,
+              100
+            ],
+            "shadowSize": [
+              0,
+              0
+            ],
+            "iconAnchor": [
+              50,
+              60
+            ],
+            "shadowAnchor": [
+              0,
+              0
+            ],
+            "popupAnchor": [
+              -3,
+              0
+            ]
+          },
+          "menu": {
+            "className": "icon-ES-legend",
+            "iconUrl": "img/icon/legend/svg/ES_legend.min.svg",
+            "iconRetinaUrl": "img/icon/legend/svg/retina/ES_legend.min.svg",
+            "shadowUrl": "",
+            "iconSize": [
+              40,
+              40
+            ],
+            "shadowSize": [
+              0,
+              0
+            ],
+            "iconAnchor": [
+              20,
+              20
+            ],
+            "shadowAnchor": [
+              0,
+              0
+            ],
+            "popupAnchor": [
+              5,
+              -10
+            ]
+          }
+        },
+        "path": {
+          "default": {
+            "pixelSize": 4,
+            "repeat": "30px",
+            "pathOptions": {
+              "color": "green"
+            }
+          }
+        }
+      },
+      "geojson": {
+        "paths": [
+          {
+            "type": "LineString",
+            "properties": {
+              "name": "",
+              "period": {
+                "identifier": "default",
+                "name": "Default"
+              }
+            },
+            "coordinates": [
+              [
+                103.65,
+                1.31667
+              ],
+              [
+                89.29722,
+                6.24167
+              ],
+              [
+                81.58611,
+                4.89444
+              ],
+              [
+                79.53333,
+                6.66111
+              ],
+              [
+                55.28333,
+                -20.93333
+              ],
+              [
+                55.28333,
+                -20.93333
+              ],
+              [
+                51.56667,
+                12.23333
+              ],
+              [
+                102.45,
+                6.55
+              ],
+              [
+                123.26667,
+                9.05
+              ],
+              [
+                120.17222,
+                22.96944
+              ],
+              [
+                164.26111,
+                -3.47778
+              ],
+              [
+                164.38889,
+                -2.96944
+              ],
+              [
+                170.10278,
+                -6.02778
+              ],
+              [
+                170.65833,
+                -6.23889
+              ],
+              [
+                178.42778,
+                -18.13889
+              ],
+              [
+                178.42222,
+                -18.13333
+              ],
+              [
+                153.11667,
+                -27.45
+              ]
+            ]
+          }
+        ],
+        "features": [
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-02-21T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "shifted back to original berth @ JP Nelson",
+              "url": "",
+              "location": "JP Nelson, Singapore (SGP)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "18",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                103.65,
+                1.31667
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-05T13:00:00.000Z",
+              "type": {
+                "identifier": "image",
+                "name": "Image"
+              },
+              "summary": "The Esperanza sailing into an Indian ocean sunset.",
+              "url": "",
+              "location": "Indian Ocean (sea)",
+              "image": {
+                "src": "img/features/ES1.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "16",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                89.29722,
+                6.24167
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-11T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "The Greenpeace ship Esperanza is operating in the Indian Ocean to document and record fishing vessels that are operating illegally or using highly destructive and wasteful fishing techniques..",
+              "url": "",
+              "location": "Indian Ocean (LKA)",
+              "image": {
+                "src": "img/features/ES2.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "23",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                81.58611,
+                4.89444
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-17T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Crew change by launch at Colombo",
+              "url": "",
+              "location": "Laccadive Sea (LKA)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                79.53333,
+                6.66111
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-05-04T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "NEWS: Today a group of Mauritian artisanal fishermen, who are witnessing their catch steadily declining because of poor fisheries management and wasteful and destructive fishing fleets emptying their waters of fish, protested with Greenpeace ahead of the Indian Ocean Tuna Commission (IOTC) meeting in Mauritius this week.",
+              "url": "",
+              "location": "null",
+              "image": {
+                "src": "img/features/ES3.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "18",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                55.28333,
+                -20.93333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-05-08T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Around 600 people came to visit the Esperanza while she's on anchor in La Reunion",
+              "url": "",
+              "location": "Port Ouest, berth 8, Port Reunion (REU)",
+              "image": {
+                "src": "img/features/ES4.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "14",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                55.28333,
+                -20.93333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-05-17T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "ship performance affected by counter current and strong wind (BF7)",
+              "url": "",
+              "location": "Indian Ocean (sea)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                51.56667,
+                12.23333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-06-13T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "We’re currently headed for Southeast Asia to put a spotlight on the need to protect marine life from overfishing in the region. First stop: Thailand!",
+              "url": "",
+              "location": "Gulf of Thailand (sea)",
+              "image": {
+                "src": "img/features/ES5.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "20",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                102.45,
+                6.55
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-07-09T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "We're in Apo Island, Dauin, Negros Oriental in the Philippines, the first stop for our Ocean Defender Tour in the country.",
+              "url": "",
+              "location": "vicinity of Apo island (PHL)",
+              "image": {
+                "src": "img/features/ES6.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "22",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                123.26667,
+                9.05
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-08-14T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "shifting from berth no 9 to no 31 due to heavy swell",
+              "url": "",
+              "location": "pier 31, Anping (TWN)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "17",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                120.17222,
+                22.96944
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-22T13:00:00.000Z",
+              "type": {
+                "identifier": "image",
+                "name": "Image"
+              },
+              "summary": "When two opposing air streams meet, they create an island of storm and thunder called the doldrums. It is also considered the birthplace of giant tropical storms. With perpetual darkened skies, the Espy sails through the ocean of doldrums.",
+              "url": "",
+              "location": "Pacific ocean (sea)",
+              "image": {
+                "src": "img/features/ES7.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                164.26111,
+                -3.47778
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-23T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "E drive off, commenced drifting",
+              "url": "",
+              "location": "Pacific ocean (sea)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "16",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                164.38889,
+                -2.96944
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-10-02T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "E drive on, vessel underway",
+              "url": "",
+              "location": "Pacific ocean (sea)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                170.10278,
+                -6.02778
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-10-03T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "vessel underway",
+              "url": "",
+              "location": "Pacific ocean (sea)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "17",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                170.65833,
+                -6.23889
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-11-14T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Greenpeace Esperanza, one of three Greenpeace ships that travel the world to campaign on environmental issues,  visiting Suva.",
+              "url": "",
+              "location": "Princess Wharf, Suva (FJI)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "18",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                178.42778,
+                -18.13889
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-11-20T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Departure Princess Wharf 0810 Arrival Anchorage",
+              "url": "",
+              "location": "Suva Anchorage, Suva (FJI)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "19",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                178.42222,
+                -18.13333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-12-07T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "open boat visitors: 315",
+              "url": "",
+              "location": "Marine Diesel Traders, Brisbane (AUS)",
+              "image": {
+                "src": "img/features/null.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "20",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                153.11667,
+                -27.45
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rainbow Warrior",
+      "nameSimple": "rainbow-warrior",
+      "shipID": "RW",
+      "style": {
+        "icon": {
+          "map": {
+            "className": "icon-RW-map"
+          },
+          "menu": {
+            "className": "icon-RW-legend"
+          }
+        }
+      },
+      "geojson": {
+        "paths": [
+          {
+            "type": "LineString",
+            "properties": {
+              "name": "",
+              "period": {
+                "identifier": "default",
+                "name": "Default"
+              }
+            },
+            "coordinates": [
+              [
+                172.78333,
+                -43.62222
+              ],
+              [
+                174.49444,
+                41.225
+              ],
+              [
+                144.91667,
+                -37.83333
+              ],
+              [
+                146.53333,
+                -39.25
+              ],
+              [
+                147.66667,
+                -18.91667
+              ],
+              [
+                148.3,
+                -20.03333
+              ],
+              [
+                145.78333,
+                -16.91667
+              ],
+              [
+                106.65278,
+                -1.89444
+              ],
+              [
+                114,
+                22.29167
+              ],
+              [
+                120.48333,
+                25.075
+              ],
+              [
+                129.3,
+                35.30833
+              ],
+              [
+                120.16667,
+                22.96667
+              ],
+              [
+                120.16667,
+                22.96667
+              ],
+              [
+                -177.7,
+                45.15
+              ],
+              [
+                -122.55278,
+                47.95
+              ],
+              [
+                -123,
+                46.13333
+              ],
+              [
+                -117.11944,
+                32.66111
+              ]
+            ]
+          }
+        ],
+        "features": [
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-01-19T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Greenpeace, Rainbow Warrior crew and East Coast Whanau a Apanui celebrate the end of Petrobras's deep sea oil drilling ambitions on the East Coast http://act.gp/V3XiWY",
+              "url": "",
+              "location": "New Zealand., Lyttelton (NZL)",
+              "image": {
+                "src": "img/features/RW1.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "18",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                172.78333,
+                -43.62222
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-02-12T13:00:00.000Z",
+              "type": {
+                "identifier": "image",
+                "name": "Image"
+              },
+              "summary": "In February we sailed through the Cook Strait on the Rainbow Warrior - very close to where Texan oil company Anadarko wants to carry out high risk deep sea oil drilling in the Pegasus Basin.",
+              "url": "",
+              "location": "Cook Strait. New Zealand. (NZL)",
+              "image": {
+                "src": "img/features/RW2.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "16",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                174.49444,
+                41.225
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-16T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "null",
+              "url": "",
+              "location": "Pincess Pier, Melbourne (AUS)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "23",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                144.91667,
+                -37.83333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-03-17T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Main Engine ran to meet required speed in pilotage area affected by strong tidal currents.",
+              "url": "",
+              "location": "Bass Strait (AUS)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                146.53333,
+                -39.25
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-04-10T13:00:00.000Z",
+              "type": {
+                "identifier": "image",
+                "name": "Image"
+              },
+              "summary": "Moved anchorage. The Rainbow Warrior’s tour to Save the Reef is continuing up the Queensland coast.",
+              "url": "",
+              "location": "Queensland Coast (AUS)",
+              "image": {
+                "src": "img/features/RW3.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "18",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                147.66667,
+                -18.91667
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-04-13T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "null",
+              "url": "",
+              "location": "Queensland Coast (AUS)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "14",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                148.3,
+                -20.03333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-04-30T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Delayed by cyclon \"Zane\".The Rainbow Warrior is in Indonesia to document one of the world’s most biodiverse and threatened environments.",
+              "url": "",
+              "location": "Berth n. 2, Cairns (AUS)",
+              "image": {
+                "src": "img/features/RW5.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                145.78333,
+                -16.91667
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-06-12T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "On his way to Jakarta, on World Environment Day, the Rainbow Warrior was greeted by hundreds of fishing boats from Batang regency, Central Java.",
+              "url": "",
+              "location": "South China Sea (sea)",
+              "image": {
+                "src": "img/features/RW6.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "20",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                106.65278,
+                -1.89444
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-06-21T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Due to weather conditions we proceed to anchor in Kellet anchorage.",
+              "url": "",
+              "location": "Kellet Anchorage No.2, Hong Kong (HKG)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "22",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                114,
+                22.29167
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-06-28T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Boat Training - This is Ahmad \"Kocil\" Ramdani, he is a volunteer from Indonesia who is working on board as deckhand. He is in the climbing and boat driving team of Indonesia.",
+              "url": "",
+              "location": "Taiwan Strait (sea)",
+              "image": {
+                "src": "img/features/RW7.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "17",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                120.48333,
+                25.075
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-07-14T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Ship departs in the morning for action in Gori Nuclear Plant -We had company on our way to the nuclear power station.",
+              "url": "",
+              "location": "East Coast of south Korea (KOR)",
+              "image": {
+                "src": "img/features/RW8.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                129.3,
+                35.30833
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-08-09T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Open Day - The campaigning in Taiwan has finished here in An-Ping. Thanks to the volunteers and fundraisers for their hard work these days!",
+              "url": "",
+              "location": "Anping, Anping Harbour Berth No4 (TWN)",
+              "image": {
+                "src": "img/features/RW9.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "16",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                120.16667,
+                22.96667
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-08-11T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Distance under Main Engine because of berth shifting.",
+              "url": "",
+              "location": "Anping, Anping Harbour Berth No9 (TWN)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "15",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                120.16667,
+                22.96667
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-09-20T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "null",
+              "url": "",
+              "location": "North Pacific Ocean (sea)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "17",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -177.7,
+                45.15
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-10-27T13:00:00.000Z",
+              "type": {
+                "identifier": "image",
+                "name": "Image"
+              },
+              "summary": "Seattle, it's been amazing! We set sail for Vancouver, Washington this morning...what great weather!",
+              "url": "",
+              "location": "Puget Sound, Seatle (USA)",
+              "image": {
+                "src": "img/features/RW10.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Sunny",
+              "temp": "18",
+              "port": false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -122.55278,
+                47.95
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-11-03T13:00:00.000Z",
+              "type": {
+                "identifier": "extended",
+                "name": "Extended"
+              },
+              "summary": "Boat Training. And Arctic 3 as well as projections in Portland last night... Everything to raise awareness and #FreeTheArctic30 our friends in Russia",
+              "url": "",
+              "location": "Columbia River (USA)",
+              "image": {
+                "src": "img/features/RW11.jpg",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Cloudy",
+              "temp": "19",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -123,
+                46.13333
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "id": "",
+            "properties": {
+              "name": "",
+              "timestamp": "2013-12-24T13:00:00.000Z",
+              "type": {
+                "identifier": "noon",
+                "name": "Noon update"
+              },
+              "summary": "Ship will shift berth, for bunkering.",
+              "url": "",
+              "location": "Marine Group Boat Works, San Diego, CA (USA)",
+              "image": {
+                "src": "",
+                "width": "auto",
+                "height": "auto",
+                "caption": ""
+              },
+              "weather": "Rainy",
+              "temp": "20",
+              "port": true
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -117.11944,
+                32.66111
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

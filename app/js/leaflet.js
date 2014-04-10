@@ -9168,8 +9168,8 @@ L.Map.include({
 });
 
 
-}(window, document));
-;// Source: src/js/vendor/leaflet/plugins/leaflet.edgeMarker-raywalker.js
+}(window, document));;
+// Source: src/js/vendor/leaflet/plugins/leaflet.edgeMarker-raywalker.js
 /**
  *
  * @version
@@ -9268,7 +9268,7 @@ L.EdgeMarker = L.Class.extend({
 
                 if (typeof f.properties.edgeMarker !== "undefined") {
 
-                    var icon = $.extend(true, {className: that.options.className}, f.properties.edgeMarker),
+                    var icon = $.extend(true, {className: that.options.className + 'edgeMarker'}, f.properties.edgeMarker),
                         latlng = feature.getLatLng(),
                         currentMarkerPosition = that._map.latLngToContainerPoint(latlng),
                         mapPixelBounds = that._map.getSize();
@@ -9303,7 +9303,9 @@ L.EdgeMarker = L.Class.extend({
                             markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon({className: that.options.className + ' edgeMarkerCircle',
                                     iconSize: [that.options.radius * 2, that.options.radius * 2]})}).addTo(that._borderMarkerLayer);
 
-                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.icon(icon)})
+                            icon.className = icon.className + ' edgeMarker';
+
+                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon(icon)})
                                 .addTo(that._borderMarkerLayer);
 
                         } else {
@@ -9336,8 +9338,8 @@ L.EdgeMarker = L.Class.extend({
     };
 
 }(L, jQuery));
-
-;// Source: src/js/vendor/leaflet/plugins/leaflet.markercluster-src.js
+;
+// Source: src/js/vendor/leaflet/plugins/leaflet.markercluster-src.js
 /*
  Leaflet.markercluster, Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
  https://github.com/Leaflet/Leaflet.markercluster
@@ -11450,8 +11452,8 @@ L.MarkerClusterGroup.include({
 });
 
 
-}(window, document));
-;// Source: src/js/vendor/leaflet/plugins/leaflet.polylineDecorator.js
+}(window, document));;
+// Source: src/js/vendor/leaflet/plugins/leaflet.polylineDecorator.js
 
 L.LineUtil.PolylineDecorator = {
     computeAngle: function(a, b) {
@@ -11998,8 +12000,8 @@ L.PolylineDecorator = L.LayerGroup.extend({
 L.polylineDecorator = function(paths, options) {
     return new L.PolylineDecorator(paths, options);
 };
-
-;// Source: src/js/vendor/leaflet/plugins/leaflet.simpleMarkers.js
+;
+// Source: src/js/vendor/leaflet/plugins/leaflet.simpleMarkers.js
 /*
   Leaflet.SimpleMarkers, a plugin that adds colorful iconic markers for Leaflet, based on the Font Simple icons
   (c) 2012-2013, Lennard Voogdt
@@ -12021,8 +12023,8 @@ L.polylineDecorator = function(paths, options) {
 
     L.SimpleMarkers.Icon = L.Icon.extend({
         options: {
-            iconSize: [10, 10],
-            iconAnchor:   [8, 11],
+            iconSize: [28, 18],
+            iconAnchor:   [10, 18],
             popupAnchor: [1, -5],
             shadowAnchor: [0, 0],
             shadowSize: [0, 0],

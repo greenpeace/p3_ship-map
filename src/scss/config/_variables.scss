@@ -70,13 +70,13 @@ $panel-width: 320px;
 
 // Popup configuration
 
-$popupWidth:590px;
-$popupHeight: $popupWidth / 2.12;
+$popupWidth: 588px; // DO NOT EDIT THIS VARIABLE DIRECTLY, EDIT IN /.sassrc
+$popupHeight: 317px; // DO NOT EDIT THIS VARIABLE DIRECTLY, EDIT IN /.sassrc
 
-$popupContentHeight: $popupWidth / 3;
+$popupContentHeight: $popupHeight - 130px;
 
+$figureHeight: 175px; // DO NOT EDIT THIS VARIABLE DIRECTLY, EDIT IN /.sassrc
 
-$figureHeight: 176px;
 $imageWidth: 45%;
 $imageContentWidth: 50%;
 

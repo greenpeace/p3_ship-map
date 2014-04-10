@@ -1,6 +1,6 @@
 /*
-*/
-/* 
+    _leaflet.css
+
     Created on : 07/01/2014, 12:54:14 PM
     Author     : Ray Walker <hello@raywalker.it>
 */
@@ -36,7 +36,14 @@
 }*/
 
 .simple-marker {
+    overflow:visible;
     font-size:150%;
+    
+    .fa {
+        position:relative;
+        top:10px;
+        display:block;
+    }
 }
 
 .edgeMarkerCircle {

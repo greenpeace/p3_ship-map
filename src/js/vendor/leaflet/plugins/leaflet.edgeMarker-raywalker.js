@@ -98,7 +98,7 @@
 
                 if (typeof f.properties.edgeMarker !== "undefined") {
 
-                    var icon = $.extend(true, {className: that.options.className}, f.properties.edgeMarker),
+                    var icon = $.extend(true, {className: that.options.className + 'edgeMarker'}, f.properties.edgeMarker),
                         latlng = feature.getLatLng(),
                         currentMarkerPosition = that._map.latLngToContainerPoint(latlng),
                         mapPixelBounds = that._map.getSize();
@@ -133,7 +133,9 @@
                             markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon({className: that.options.className + ' edgeMarkerCircle',
                                     iconSize: [that.options.radius * 2, that.options.radius * 2]})}).addTo(that._borderMarkerLayer);
 
-                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.icon(icon)})
+                            icon.className = icon.className + ' edgeMarker';
+
+                            markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon(icon)})
                                 .addTo(that._borderMarkerLayer);
 
                         } else {

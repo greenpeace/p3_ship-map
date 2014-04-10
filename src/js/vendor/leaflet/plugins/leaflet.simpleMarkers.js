@@ -20,8 +20,8 @@
 
     L.SimpleMarkers.Icon = L.Icon.extend({
         options: {
-            iconSize: [10, 10],
-            iconAnchor:   [8, 11],
+            iconSize: [28, 18],
+            iconAnchor:   [10, 18],
             popupAnchor: [1, -5],
             shadowAnchor: [0, 0],
             shadowSize: [0, 0],
