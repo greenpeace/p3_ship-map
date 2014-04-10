@@ -3,7 +3,7 @@
 // Default font
 @mixin typeface {
     // From: Better Helvetica Font Stack http://j.mp/9t6O6Z
-    font-family: "Helvetica", Arial, sans-serif;
+    font: 14px/1.5 Lato, "Helvetica", Arial, sans-serif;
 }
 
 @mixin flip-horizontal {

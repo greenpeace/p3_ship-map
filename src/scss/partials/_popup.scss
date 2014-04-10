@@ -154,13 +154,23 @@
     }
 
     .detail {
-        font-size:250%;
         
-        abbr {
+        span {
             display:inline-block;
-            margin-right: 1em;
-            text-decoration:none;
-            border-bottom: 1px dotted $bannerColour;
+            width:50px;
+            text-align:center;
+        }
+        
+        i {
+            height:50px;
+            font-size:250%;
+            display:block;
+            vertical-align:middle;
+        }
+        
+        .port i::before, .travelling i::before {
+            font-size:90%;
+            vertical-align:-0.23em;
         }
     }
     

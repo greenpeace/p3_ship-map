@@ -1,6 +1,8 @@
 
 .map-header {
     @include clearfix;
+    position:absolute;
+    width:100%;
     z-index:10;
     background:$bannerColour;
     color:$white;

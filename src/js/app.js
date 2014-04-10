@@ -23,7 +23,8 @@
  */
 (function($, L, M) {
     'use strict';
-var defaults = {
+
+    var defaults = {
             api: {
                 url: '../test/json/test-generated.json'
             },
@@ -126,7 +127,8 @@ var defaults = {
                         pixelSize: 2,
                         pathOptions: {
                             color: "#fff",
-                            weight: 2
+                            weight: 2,
+                            dashArray: [2,5]
                         }
                     },
                     future: {
@@ -135,7 +137,8 @@ var defaults = {
                         pixelSize: 2,
                         pathOptions: {
                             color: "#ccc",
-                            weight: 2
+                            weight: 2,
+                            dashArray: [2,5]
                         }
                     }
                 }
@@ -143,7 +146,6 @@ var defaults = {
         },
         $document = $(document),
         data = false,
-        jPM,
         timeString = function(timestamp) {
             var minutes = Math.floor((new Date() - new Date(timestamp)) / 1000 / 60);
 
@@ -245,6 +247,7 @@ var defaults = {
     });  // End $.getJSON;
 
     $.when(imageCapabilities, jsonLoaded).done(function() {
+
         console.log('Initialising application');
 
         if (!testSucceded) {
@@ -280,7 +283,8 @@ var defaults = {
                     keyboard: config.behaviour.keyboard.eventNavigation ? false : true,
                     reuseTiles: true,
                 }).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
-                $map = $(config.selectors.map);
+                $map = $(config.selectors.map),
+                jPM;
 
                 /* @todo Parse GET parameters to override json. Security? */
 
@@ -492,7 +496,8 @@ var defaults = {
 //                            patterns: [buildPattern(path, style, 'ship-' + ship.shipID)]
 //                        });
 
-    console.log(style.path.default.pathOptions);
+//                        console.log(style.path.default.pathOptions);
+
                         path = L.polyline(coords, style.path.default.pathOptions);
 
                         // Store this path for toggling on and off
@@ -850,27 +855,7 @@ var defaults = {
                             //
                         }
                     }]);
-
             });
-
-
-
-            //    function onMapMove() {
-            //        var bounds = map.getBounds();
-            //        var minll = bounds.getSouthWest();
-            //        var maxll = bounds.getNorthEast();
-            //
-            //        $.getJSON(apiBaseURL + '/get/box' + '?bounds=' + minll.lng + ',' + minll.lat + ',' + maxll.lng + ',' + maxll.lat, function(ship) {
-            //            console.log(ship);
-            //
-            //            // Hide any currently visibile features not in the returned bounding box
-            //
-            //            // Add new features
-            //        });
-            //
-            //    }
-            //    map.on('moveend', onMapMove);
-
 
         }); // End document.ready()
 

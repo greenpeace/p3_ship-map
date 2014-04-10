@@ -139,16 +139,14 @@ module.exports = function(grunt) {
             bowerCSS: {
                 files: [
                     {
-                        "<%= config.src %>/scss/vendor/_normalize.scss": "<%= bower.directory %>/normalize-scss/_normalize.scss"
+                        "<%= config.src %>/scss/vendor/_normalize.scss": "<%= bower.directory %>/normalize-scss/_normalize.scss",
+                        "<%= config.src %>/scss/vendor/_weather.scss": "<%= bower.directory %>/weather-icons/css/weather-icons.css"
                     },
                     {
                         expand: true,
                         cwd: '<%= bower.directory %>/bourbon/app/assets/stylesheets/',
                         src: ['**'],
                         dest: '<%= config.src %>/scss/vendor/bourbon/'
-                    },
-                    {
-                        "<%= config.src %>/scss/vendor/_weather.scss": "<%= bower.directory %>/weather-icons/css/weather-icons.css"
                     },
                     {
                         expand: true,
@@ -160,7 +158,8 @@ module.exports = function(grunt) {
             },
             bowerJS: {
                 files: {
-                    "<%= config.src %>/js/vendor/jsrender.js": "<%= bower.directory %>/jsrender/jsrender.js",
+                    "<%= config.src %>/js/vendor/plugins/jsrender.js": "<%= bower.directory %>/jsrender/jsrender.js",
+                    "<%= config.src %>/js/vendor/plugins/oridomi.js": "<%= bower.directory %>/oridomi/oridomi.js",
                     "<%= config.src %>/js/vendor/compat/json.min.js": "<%= bower.directory %>/json3/lib/json3.min.js",
                     "<%= config.src %>/js/vendor/jquery/jquery.min.js": "<%= bower.directory %>/jquery/dist/jquery.min.js",
                     "<%= config.src %>/js/vendor/jquery/plugins/jquery.jpanelmenu.js": "<%= bower.directory %>/jpanelmenu-raywalker/jquery.jPanelMenu-raywalker-transform.js",
@@ -912,7 +911,6 @@ module.exports = function(grunt) {
                         ],
                         features: []
                     },
-                    coordinates = [],
                     rowIndex=0;
 
                 if (shipIndex === -1) {
@@ -979,85 +977,90 @@ module.exports = function(grunt) {
                         }
 
                         if (item && typeof item.value !== 'undefined') {
-                            var val = item.value ? _s.trim(item.value) : 'null';
-                            switch (itemIndex) {
-                                case 0:
-                                    // date
-                                    f.properties.timestamp = val ? new Date(val).toISOString() : '';
-                                    break;
-                                case 1:
-                                    // lat
-                                    f.geometry.coordinates[1] = convertDegreesToDecimal(val).toFixed(5);
-                                    break;
-                                case 2:
-                                    // north/south
-                                    if (val.toUpperCase() === 'S') {
-                                        f.geometry.coordinates[1] = -f.geometry.coordinates[1];
-                                    }
-                                    break;
-                                case 3:
-                                    // long
-                                    f.geometry.coordinates[0] = convertDegreesToDecimal(val).toFixed(5);
-                                    break;
-                                case 4:
-                                    // east/west
-                                    if (val.toUpperCase() === 'W') {
-                                        f.geometry.coordinates[0] = -f.geometry.coordinates[0];
-                                    }
-                                    break;
-                                case 5:
-                                    // location
-                                    f.properties.location = val;
-                                    break;
-                                case 6:
-                                    // update-type
-                                    f.properties.type = getFeatureTypeString(val);
-                                    break;
-                                case 7:
-                                    if (val !== 'null') {
-                                        // weather
-                                        f.properties.weather = {
-                                            text: val
-                                        };
-                                        switch (val.toUpperCase()) {
-                                            case 'SUNNY':
-                                                f.properties.weather.icon = 'wi-day-sunny';
-                                                break;
-                                            case 'CLOUDY':
-                                                f.properties.weather.icon = 'wi-cloudy';
-                                                break;
-                                            case 'RAINY':
-                                                f.properties.weather.icon = 'wi-rain';
-                                                break;
-                                            default:
-                                                console.log(warn('Weather value not handled: '), val);
-                                                f.properties.weather.icon = 'wi-cloud';
+
+                            var val = (item.value && item.value !== 'null') ? _s.trim(item.value) : false;
+
+                            if (val) {
+                                switch (itemIndex) {
+                                    case 0:
+                                        // date
+                                        f.properties.timestamp = val ? new Date(val).toISOString() : '';
+                                        break;
+                                    case 1:
+                                        // lat
+                                        f.geometry.coordinates[1] = convertDegreesToDecimal(val).toFixed(5);
+                                        break;
+                                    case 2:
+                                        // north/south
+                                        if (val.toUpperCase() === 'S') {
+                                            f.geometry.coordinates[1] = -f.geometry.coordinates[1];
                                         }
-                                    }
+                                        break;
+                                    case 3:
+                                        // long
+                                        f.geometry.coordinates[0] = convertDegreesToDecimal(val).toFixed(5);
+                                        break;
+                                    case 4:
+                                        // east/west
+                                        if (val.toUpperCase() === 'W') {
+                                            f.geometry.coordinates[0] = -f.geometry.coordinates[0];
+                                        }
+                                        break;
+                                    case 5:
+                                        // location
+                                        f.properties.location = val;
+                                        break;
+                                    case 6:
+                                        // update-type
+                                        f.properties.type = getFeatureTypeString(val);
+                                        break;
+                                    case 7:
+                                        if (val !== 'null') {
+                                            // weather
+                                            f.properties.weather = {
+                                                text: val
+                                            };
+                                            switch (val.toUpperCase()) {
+                                                case 'SUNNY':
+                                                    f.properties.weather.icon = 'wi-day-sunny';
+                                                    break;
+                                                case 'CLOUDY':
+                                                    f.properties.weather.icon = 'wi-cloudy';
+                                                    break;
+                                                case 'RAINY':
+                                                    f.properties.weather.icon = 'wi-rain';
+                                                    break;
+                                                default:
+                                                    console.log(warn('Weather value not handled: '), val);
+                                                    f.properties.weather.icon = 'wi-cloud';
+                                            }
+                                        }
 
-                                    break;
-                                case 8:
-                                    // temperature
-                                    f.properties.temp = val;
-                                    break;
-                                case 9:
-                                    // image
-                                    if (val !== 'null' && val.length && val !== '/') {
-                                        f.properties.image.src = 'img/features/' + val + '.jpg';
-                                    }
-                                    break;
-                                case 10:
-                                    // port
-                                    f.properties.port = val.toUpperCase() === 'YES' ? true : false;
-                                    break;
-                                case 11:
-                                    // text
-                                    f.properties.summary = val === 'null' ? '' : val;
-                                    break;
-                                default:
-                                    console.log(warn('Unhandled column: ' + itemIndex, val));
+                                        break;
+                                    case 8:
+                                        // temperature
+                                        f.properties.temp = val;
+                                        break;
+                                    case 9:
+                                        // image
+                                        if (val !== 'null' && val.length && val !== '/') {
+                                            f.properties.image.src = 'img/features/' + val + '.jpg';
+                                        }
+                                        break;
+                                    case 10:
+                                        // port
+                                        f.properties.port = val.toUpperCase() === 'YES' ? true : false;
+                                        break;
+                                    case 11:
+                                        // text
+                                        f.properties.summary = val === 'null' ? '' : val;
+                                        break;
+                                    default:
+                                        console.log(warn('Unhandled column: ' + itemIndex, val));
+                                }
+                            } else {
+                                console.warn(warn(sheetIndex, rowIndex, itemIndex, 'no value'));
                             }
-
                         } else {
 //                            console.warn(warn(sheetIndex, rowIndex, itemIndex, 'no value'));
                         }

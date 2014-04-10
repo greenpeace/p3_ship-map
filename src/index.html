@@ -119,24 +119,27 @@
                                 
                                 <div class="detail">
                                     {{if feature.weather.text}}
-                                        <abbr class="weather" title="{{:feature.weather.text}}">
+                                        <span class="weather" title="{{:feature.weather.text}}">
                                             <i class="{{:feature.weather.icon}}"></i>
-                                        </abbr>
+                                            {{:feature.weather.text}}
+                                        </span>
                                     {{/if}}
                                     {{if feature.temp }}
-                                        <abbr class="temp" title="{{:feature.temp}} degrees Celcius">
+                                        <span class="temp" title="{{:feature.temp}} degrees Celcius">
                                             <i class="wi-thermometer-exterior"></i>
-                                        </abbr>
-
+                                            {{:feature.temp}}&deg; C
+                                        </span>
                                     {{/if}}
                                     {{if feature.port }}
-                                        <abbr class="port" title="In port">
+                                        <span class="port" title="In port">
                                             <i class="fa fa-anchor"></i>
-                                        </abbr>
+                                            In port
+                                        </span>
                                     {{else}}    
-                                        <abbr class="travelling" title="Travelling">
+                                        <span class="travelling" title="Travelling">
                                             <i class="fa fa-compass"></i>
-                                        </abbr>
+                                            Travelling
+                                        </span>
                                     {{/if}}
                                 </div>
                             </div>

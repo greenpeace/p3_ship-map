@@ -101,7 +101,10 @@
                     var icon = $.extend(true, {className: that.options.className + 'edgeMarker'}, f.properties.edgeMarker),
                         latlng = feature.getLatLng(),
                         currentMarkerPosition = that._map.latLngToContainerPoint(latlng),
-                        mapPixelBounds = that._map.getSize();
+                        mapPixelBounds = that._map.getSize(),
+                        divClassName = that.options.className + ' edgeMarkerCircle';;
+
+                    icon.className += ' edgeMarker';
 
                     if (currentMarkerPosition.y < 0 ||
                         currentMarkerPosition.y > mapPixelBounds.y ||
@@ -116,24 +119,26 @@
                         if (currentMarkerPosition.y < 0) {
                             y = 0;
                             icon.iconAnchor[1] = icon.iconAnchor[1] - y_offset;
+                            divClassName += ' edge-top';
                         } else if (currentMarkerPosition.y > mapPixelBounds.y) {
                             y = mapPixelBounds.y;
                             icon.iconAnchor[1] = icon.iconAnchor[1] + y_offset;
+                            divClassName += ' edge-bottom';
                         }
 
                         if (currentMarkerPosition.x > mapPixelBounds.x) {
                             x = mapPixelBounds.x;
                             icon.iconAnchor[0] = icon.iconAnchor[0] + x_offset;
+                            divClassName += ' edge-right';
                         } else if (currentMarkerPosition.x < 0) {
                             x = 0;
                             icon.iconAnchor[0] = icon.iconAnchor[0] - x_offset;
+                            divClassName += ' edge-left';
                         }
 
                         if (typeof f.properties.icon === 'object') {
-                            markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon({className: that.options.className + ' edgeMarkerCircle',
+                            markerDiv = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon({className: divClassName,
                                     iconSize: [that.options.radius * 2, that.options.radius * 2]})}).addTo(that._borderMarkerLayer);
-
-                            icon.className = icon.className + ' edgeMarker';
 
                             markerIcon = L.marker(that._map.containerPointToLatLng([x, y]), {icon: L.divIcon(icon)})
                                 .addTo(that._borderMarkerLayer);
