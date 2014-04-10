@@ -732,6 +732,7 @@ module.exports = function(grunt) {
 
     // Default task
     grunt.registerTask('default', [
+        'buildjson',
         'clean',
         'replace:scss',
         'sass',
@@ -816,7 +817,9 @@ module.exports = function(grunt) {
     grunt.registerTask('features', 'Builds the features JSON', function() {
         var outfile,
             _ = require('lodash'),
-            _s = require('underscore.string');
+            _s = require('underscore.string'),
+            linkify = require('html-linkify'),
+            twitter = require('node-twitter-text');
 
 
         if (!Number.toFixed) {
@@ -1053,13 +1056,16 @@ module.exports = function(grunt) {
                                         break;
                                     case 11:
                                         // text
-                                        f.properties.summary = val === 'null' ? '' : val;
+                                        val = linkify(val);
+                                        val = twitter.autoLink(val);
+
+                                        f.properties.summary = val;
                                         break;
                                     default:
                                         console.log(warn('Unhandled column: ' + itemIndex, val));
                                 }
                             } else {
-                                console.warn(warn(sheetIndex, rowIndex, itemIndex, 'no value'));
+//                                console.warn(warn(sheetIndex, rowIndex, itemIndex, 'no value'));
                             }
                         } else {
 //                            console.warn(warn(sheetIndex, rowIndex, itemIndex, 'no value'));
@@ -1144,7 +1150,9 @@ module.exports = function(grunt) {
                 // @todo test for background-size support and implement differently
                 .replace(/}/g, 'width: ' + width + 'px; height: ' + height + 'px; background-size: ' + width + 'px ' + height + 'px; }');
         } else if (filepath.match(/bg-pattern/)) {
-            return output + src.replace(/^.*?\.([\w-]+)?(\.min)\s{/gm, '.$1 {');
+            return output + src
+                .replace(/^.*?\.([\w-]+)?(\.min)\s{/gm, '.$1 {')
+                .replace(/background-repeat:\sno-repeat;\s}/g, 'background-repeat: repeat; background-size: 40px 40px }');
         } else {
             console.log(warn('other: ') + filepath);
             return output + src.replace(/^.*?\.([\w-]+)?(\.min)\s{/gm, '.$1 {');

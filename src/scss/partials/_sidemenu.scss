@@ -178,32 +178,6 @@
             text-indent:10px;
             height: $sideMenuHeight;
         }
-
-        .ship span {
-            width:$sideMenuHeight;
-            display:inline;
-            
-            i {
-                display:block;
-                float:left;
-                margin:0 5px 0 10px;
-            }
-        }
-
-        .fa {
-            width:$sideMenuHeight;
-            margin-right:10px;
-            vertical-align:middle;
-            font-size:150%;
-        }
-
-        img {
-            text-align:center;
-        } 
-
-        &.close {
-            display:none;
-        }
     }
 
     li {
@@ -214,6 +188,28 @@
 
     .ships {
         border-bottom:none;
+        
+        span {
+            width:$sideMenuHeight;
+            display:inline;
+            
+            i {
+                display:block;
+                float:left;
+                margin:0 5px 0 10px;
+            }
+        }
+    }
+    
+    .features {
+        
+        .feature-icon {
+            text-align:center;
+            width:$sideMenuHeight;
+            margin:0 15px 0 -5px;
+            vertical-align:middle;
+            font-size:150%;
+        }
     }
 }
 

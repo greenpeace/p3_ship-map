@@ -1545,28 +1545,25 @@ body {
     .map-menu ul button {
       text-indent: 10px;
       height: 40px; }
-    .map-menu ul .ship span {
-      width: 40px;
-      display: inline; }
-      .map-menu ul .ship span i {
-        display: block;
-        float: left;
-        margin: 0 5px 0 10px; }
-    .map-menu ul .fa {
-      width: 40px;
-      margin-right: 10px;
-      vertical-align: middle;
-      font-size: 150%; }
-    .map-menu ul img {
-      text-align: center; }
-    .map-menu ul.close {
-      display: none; }
   .map-menu li {
     text-align: left;
     width: 100%;
     padding: 0; }
   .map-menu .ships {
     border-bottom: none; }
+    .map-menu .ships span {
+      width: 40px;
+      display: inline; }
+      .map-menu .ships span i {
+        display: block;
+        float: left;
+        margin: 0 5px 0 10px; }
+  .map-menu .features .feature-icon {
+    text-align: center;
+    width: 40px;
+    margin: 0 15px 0 -5px;
+    vertical-align: middle;
+    font-size: 150%; }
 
 #jPanelMenu-menu {
   overflow-y: auto !important; }
@@ -1747,7 +1744,7 @@ body {
     margin: 0 4% 1em 0;
     text-align: center;
     display: table-cell;
-    background: #ccc; }
+    background-color: #ccc; }
     .leaflet-popup-content .image figure span {
       display: inline-block;
       height: 100%;
@@ -1758,7 +1755,7 @@ body {
       bottom: 0;
       margin: auto;
       width: 100%;
-      min-height: 187px;
+      max-height: 187px;
       display: table-cell;
       /*IE8 Hack*/
       vertical-align: middle;

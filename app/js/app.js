@@ -42,11 +42,11 @@
             },
             map: {
                 minZoom: 2,
-                maxZoom: 10,
+                maxZoom: 11,
                 locations: {
                     center: {
                         coords: [-42, 147],
-                        zoom: 6
+                        zoom: 4
                     }
                 },
                 tileSet: {
@@ -96,11 +96,11 @@
                 icon: {
                     default: "fa-dot-circle-o",
                     events: {
-                        "noon-update": "fa-circle",
-                        "noon": "fa-circle",
-                        "extended": "fa-dot-circle-o",
-                        "ship-event": "fa-dot-circle-o",
-                        "image": "fa-certificate",
+                        "noon-update": "fa-dot-circle-o",
+                        "noon": "fa-dot-circle-o",
+                        "extended": "fa-circle",
+                        "ship-event": "fa-circle",
+                        "image": "fa-picture-o",
                         "featured-event": "fa-certificate"
                     },
                     map: {
@@ -705,6 +705,15 @@
                     if (isNaN(scale)) {
                         return;
                     }
+                    console.log(scale);
+                    var s = scale * scale;
+                    if (s > 1.3) {
+                        s = 1.3;
+                    } else if (s < 0.7) {
+                        s = 0.7;
+                    } else {
+                        s = s;
+                    }
 
                     $('.ship-icon').each(function() {
 
@@ -714,25 +723,25 @@
                             if (!$this.data(prop)) {
                                 $this.data(prop, $this.css(prop).replace('px', ''));
                             }
-                            $this.css(prop, $this.data(prop) * scale * scale);
+                            $this.css(prop, $this.data(prop) * s);
                         });
 
-                        $map.data('iconScale', scale);
+                        $map.data('iconScale', s);
                     });
                 }
 
-                map.on('zoomstart zoomend load resize shiptoggle', function(e) {
+                map.on('zoomend load resize shiptoggle', function(e) {
                     var scale,
                         defaultZoom = config.map.locations.center.zoom;
 
                     switch (e.type) {
                         case 'load':
                         case 'resize':
-                            scale = e.target._zoom / defaultZoom;
+                            scale = e.target._zoom / 6;
                             break;
                         case 'zoomstart':
                         case 'zoomend':
-                            scale = e.target._animateToZoom / defaultZoom;
+                            scale = e.target._animateToZoom / 6;
                             break;
                         case 'shiptoggle':
                             scale = $map.data('iconScale');

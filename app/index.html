@@ -40,6 +40,7 @@
                             <button data-ship-id="{{:id}}">
                                 <span><i class="{{:className}}"></i>
                                 {{:name}}</span>
+                                {{if false}}<i class="fa fa-times"></i>{{/if}}
                             </button>
                         </li>
                     </script>
@@ -47,7 +48,7 @@
                     <script id="featureMenuTemplate" type="text/x-jsrender">
                         <li class="{{:type}}">
                             <button data-feature-type="{{:type}}">
-                                <i class="fa {{:icon}}"></i>
+                                <i class="feature-icon fa {{:icon}}"></i>
                                 {{:name}}
                             </button>
                         </li>

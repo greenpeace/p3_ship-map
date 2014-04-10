@@ -111,7 +111,7 @@
             margin:0 4% 1em 0;
             text-align:center;
             display:table-cell;
-            background: #ccc;
+            background-color: #ccc;
 
             span {
                 display:inline-block;
@@ -125,7 +125,7 @@
                 bottom:0;
                 margin:auto;
                 width:100%;
-                min-height:$popupContentHeight;
+                max-height:$popupContentHeight;
                 display: table-cell; /*IE8 Hack*/
                 vertical-align:middle; /*IE8 Hack*/            
 

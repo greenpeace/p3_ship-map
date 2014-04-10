@@ -1,5 +1,5 @@
 /* Source: src/css/bg-pattern-url.css */
-.pattern-light { background-image: url('../img/pattern/png/light.min.png'); background-repeat: no-repeat; }
+.pattern-light { background-image: url('../img/pattern/png/light.min.png'); background-repeat: repeat; background-size: 40px 40px }
 
 
 .popup-bg { background-image: url('../img/popup/png/bg.min.png'); background-repeat: no-repeat; width: 588px; height: 317px; background-size: 588px 317px; }
