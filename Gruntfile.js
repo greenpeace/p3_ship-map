@@ -146,6 +146,15 @@ module.exports = function(grunt) {
                         cwd: '<%= bower.directory %>/bourbon/app/assets/stylesheets/',
                         src: ['**'],
                         dest: '<%= config.src %>/scss/vendor/bourbon/'
+                    },
+                    {
+                        "<%= config.src %>/scss/vendor/_weather.scss": "<%= bower.directory %>/weather-icons/css/weather-icons.css"
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= bower.directory %>/weather-icons/font/',
+                        src: ['**'],
+                        dest: '<%= config.src %>/font/'
                     }
                 ]
             },
@@ -171,6 +180,12 @@ module.exports = function(grunt) {
                     },{// Base files
                         "<%= config.app %>/robots.txt": "<%= config.src %>/robots.txt",
                         "<%= config.app %>/favicon.ico": "<%= config.src %>/favicon.ico"
+                    },
+                    {// Fonts
+                        expand: true,
+                        cwd: '<%= config.src %>/font/',
+                        src: ['**'],
+                        dest: '<%= config.app %>/font/'
                     }
                 ]
             },
@@ -999,8 +1014,27 @@ module.exports = function(grunt) {
                                     f.properties.type = getFeatureTypeString(val);
                                     break;
                                 case 7:
-                                    // weather
-                                    f.properties.weather = val;
+                                    if (val !== 'null') {
+                                        // weather
+                                        f.properties.weather = {
+                                            text: val
+                                        };
+                                        switch (val.toUpperCase()) {
+                                            case 'SUNNY':
+                                                f.properties.weather.icon = 'wi-day-sunny';
+                                                break;
+                                            case 'CLOUDY':
+                                                f.properties.weather.icon = 'wi-cloudy';
+                                                break;
+                                            case 'RAINY':
+                                                f.properties.weather.icon = 'wi-rain';
+                                                break;
+                                            default:
+                                                console.log(warn('Weather value not handled: '), val);
+                                                f.properties.weather.icon = 'wi-cloud';
+                                        }
+                                    }
+
                                     break;
                                 case 8:
                                     // temperature
@@ -1008,11 +1042,9 @@ module.exports = function(grunt) {
                                     break;
                                 case 9:
                                     // image
-                                    if (val.length && val!=='/') {
-                                        console.log(val);
+                                    if (val.length && val !== '/') {
                                         f.properties.image.src = 'img/features/' + val + '.jpg';
                                     }
-
                                     break;
                                 case 10:
                                     // port
@@ -1020,11 +1052,10 @@ module.exports = function(grunt) {
                                     break;
                                 case 11:
                                     // text
-                                    f.properties.summary = val;
+                                    f.properties.summary = val === 'null' ? '' : val;
                                     break;
                                 default:
                                     console.log(warn('Unhandled column: ' + itemIndex, val));
-                                    break;
                             }
 
                         } else {

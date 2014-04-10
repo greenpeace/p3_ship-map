@@ -65,7 +65,9 @@
             width:20px;
         }
 
-        .close-button {
+        .close-button { 
+            margin-left:1em;
+            padding-left:5px;
             font-size:120%;
             display:inline;
             position:relative;
@@ -151,6 +153,17 @@
         }
     }
 
+    .detail {
+        font-size:250%;
+        
+        abbr {
+            display:inline-block;
+            margin-right: 1em;
+            text-decoration:none;
+            border-bottom: 1px dotted $bannerColour;
+        }
+    }
+    
     footer {
         clear:both;
         left:1px;
@@ -158,13 +171,13 @@
         position:absolute;
         bottom:32px;
         overflow:hidden;
-        padding:1px 2px 1px 20px;
+        padding:1px 2px;
         background:$popupFooterColour;
         @include border-bottom-radius(3px);
 
         .location {
             line-height:$popupFooterHeight;
-            margin:0;
+            margin:0 0 0 18px;
             float:left;
             width: 55%;
             height:$popupFooterHeight;

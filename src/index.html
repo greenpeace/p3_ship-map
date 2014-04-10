@@ -116,6 +116,29 @@
                                 {{if feature.url}}
                                     <a href="{{:feature.url}}" title="">Read more...</a>
                                 {{/if}}
+                                
+                                <div class="detail">
+                                    {{if feature.weather.text}}
+                                        <abbr class="weather" title="{{:feature.weather.text}}">
+                                            <i class="{{:feature.weather.icon}}"></i>
+                                        </abbr>
+                                    {{/if}}
+                                    {{if feature.temp }}
+                                        <abbr class="temp" title="{{:feature.temp}} degrees Celcius">
+                                            <i class="wi-thermometer-exterior"></i>
+                                        </abbr>
+
+                                    {{/if}}
+                                    {{if feature.port }}
+                                        <abbr class="port" title="In port">
+                                            <i class="fa fa-anchor"></i>
+                                        </abbr>
+                                    {{else}}    
+                                        <abbr class="travelling" title="Travelling">
+                                            <i class="fa fa-compass"></i>
+                                        </abbr>
+                                    {{/if}}
+                                </div>
                             </div>
                             
                         </div>

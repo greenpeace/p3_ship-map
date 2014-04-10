@@ -175,7 +175,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "18",
               "port": false
             },
@@ -206,7 +209,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "16",
               "port": true
             },
@@ -237,7 +243,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "23",
               "port": true
             },
@@ -268,7 +277,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": true
             },
@@ -299,7 +311,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "18",
               "port": false
             },
@@ -330,7 +345,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "14",
               "port": true
             },
@@ -361,7 +379,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": false
             },
@@ -392,7 +413,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "20",
               "port": true
             },
@@ -423,7 +447,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "22",
               "port": false
             },
@@ -454,7 +481,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "17",
               "port": true
             },
@@ -485,7 +515,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "15",
               "port": true
             },
@@ -516,7 +549,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "16",
               "port": true
             },
@@ -718,7 +754,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "18",
               "port": true
             },
@@ -749,7 +788,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "16",
               "port": false
             },
@@ -780,7 +822,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "23",
               "port": false
             },
@@ -811,7 +856,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": true
             },
@@ -842,7 +890,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "18",
               "port": false
             },
@@ -873,7 +924,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "14",
               "port": false
             },
@@ -904,7 +958,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": false
             },
@@ -935,7 +992,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "20",
               "port": false
             },
@@ -966,7 +1026,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "22",
               "port": false
             },
@@ -997,7 +1060,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "17",
               "port": true
             },
@@ -1028,7 +1094,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "15",
               "port": false
             },
@@ -1059,7 +1128,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "16",
               "port": false
             },
@@ -1090,7 +1162,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": false
             },
@@ -1121,7 +1196,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "17",
               "port": false
             },
@@ -1152,7 +1230,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "18",
               "port": false
             },
@@ -1183,7 +1264,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "19",
               "port": true
             },
@@ -1214,7 +1298,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "20",
               "port": true
             },
@@ -1346,7 +1433,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "18",
               "port": true
             },
@@ -1377,7 +1467,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "16",
               "port": false
             },
@@ -1399,7 +1492,7 @@
                 "identifier": "noon",
                 "name": "Noon update"
               },
-              "summary": "null",
+              "summary": "",
               "url": "",
               "location": "Pincess Pier, Melbourne (AUS)",
               "image": {
@@ -1408,7 +1501,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "23",
               "port": false
             },
@@ -1439,7 +1535,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": false
             },
@@ -1470,7 +1569,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "18",
               "port": false
             },
@@ -1492,7 +1594,7 @@
                 "identifier": "noon",
                 "name": "Noon update"
               },
-              "summary": "null",
+              "summary": "",
               "url": "",
               "location": "Queensland Coast (AUS)",
               "image": {
@@ -1501,7 +1603,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "14",
               "port": false
             },
@@ -1532,7 +1637,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": false
             },
@@ -1563,7 +1671,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "20",
               "port": false
             },
@@ -1594,7 +1705,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "22",
               "port": true
             },
@@ -1625,7 +1739,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "17",
               "port": false
             },
@@ -1656,7 +1773,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "15",
               "port": false
             },
@@ -1687,7 +1807,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "16",
               "port": true
             },
@@ -1718,7 +1841,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "15",
               "port": false
             },
@@ -1740,7 +1866,7 @@
                 "identifier": "noon",
                 "name": "Noon update"
               },
-              "summary": "null",
+              "summary": "",
               "url": "",
               "location": "North Pacific Ocean (sea)",
               "image": {
@@ -1749,7 +1875,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "17",
               "port": false
             },
@@ -1780,7 +1909,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Sunny",
+              "weather": {
+                "text": "Sunny",
+                "icon": "wi-day-sunny"
+              },
               "temp": "18",
               "port": false
             },
@@ -1811,7 +1943,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Cloudy",
+              "weather": {
+                "text": "Cloudy",
+                "icon": "wi-cloudy"
+              },
               "temp": "19",
               "port": true
             },
@@ -1842,7 +1977,10 @@
                 "height": "auto",
                 "caption": ""
               },
-              "weather": "Rainy",
+              "weather": {
+                "text": "Rainy",
+                "icon": "wi-rain"
+              },
               "temp": "20",
               "port": true
             },
