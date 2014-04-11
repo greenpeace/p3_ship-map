@@ -54,10 +54,21 @@
                     apiKey: false,
                     retinaUrl: false,
                     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+                },
+                popup: {
+                    open: {
+                        offset: {
+                            y: -150,
+                            x: -5
+                        }
+                    }
+                },
+                pan: {
+                    duration: 2
                 }
             },
             selectors: {
-                mapContainer: '#shipping-map .map-container',
+                mapContainer: '.map-container',
                 map: '#map',
                 menu: {
                     trigger: '.menu-trigger',
@@ -625,15 +636,37 @@
 
                 });
 
+                var popupToOpen = false;
+
+                map.on('moveend', function() {
+                    var p = popupToOpen;
+                    if (p) {
+                        $('.flipOutY').removeClass('flipOutY');
+
+                        popupToOpen = false;
+
+                        p.openPopup();
+                    }
+                });
+
                 function tryOpeningPopup(ship, index) {
-                    if (ship.popups[index]) {
-//                        console.log(ship.popups[index]);
-                        map.panTo(ship.popups[index]._latlng, {
-                            animate:true,
-                            duration:1000
+                    if (ship.popups[index] && ship.popups[index]._map) {
+                        var point = map.latLngToContainerPoint(ship.popups[index]._latlng),
+                            latlng;
+
+                        popupToOpen = ship.popups[index];
+
+                        point.y = point.y + config.map.popup.open.offset.y;
+                        latlng = map.containerPointToLatLng(point);
+
+                        $('.leaflet-popup-content-wrapper').addClass('flipOutY');
+
+                        map.panTo(latlng, {
+                            animate: true,
+                            duration: config.map.pan.duration
                         });
-//                        return true;
-                        return ship.popups[index].openPopup()._map;
+
+                        return true;
                     }
                 }
 
@@ -694,7 +727,7 @@
                         /**
                          * @todo Offset point to allow room for popup height
                          */
-                        map.panTo(map.options.crs.pointToLatLng(L.point(point.x, point.y - 150), e.popup._map._zoom));
+                        map.panTo(map.options.crs.pointToLatLng(L.point(point.x + config.map.popup.open.offset.x, point.y + config.map.popup.open.offset.y), e.popup._map._zoom));
                     });
                 }
 

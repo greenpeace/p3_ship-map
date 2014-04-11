@@ -9215,6 +9215,7 @@ L.EdgeMarker = L.Class.extend({
 
                 if (typeof this._borderMarkerLayer !== 'undefined') {
                     $('.' + this.options.className).addClass(this.options.transitionClass);
+                    $('.edgeMarkerCircle').addClass(this.options.transitionClass);
                 }
 
                 if (timer) {
@@ -9265,14 +9266,16 @@ L.EdgeMarker = L.Class.extend({
 
             $.each(features, function(i, feature) {
                 var f = feature.feature;
-
+                if (typeof f === 'undefined') {
+                    return;
+                }
                 if (typeof f.properties.edgeMarker !== "undefined") {
 
                     var icon = $.extend(true, {className: that.options.className + 'edgeMarker'}, f.properties.edgeMarker),
                         latlng = feature.getLatLng(),
                         currentMarkerPosition = that._map.latLngToContainerPoint(latlng),
                         mapPixelBounds = that._map.getSize(),
-                        divClassName = that.options.className + ' edgeMarkerCircle';;
+                        divClassName = 'edgeMarkerCircle';;
 
                     icon.className += ' edgeMarker';
 
@@ -9289,21 +9292,21 @@ L.EdgeMarker = L.Class.extend({
                         if (currentMarkerPosition.y < 0) {
                             y = 0;
                             icon.iconAnchor[1] = icon.iconAnchor[1] - y_offset;
-                            divClassName += ' edge-top';
+                            divClassName += ' edgetop';
                         } else if (currentMarkerPosition.y > mapPixelBounds.y) {
                             y = mapPixelBounds.y;
                             icon.iconAnchor[1] = icon.iconAnchor[1] + y_offset;
-                            divClassName += ' edge-bottom';
+                            divClassName += ' edgebottom';
                         }
 
                         if (currentMarkerPosition.x > mapPixelBounds.x) {
                             x = mapPixelBounds.x;
                             icon.iconAnchor[0] = icon.iconAnchor[0] + x_offset;
-                            divClassName += ' edge-right';
+                            divClassName += ' edgeright';
                         } else if (currentMarkerPosition.x < 0) {
                             x = 0;
                             icon.iconAnchor[0] = icon.iconAnchor[0] - x_offset;
-                            divClassName += ' edge-left';
+                            divClassName += ' edgeleft';
                         }
 
                         if (typeof f.properties.icon === 'object') {
@@ -9327,16 +9330,35 @@ L.EdgeMarker = L.Class.extend({
                                 that._map.panTo(latlng, {animate: true});
                             });
                         }
-
                     }
                 }
-
             });
+
             if (!this._map.hasLayer(this._borderMarkerLayer)) {
                 this._borderMarkerLayer.addTo(this._map);
             }
+
+            var className = '.edgeMarkerCircle';
+
+            console.log(className);
+
+            $(className ).on('mouseenter', function() {
+                console.log('enter');
+                $(this).addClass('over');
+            });
+
+
+            $(className).on('mouseleave', function() {
+                console.log('leave');
+                $(this).removeClass('over');
+            });
         }
+
+
     });
+
+
+
 
     L.edgeMarker = function(options) {
         return new L.EdgeMarker(options);

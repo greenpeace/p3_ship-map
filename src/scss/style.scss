@@ -4,8 +4,10 @@
 @import "vendor/normalize";
 @import "vendor/bourbon/bourbon";
 
-@import "modules/base";
 @import "modules/mixins";
+@import "modules/animation";
+
+@import "modules/base";
 
 // Import Leaflet styles
 @import "vendor/leaflet";
@@ -15,7 +17,7 @@
 @import "vendor/weather";
 
 // Import page styles
-@import "partials/page-base";
+@import "partials/map";
 
 @import "partials/header";
 

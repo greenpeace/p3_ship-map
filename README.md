@@ -8,6 +8,7 @@ A [Leaflet](http://leafletjs.com)-based mapping application, built with [NodeJS]
 
 Authors:
 * [Ray Walker](https://github.com/funkygibbing)
+* [Iris Maertens]
 
 ## About
 
@@ -132,13 +133,18 @@ grunt buildjson
 * Parses the JSON into map-ready data
 * Converts twitter @usernames and #hashtags to links
 * Converts text links to clickable links using [html-linkify](https://github.com/parshap/html-linkify)
+* Adds image path information and '.jpg' suffix 
+* (@todo - a smarter way of handling images, since they might be gif, jpeg, png etc
 
 
 ## @todo
 
 * Finalise the JSON generation
 Currently while the buildjson script expects existing ship information in the output JSON, as there is nowhere the provided Excel spreadsheet which identifies the name of the ship, without which no human-readable ship identifiers can be generated.
-An extremely simple form could accomplish this. Input ship name, uploading the spreadsheet, uploading images, choose colours, and then the grunt tasks can do the rest.
+An _extremely simple_ form could accomplish this. Input ship name, uploading the spreadsheet, uploading images, choose colours, and then the grunt tasks can do the rest.
+
+* Mobile browser popup layouts
+Iris has provided additional layouts for popups on low-width screens
 
 * Mobile browser testing and fixes
 The application is designed from the ground up to be responsive, however media-queries for small browser sizes have not yet been implemented.
@@ -146,8 +152,10 @@ The application is designed from the ground up to be responsive, however media-q
 * Implement an image manipulation library: 
 The source images need to be adjusted to suit the small file size
 
+* Modal lightbox for viewing images at a larger size
+
+* Conversion to webp images for supported browsers
+
 * Internet Explorer and rare browser testing
 
 * Switch from cloudmade to an alternate tile provider.  Cloudmade is shutting down services from 1st May 2014, so an alternate arrangement is required.
-
-

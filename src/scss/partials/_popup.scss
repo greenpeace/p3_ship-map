@@ -41,6 +41,21 @@
 
 }
 
+.no-touch {
+    .leaflet-fade-anim .leaflet-map-pane .leaflet-popup .leaflet-popup-content-wrapper {
+        @include animated;
+        @include animatedFlip;
+        @include flipInY;
+        
+        &.flipOutY {
+            @include flipOutY;
+        }
+    }
+}
+
+
+
+
 .ship-popup {
     padding:10px 20px;
 }

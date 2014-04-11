@@ -21,7 +21,7 @@
           "default": {
             "radius": 8,
             "fillColor": "white",
-            "color": "green",
+            "color": "#66cc00",
             "weight": 12,
             "opacity": 0.4,
             "fillOpacity": 0.8
@@ -84,7 +84,7 @@
         "path": {
           "default": {
             "pathOptions": {
-              "color": "green"
+              "color": "#66cc00"
             }
           },
           "future": {
