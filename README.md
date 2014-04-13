@@ -47,8 +47,6 @@ To check for updates and download the latest versions at any time, use ```bower 
 
 ### Making changes
 
-Now that your development environment is configure, you can get started editing the code.
-
 #### File structure
 
 * */.sassrc.json*: This contains image dimensions for the popups and icons displayed on the map.
@@ -142,6 +140,10 @@ grunt buildjson
 * Finalise the JSON generation
 Currently while the buildjson script expects existing ship information in the output JSON, as there is nowhere the provided Excel spreadsheet which identifies the name of the ship, without which no human-readable ship identifiers can be generated.
 An _extremely simple_ form could accomplish this. Input ship name, uploading the spreadsheet, uploading images, choose colours, and then the grunt tasks can do the rest.
+
+* Geolocation for centering the map on load
+Leaflet supports geolocation natively, but the implementation is clumsy - if the geolocation fails then it defaults to showing the whole world.  A combination of default map center & zoom combined
+with Modernizr.geolocation check might smooth the UX here.  Can specify geolocation disabled in JSON response.
 
 * Mobile browser popup layouts
 Iris has provided additional layouts for popups on low-width screens
