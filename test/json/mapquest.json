@@ -8,7 +8,7 @@
       "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
       "url": "http://otile{mqcdn}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png",
       "retinaUrl": "http://otile{mqcdn}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png",
-      "attribution": "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>"
+      "attribution": "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a> <img src=\"http://developer.mapquest.com/content/osm/mq_logo.png\">"
     }
   },
   "ships": [

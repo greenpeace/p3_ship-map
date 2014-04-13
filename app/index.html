@@ -12,9 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
         <link rel="stylesheet" href="css/style.css">
-        
+
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        
+
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
         <![endif]-->
@@ -26,155 +26,170 @@
         <!--[if lt IE 8]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-    <header class="map-header">
-                <h1 class="image-replacement">
-                    Greenpeace
-                </h1>
-                <button class="menu-trigger"><span>Show Menu</span></button>
-    </header>
+        <header class="map-header">
+            <h1 class="image-replacement">
+                Greenpeace
+            </h1>
+
+            <nav class="debug">
+                <button class="fa fa-gear menu-trigger" value="options"></button>
+                <div class="options">
+                    <h2>Tileset:</h2>
+                    <ul>
+                        <li><a href="?api=../test/json/default.json" class="default selected"><i class="fa fa-check-square-o"></i>Cloudmade</a></li>
+                        <li><a href="?api=../test/json/osm.json" class="osm"><i class="fa fa-square-o"></i>OpenStreetMap</a></li>
+                        <li><a href="?api=../test/json/mapquest.json" class="mapquest"><i class="fa fa-square-o"></i>MapQuest</a></li>
+                        <li><a href="?api=../test/json/mapquest-aerial.json" class="mapquest-aerial"><i class="fa fa-square-o"></i>MapQuest - Satellite</a></li>
+                        <li><a href="?api=../test/json/osm-watercolour.json" class="osm-watercolour"><i class="fa fa-square-o"></i>OSM: Watercolour</a></li>
+                    </ul>    
+                </div>
+
+            </nav>
+            <button class="menu-trigger"><span>Show Menu</span></button>
+        </header>
         <section id="map-wrapper">
-                
-                <nav class="menu-container">
-                    <script id="shipMenuTemplate" type="text/x-jsrender">
-                        <li class="ship {{:simpleName}}">
-                            <button data-ship-id="{{:id}}">
-                                <span><i class="{{:className}}"></i>
-                                {{:name}}</span>
-                                {{if false}}<i class="fa fa-times"></i>{{/if}}
-                            </button>
-                        </li>
-                    </script>
-                    
-                    <script id="featureMenuTemplate" type="text/x-jsrender">
-                        <li class="{{:type}}">
-                            <button data-feature-type="{{:type}}">
-                                <i class="feature-icon fa {{:icon}}"></i>
-                                {{:name}}
-                            </button>
-                        </li>
-                    </script>
-                    
-                    <ul class="map-menu">
-                        <li class="ships">
-                            <button class="toggleMenu">Display ships</button>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="features">
-                            <button class="toggleMenu">Events</button>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Get Involved</a>                            
-                        </li>
-                        <li>
-                            <a href="#">Donate</a>                            
-                        </li>
-                        <li>
-                            <a href="#">Home</a>                            
-                        </li>
-                    </ul>
-                </nav>
-            
+
+            <nav class="menu-container">
+                <script id="shipMenuTemplate" type="text/x-jsrender">
+                    <li class="ship {{:simpleName}}">
+                    <button data-ship-id="{{:id}}">
+                    <span><i class="{{:className}}"></i>
+                    {{:name}}</span>
+                    {{if false}}<i class="fa fa-times"></i>{{/if}}
+                    </button>
+                    </li>
+                </script>
+
+                <script id="featureMenuTemplate" type="text/x-jsrender">
+                    <li class="{{:type}}">
+                    <button data-feature-type="{{:type}}">
+                    <i class="feature-icon fa {{:icon}}"></i>
+                    {{:name}}
+                    </button>
+                    </li>
+                </script>
+
+                <ul class="map-menu">
+                    <li class="ships">
+                        <button class="toggleMenu">Display ships</button>
+                        <ul>
+                        </ul>
+                    </li>
+                    <li class="features">
+                        <button class="toggleMenu">Events</button>
+                        <ul>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Get Involved</a>                            
+                    </li>
+                    <li>
+                        <a href="#">Donate</a>                            
+                    </li>
+                    <li>
+                        <a href="#">Home</a>                            
+                    </li>
+                </ul>
+            </nav>
+
             <div class="map-container">
-                
+
                 <script id="featurePopupTemplate" type="text/x-jsrender">
                     <article class="ship-popup {{:extraClasses}} popup-bg" data-ship-name="{{:ship.nameSimple}}" data-ship-event-index="{{:index}}" data-ship-id="{{:ship.shipID}}">
-                        <header>
-                            <h1>
-                                <span class="type">                                    
-                                    {{:feature.type.name}}
-                                    <a href="#close" class="close-button">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </span>
-                                <i class="icon-{{:ship.shipID}}-legend">&nbsp;</i> {{:ship.name}} #{{:index + 1}}
-                            </h1>
-                        </header>
-                        
-                        <div class="popupContent">
+                    <header>
+                    <h1>
+                    <span class="type">                                    
+                    {{:feature.type.name}}
+                    <a href="#close" class="close-button">
+                    <i class="fa fa-times"></i>
+                    </a>
+                    </span>
+                    <i class="icon-{{:ship.shipID}}-legend">&nbsp;</i> {{:ship.name}} #{{:index + 1}}
+                    </h1>
+                    </header>
 
-                            {{if feature.image.src}}
-                            <figure class="pattern-light">
-                                {{if feature.url}}<a href="{{:feature.url}}">{{/if}}
-                                <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
-                                {{if feature.url}}</a>{{/if}}
-                                {{if feature.image.caption}}
-                                <figcaption>
-                                    {{:feature.image.caption}}
-                                </figcaption>
-                                {{/if}}
-                            </figure>
-                            {{/if}}
-                            <div class="summary">
-                                <h2>
-                                    {{:feature.name}}
-                                </h2>
-                                <p>
-                                {{:feature.summary}}
-                                </p>
-                                {{if feature.url}}
-                                    <a href="{{:feature.url}}" title="">Read more...</a>
-                                {{/if}}
-                                
-                                <div class="detail">
-                                    {{if feature.weather.text}}
-                                        <span class="weather" title="{{:feature.weather.text}}">
-                                            <i class="{{:feature.weather.icon}}"></i>
-                                            {{:feature.weather.text}}
-                                        </span>
-                                    {{/if}}
-                                    {{if feature.temp }}
-                                        <span class="temp" title="{{:feature.temp}} degrees Celcius">
-                                            <i class="wi-thermometer-exterior"></i>
-                                            {{:feature.temp}}&deg; C
-                                        </span>
-                                    {{/if}}
-                                    {{if feature.port }}
-                                        <span class="port" title="In port">
-                                            <i class="fa fa-anchor"></i>
-                                            In port
-                                        </span>
-                                    {{else}}    
-                                        <span class="travelling" title="Travelling">
-                                            <i class="fa fa-compass"></i>
-                                            Travelling
-                                        </span>
-                                    {{/if}}
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                        <footer>
-                        
-                            {{if feature.location}}
-                            <p class="location">
-                                {{:feature.location}}
-                            </p>
-                            {{/if}}
-                                    
-                            <div class="meta">
-                            
-                                <time datetime="{{:feature.timestamp}}">
-                                    <abbr title="{{:feature.timestamp}}">{{:humanTime}}</abbr>
-                                </time>
-                            
-                            {{if prev || next }}
-                                <nav>
-                                    <button {{if prev === false}} disabled="disabled" {{/if}}class="prev" data-direction="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>
-                                    <button {{if next === false}} disabled="disabled" {{/if}}class="next" data-direction="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>
-                                </nav>
-                            {{/if}}
-                            
-                            </div>
-                            
-                        </footer>
-                    
+                    <div class="popupContent">
+
+                    {{if feature.image.src}}
+                    <figure class="pattern-light">
+                    {{if feature.url}}<a href="{{:feature.url}}">{{/if}}
+                    <img src="{{:feature.image.src}}" width="{{:feature.image.width}}" height="{{:feature.image.height}}" />
+                    {{if feature.url}}</a>{{/if}}
+                    {{if feature.image.caption}}
+                    <figcaption>
+                    {{:feature.image.caption}}
+                    </figcaption>
+                    {{/if}}
+                    </figure>
+                    {{/if}}
+                    <div class="summary">
+                    <h2>
+                    {{:feature.name}}
+                    </h2>
+                    <p>
+                    {{:feature.summary}}
+                    </p>
+                    {{if feature.url}}
+                    <a href="{{:feature.url}}" title="">Read more...</a>
+                    {{/if}}
+
+                    <div class="detail">
+                    {{if feature.weather.text}}
+                    <span class="weather" title="{{:feature.weather.text}}">
+                    <i class="{{:feature.weather.icon}}"></i>
+                    {{:feature.weather.text}}
+                    </span>
+                    {{/if}}
+                    {{if feature.temp }}
+                    <span class="temp" title="{{:feature.temp}} degrees Celcius">
+                    <i class="wi-thermometer-exterior"></i>
+                    {{:feature.temp}}&deg; C
+                    </span>
+                    {{/if}}
+                    {{if feature.port }}
+                    <span class="port" title="In port">
+                    <i class="fa fa-anchor"></i>
+                    In port
+                    </span>
+                    {{else}}    
+                    <span class="travelling" title="Travelling">
+                    <i class="fa fa-compass"></i>
+                    Travelling
+                    </span>
+                    {{/if}}
+                    </div>
+                    </div>
+
+                    </div>
+
+                    <footer>
+
+                    {{if feature.location}}
+                    <p class="location">
+                    {{:feature.location}}
+                    </p>
+                    {{/if}}
+
+                    <div class="meta">
+
+                    <time datetime="{{:feature.timestamp}}">
+                    <abbr title="{{:feature.timestamp}}">{{:humanTime}}</abbr>
+                    </time>
+
+                    {{if prev || next }}
+                    <nav>
+                    <button {{if prev === false}} disabled="disabled" {{/if}}class="prev" data-direction="prev" data-trigger-index="{{:prev}}"><i class="fa fa-angle-left"></i></button>
+                    <button {{if next === false}} disabled="disabled" {{/if}}class="next" data-direction="next" data-trigger-index="{{:next}}"><i class="fa fa-angle-right"></i></button>
+                    </nav>
+                    {{/if}}
+
+                    </div>
+
+                    </footer>
+
                     </article>
                 </script>
-                
+
                 <div id="map">
                 </div>
             </div>
@@ -182,16 +197,15 @@
         <footer class="map-footer">
             &COPY; Greenpeace | 2013 <a href="#">Legal</a>
         </footer>
-        
+
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js">\x3C/script>');</script>
 
         <script src="js/leaflet.js"></script>
         <script src="js/plugins.js"></script>
-        
+
         <script src="js/app.js"></script>
 
         <!-- Analytics -->
     </body>
 </html>
-    

@@ -26,7 +26,7 @@
 
     var defaults = {
             api: {
-                url: '../test/json/test-generated.json'
+                url: '../test/json/default.json'
             },
             options: {
                 debug: true,
@@ -155,6 +155,8 @@
                 }
             }
         },
+        request = $.p3.request(window.location.href),
+        api = request.parameters.api ? request.parameters.api : defaults.api.url,
         $document = $(document),
         data = false,
         timeString = function(timestamp) {
@@ -246,7 +248,7 @@
         }
     ]);
 
-    $.getJSON(defaults.api.url, function(json) {
+    $.getJSON(api, function(json) {
         console.log('API response complete');
 
         data = json;
@@ -276,16 +278,16 @@
                     }
                 },
                 ships = {},
-                    features = {
-                        data: {
-                            types: [] // Stores metadata about the features, such as identifiers and human-readable names
-                                // Will also contain arrays of features for later grouping
-                        },
-                        groups: {
-                            all: {}   // A utility layerGroup containing all map features
-                            // Additional groups will be created under the type identifier property
-                        }
+                features = {
+                    data: {
+                        types: [] // Stores metadata about the features, such as identifiers and human-readable names
+                            // Will also contain arrays of features for later grouping
                     },
+                    groups: {
+                        all: {}   // A utility layerGroup containing all map features
+                        // Additional groups will be created under the type identifier property
+                    }
+                },
                 config = $.extend(true, defaults, data),
                 $mapHolder = $(config.selectors.mapContainer),
                 $shipsMenu = $(config.selectors.menu.ship),
@@ -311,6 +313,11 @@
 
                 // Add tile layer
                 L.tileLayer(config.map.tileSet.url, {
+                    mqcdn: function() {
+                        var arr = [1,2,3,4];
+
+                        return arr[Math.floor(Math.random() * arr.length)];
+                    },
                     attribution: config.map.tileSet.attribution,
                     apiKey: config.map.tileSet.apiKey,
                     minZoom: config.map.minZoom,
@@ -897,9 +904,30 @@
                             //
                         }
                     }]);
-            });
 
-        }); // End document.ready()
+                if (request.parameters.api) {
+                    var apiPart = request.parameters.api.match(/\/([\w-]+)\.json/);
+
+                    console.log(apiPart[1]);
+
+                    $('.debug a').each(function () {
+                        var $this = $(this);
+
+                        if ($this.hasClass(apiPart[1])) {
+                            console.log('found');
+                            $this.addClass('selected');
+                            $('i', $this).addClass('fa-check-square-o').removeClass('fa-square-o');
+                        } else {
+                            $this.removeClass('selected');
+                            $('i', $this).removeClass('fa-check-square-o').addClass('fa-square-o');
+                        }
+                    });
+                }
+
+            }); // End document.ready()
+
+
+        }); // End initialisation
 
 
 }(jQuery, L, Modernizr));

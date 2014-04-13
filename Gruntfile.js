@@ -881,7 +881,7 @@ module.exports = function(grunt) {
 
         if (arguments.length < 1) {
             console.log(warn('No output file specified, using default'));
-            outfile = config.test + '/json/test-generated.json';
+            outfile = config.test + '/json/default.json';
         } else {
             outfile = config.test + '/json/' + arguments[0];
         }

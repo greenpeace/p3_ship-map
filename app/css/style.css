@@ -486,27 +486,8 @@ td, th {
   overflow: hidden; }
 
 /*
- * The MIT License
- *
- * Copyright 2014 Ray Walker <hello@raywalker.it>.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * Modified by Ray Walker http://raywalker.it
+ * Original source http://daneden.github.io/animate.css/
  */
 @-webkit-keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
@@ -2426,6 +2407,96 @@ html, body {
 body {
   font: 14px/1.5 Lato, "Helvetica", Arial, sans-serif; }
 
+/*
+The MIT License
+
+Copyright 2014 Ray Walker <hello@raywalker.it>.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+/* 
+    Created on : 13/04/2014, 9:53:30 PM
+    Author     : Ray Walker <hello@raywalker.it>
+*/
+.debug {
+  float: left;
+  position: relative;
+  margin-left: 2em; }
+  .debug .menu-trigger {
+    font-size: 120%;
+    position: relative;
+    width: 50px; }
+  .debug .options {
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    background: #efefef;
+    opacity: 0;
+    display: block;
+    left: 0;
+    top: 50px;
+    color: #66cc00; }
+    .debug .options h2 {
+      margin: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      border-bottom: 2px solid #ccc; }
+    .debug .options ul {
+      list-style-type: none;
+      width: 240px;
+      padding: 0;
+      margin: 0; }
+      .debug .options ul li a {
+        margin: 0;
+        padding: 0 10px;
+        display: block;
+        height: 2.5em;
+        line-height: 2.5em;
+        text-overflow: ellipsis;
+        color: #66cc00;
+        text-decoration: none; }
+        .debug .options ul li a i {
+          margin-right: 1em; }
+        .debug .options ul li a:hover {
+          background: #66cc00;
+          color: #efefef; }
+          .debug .options ul li a:hover.selected {
+            background: #e1e1e1;
+            color: #66cc00; }
+  .debug.active, .debug:hover {
+    background: #efefef; }
+    .debug.active .menu-trigger, .debug:hover .menu-trigger {
+      color: #66cc00;
+      background: #efefef; }
+    .debug.active .options, .debug:hover .options {
+      -webkit-animation-duration: 0.7s;
+      animation-duration: 0.7s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: fadeInLeft;
+      animation-name: fadeInLeft;
+      height: auto;
+      width: 240px;
+      opacity: 1; }
+
 /* required styles */
 .leaflet-map-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-pane, .leaflet-tile-container, .leaflet-overlay-pane, .leaflet-shadow-pane, .leaflet-marker-pane, .leaflet-popup-pane, .leaflet-overlay-pane svg, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer {
   position: absolute;
@@ -3383,24 +3454,27 @@ Version: 1.0
     .menu-trigger span::after {
       -webkit-transform: translateY(300%);
       transform: translateY(300%); }
-  .menu-trigger.active span {
-    background-color: transparent; }
-    .menu-trigger.active span::before {
-      background-color: white;
-      -webkit-transform: translateY(0) rotate(45deg);
-      transform: translateY(0) rotate(45deg); }
-    .menu-trigger.active span::after {
-      background-color: white;
-      -webkit-transform: translateY(0) rotate(-45deg);
-      transform: translateY(0) rotate(-45deg); }
-  .menu-trigger.active:hover {
-    background: #90ff1a; }
-    .menu-trigger.active:hover span::before {
-      -webkit-transform: translateY(0) rotate(36deg);
-      transform: translateY(0) rotate(36deg); }
-    .menu-trigger.active:hover span::after {
-      -webkit-transform: translateY(0) rotate(-36deg);
-      transform: translateY(0) rotate(-36deg); }
+  .menu-trigger.active {
+    opacity: 0.5; }
+    .menu-trigger.active span {
+      background-color: transparent; }
+      .menu-trigger.active span::before {
+        background-color: white;
+        -webkit-transform: translateY(0) rotate(45deg);
+        transform: translateY(0) rotate(45deg); }
+      .menu-trigger.active span::after {
+        background-color: white;
+        -webkit-transform: translateY(0) rotate(-45deg);
+        transform: translateY(0) rotate(-45deg); }
+    .menu-trigger.active:hover {
+      opacity: 1;
+      background: #90ff1a; }
+      .menu-trigger.active:hover span::before {
+        -webkit-transform: translateY(0) rotate(36deg);
+        transform: translateY(0) rotate(36deg); }
+      .menu-trigger.active:hover span::after {
+        -webkit-transform: translateY(0) rotate(-36deg);
+        transform: translateY(0) rotate(-36deg); }
   .menu-trigger:hover {
     background: #90ff1a; }
     .menu-trigger:hover span::before {

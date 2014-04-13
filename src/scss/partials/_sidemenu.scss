@@ -71,7 +71,8 @@
     }
 
     &.active {
-
+        opacity:0.5;
+        
         span {
 
             background-color:transparent;
@@ -92,7 +93,8 @@
         }
 
         &:hover {
-
+            opacity:1;
+            
             background:lighten($bannerColour, 15%);
 
             & span::before {

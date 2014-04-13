@@ -8,7 +8,7 @@ A [Leaflet](http://leafletjs.com)-based mapping application, built with [NodeJS]
 
 Authors:
 * [Ray Walker](https://github.com/funkygibbing)
-* [Iris Maertens]
+* [Iris Maertens](https://github.com/irisism)
 
 ## About
 
@@ -152,10 +152,12 @@ The application is designed from the ground up to be responsive, however media-q
 * Implement an image manipulation library: 
 The source images need to be adjusted to suit the small file size
 
-* Modal lightbox for viewing images at a larger size
+* Modal lightbox for viewing images in popups at a larger size
 
 * Conversion to webp images for supported browsers
 
 * Internet Explorer and rare browser testing
 
-* Switch from cloudmade to an alternate tile provider.  Cloudmade is shutting down services from 1st May 2014, so an alternate arrangement is required.
+* Select an alternate tileset.  *Cloudmade is shutting down services from 1st May 2014*, so an alternate arrangement is required.
+
+* Implement [Leaflet.textpath](https://github.com/makinacorpus/Leaflet.TextPath) path decoration, eg name of the ship, direction indicators
