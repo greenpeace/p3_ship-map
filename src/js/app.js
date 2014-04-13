@@ -64,14 +64,14 @@
                     }
                 },
                 pan: {
-                    duration: 2
+                    duration: 1
                 }
             },
             selectors: {
                 mapContainer: '.map-container',
                 map: '#map',
                 menu: {
-                    trigger: '.menu-trigger',
+                    trigger: 'header > .menu-trigger',
                     container: '.menu-container',
                     ship: '.map-menu .ships ul',
                     feature: '.map-menu .features ul'
@@ -528,7 +528,7 @@
 
                     // Add this ship's layerGroup to the map
                     map.addLayer(layers.groups.all);
-                    console.log(ship.shipID);
+
                     // Store relevant variables for toggling from menu
                     ships[ship.shipID] = {
                         layers: layers,
@@ -549,7 +549,7 @@
                         id: ship.shipID
                     }));
 
-                    console.log(' <=== End ' + ship.name);
+                    console.log(' >> ' + ship.name + ' added');
 
                 }); // End each ship
 
@@ -745,14 +745,12 @@
                     if (isNaN(scale)) {
                         return;
                     }
-                    console.log(scale);
+
                     var s = scale * scale;
                     if (s > 1.3) {
                         s = 1.3;
                     } else if (s < 0.7) {
                         s = 0.7;
-                    } else {
-                        s = s;
                     }
 
                     $('.ship-icon').each(function() {
@@ -908,13 +906,10 @@
                 if (request.parameters.api) {
                     var apiPart = request.parameters.api.match(/\/([\w-]+)\.json/);
 
-                    console.log(apiPart[1]);
-
                     $('.debug a').each(function () {
                         var $this = $(this);
 
                         if ($this.hasClass(apiPart[1])) {
-                            console.log('found');
                             $this.addClass('selected');
                             $('i', $this).addClass('fa-check-square-o').removeClass('fa-square-o');
                         } else {

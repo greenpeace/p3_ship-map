@@ -2,8 +2,8 @@
   "status": "success",
   "ttl": 3600,
   "map": {
-    "minZoom": 4,
-    "maxZoom": 8,
+    "minZoom": 2,
+    "maxZoom": 12,
     "tileSet": {
       "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
       "url": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",

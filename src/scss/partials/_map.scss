@@ -72,18 +72,34 @@
     border-radius: 50%;
     background: white;
     box-shadow: 0 0 0 2px $bannerColour;
-    @include transition(all 0.25s ease-out);
+    @include transition(all 0.75s ease-out);
     
     &:hover,
     &.over {
         background: $bannerColour;
         box-shadow: 0 0 0 2px white;
     }
+    
+/*    &.edgetop {
+        @include fadeInDown;
+    }
+    &.edgebottom {
+        @include fadeInUp;
+    }
+    &.edgeleft {
+        @include fadeInRight;
+    }
+    &.edgeright {
+        @include fadeInLeft;
+    }*/
 }
 
 .edgeMarker {
     pointer-events:none;
     border-radius:50%;
     background: white;
+    
+    /*@include animated;*/
+    /*@include fadeInDown;*/
     
 }

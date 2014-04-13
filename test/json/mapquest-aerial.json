@@ -2,8 +2,8 @@
   "status": "success",
   "ttl": 3600,
   "map": {
-    "minZoom": 4,
-    "maxZoom": 8,
+    "minZoom": 2,
+    "maxZoom": 11,
     "tileSet": {
       "apiKey": "089335110c7b4bd3a60f0c3b1de28cb9",
       "url": "http://otile{mqcdn}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png",

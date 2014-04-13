@@ -170,16 +170,9 @@
 
             var className = '.edgeMarkerCircle';
 
-            console.log(className);
-
             $(className ).on('mouseenter', function() {
-                console.log('enter');
                 $(this).addClass('over');
-            });
-
-
-            $(className).on('mouseleave', function() {
-                console.log('leave');
+            }).on('mouseleave', function() {
                 $(this).removeClass('over');
             });
         }
