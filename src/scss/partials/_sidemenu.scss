@@ -218,18 +218,22 @@
     a:visited {
         display:block;
         width:100%;
-        background:$multimediaColour;
-        @include flat-button(#ffffff, $linkColour);
+        background:#777;
+        @include flat-button(#ffffff, #777);
         border-bottom:1px solid #ccc;
     }
 
     button {
         text-align:left;
-        color: $linkColour;
-        @include flat-button(white, $linkColour);
+        color: #777;
+        @include flat-button(white, #777);
         vertical-align:middle;
         width:100%;
         border-bottom:1px solid #ccc;
+        
+        i {
+            color:$bannerColour;
+        }
     }
 
     ul {

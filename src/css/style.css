@@ -3627,11 +3627,11 @@ Version: 1.0
   .map-menu a, .map-menu a:visited {
     display: block;
     width: 100%;
-    background: #5f6169;
+    background: #777;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    color: #46803C;
+    color: #777;
     display: inline-block;
     padding: 0 1.5em;
     text-decoration: none;
@@ -3642,11 +3642,11 @@ Version: 1.0
       cursor: pointer; }
   .map-menu button {
     text-align: left;
-    color: #46803C;
+    color: #777;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    color: #46803C;
+    color: #777;
     display: inline-block;
     padding: 0 1.5em;
     text-decoration: none;
@@ -3657,6 +3657,8 @@ Version: 1.0
     border-bottom: 1px solid #ccc; }
     .map-menu button:hover:not(:disabled) {
       cursor: pointer; }
+    .map-menu button i {
+      color: #66cc00; }
   .map-menu ul {
     list-style-type: none;
     margin: 0;
@@ -3694,9 +3696,18 @@ Version: 1.0
 .map-footer {
   position: fixed;
   z-index: 10;
-  padding: 5px;
+  padding: 0 5px;
   bottom: 0;
   left: 0;
+  font-size: 12px;
+  -webkit-opacity: 0.8;
+  -ms-opacity: 0.8;
+  -moz-opacity: 0.8;
+  -o-opacity: 0.8;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -ms-filter: "alpha(opacity=$percent)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=$decimal);
   color: #ffffff;
   background: #4d535f; }
   .map-footer a {

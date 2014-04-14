@@ -149,18 +149,15 @@
                                 })
                             }).addTo(that._borderMarkerLayer);
 
+                            markerDiv.on('click', function() {
+                                that._map.panTo(latlng, {animate: true});
+                            });
 
                         } else {
                             markerIcon = L.circleMarker(that._map.containerPointToLatLng([x, y]), that.options)
                                 .addTo(that._borderMarkerLayer);
-                        }
 
-//                        markerIcon.on('click', function(e) {
-//                            that._map.panTo(latlng, {animate: true});
-//                        });
-
-                        if (markerDiv) {
-                            markerDiv.on('click', function() {
+                            markerIcon.on('click', function(e) {
                                 that._map.panTo(latlng, {animate: true});
                             });
                         }

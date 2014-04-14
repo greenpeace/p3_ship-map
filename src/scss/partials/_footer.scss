@@ -2,9 +2,11 @@
 .map-footer {
     position:fixed;
     z-index:10;
-    padding:5px;
+    padding:0 5px;
     bottom:0;
     left:0;
+    font-size:12px;
+    @include opacity(0.8);
     color:$white;
     background:$mobileFooterColour;
     
