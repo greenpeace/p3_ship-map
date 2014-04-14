@@ -58,7 +58,7 @@
                 popup: {
                     open: {
                         offset: {
-                            y: -150,
+                            y: -130,
                             x: -5
                         }
                     }
@@ -295,6 +295,7 @@
                 map = L.map(config.selectors.map.replace('#', ''), {
                     keyboard: config.behaviour.keyboard.eventNavigation ? false : true,
                     reuseTiles: true,
+                    worldCopyJump: true
                 }).setView(config.map.locations.center.coords, config.map.locations.center.zoom),
                 $map = $(config.selectors.map),
                 jPM;
