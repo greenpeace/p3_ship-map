@@ -9,6 +9,7 @@ A [Leaflet](http://leafletjs.com)-based mapping application, built with [NodeJS]
 Authors:
 * [Ray Walker](https://github.com/funkygibbing)
 * [Iris Maertens](https://github.com/irisism)
+* [Remy Bertot](https://github.com/stripthis)
 
 ## About
 

@@ -683,6 +683,8 @@
                         index = $this.attr('data-ship-event-index'),
                         length = ship.popups.length;
 
+                    $('button[data-direction=' + direction +']').addClass('active');
+
                     switch (direction) {
                         case 'prev':
                             while (index >= 0) {
@@ -720,6 +722,16 @@
                             e.preventDefault();
                             eventNavigation(e.which === 37 ? 'prev' : 'next');
                         }
+
+                        // Escape key
+                        if (e.which === 27) {
+                            e.preventDefault();
+                            if ($('.leaflet-popup').length) {
+                                map.closePopup();
+                            } else {
+                                jPM.trigger();
+                            }
+                        }
                     });
                 }
 
@@ -737,6 +749,28 @@
                         map.panTo(map.options.crs.pointToLatLng(L.point(point.x + config.map.popup.open.offset.x, point.y + config.map.popup.open.offset.y), e.popup._map._zoom));
                     });
                 }
+
+                var hideTimer = false;
+
+                map.on('popupopen', function() {
+                    clearTimeout(hideTimer);
+                    $('.help .popup').removeClass('hide').addClass('show');
+                    $('.help .menu').removeClass('show').addClass('hide');
+                });
+
+                map.on('popupclose', function() {
+                    clearTimeout(hideTimer);
+                    hideTimer = setTimeout(function() {
+                        if ($('.leaflet-popup').length < 1) {
+                            $('.help .popup').removeClass('show').addClass('hide');
+                            $('.help .menu').removeClass('hide').addClass('show');
+                        }
+                    }, 750);
+                });
+
+                setTimeout(function() {
+                    $('.help').css('display', 'block');
+                }, 1750);
 
                 /*
                  * Scale ship map icons to suit zoom level

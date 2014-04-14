@@ -3356,35 +3356,81 @@ Version: 1.0
     top: 10px;
     display: block; }
 
-.edgeMarkerCircle {
+.edgeMarkerCircle .outer {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  height: 100%; }
+.edgeMarkerCircle .icon {
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+  position: relative;
   border-radius: 50%;
-  background: white;
+  background-color: white;
   box-shadow: 0 0 0 2px #66cc00;
-  -webkit-transition: all 0.75s ease-out;
-  -moz-transition: all 0.75s ease-out;
-  transition: all 0.75s ease-out;
-  /*    &.edgetop {
-        @include fadeInDown;
-    }
-    &.edgebottom {
-        @include fadeInUp;
-    }
-    &.edgeleft {
-        @include fadeInRight;
-    }
-    &.edgeright {
-        @include fadeInLeft;
-    }*/ }
-  .edgeMarkerCircle:hover, .edgeMarkerCircle.over {
-    background: #66cc00;
-    box-shadow: 0 0 0 2px white; }
-
-.edgeMarker {
-  pointer-events: none;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: white;
   /*@include animated;*/
   /*@include fadeInDown;*/ }
+  .edgeMarkerCircle .icon:hover, .edgeMarkerCircle .icon.over {
+    background-color: #66cc00;
+    box-shadow: 0 0 0 2px white, 0 0 0 6px #66cc00;
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    -moz-transform: scale3d(1.1, 1.1, 1);
+    -ms-transform: scale3d(1.1, 1.1, 1);
+    -o-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1); }
+    .no-3dtransform .edgeMarkerCircle .icon:hover, .no-3dtransform .edgeMarkerCircle .icon.over {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1); }
+.edgeMarkerCircle.edgeleft .icon {
+  margin-left: 50%;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  left: 3px; }
+  .edgeMarkerCircle.edgeleft .icon:hover {
+    left: 10px; }
+.edgeMarkerCircle.edgeright {
+  text-align: left;
+  vertical-align: middle; }
+  .edgeMarkerCircle.edgeright .icon {
+    right: 3px;
+    margin-right: 50%;
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight; }
+    .edgeMarkerCircle.edgeright .icon:hover {
+      right: 10px; }
+.edgeMarkerCircle.edgetop {
+  text-align: center;
+  vertical-align: bottom; }
+  .edgeMarkerCircle.edgetop .icon {
+    top: 3px;
+    margin-top: 50%;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown; }
+    .edgeMarkerCircle.edgetop .icon:hover {
+      top: 10px; }
+.edgeMarkerCircle.edgebottom {
+  text-align: center;
+  vertical-align: top; }
+  .edgeMarkerCircle.edgebottom .icon {
+    bottom: 3px;
+    margin-bottom: 50%;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp; }
+    .edgeMarkerCircle.edgebottom .icon:hover {
+      bottom: 10px; }
 
 .map-header {
   *zoom: 1;
@@ -3421,6 +3467,52 @@ Version: 1.0
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s; }
+  .menu-container .help {
+    display: none;
+    overflow: hidden;
+    padding: 0 1.5em;
+    color: #888; }
+    .menu-container .help h2 {
+      margin: 15px 0 5px;
+      font-weight: 300;
+      font-size: 14px;
+      border-bottom: 1px solid #ddd; }
+    .menu-container .help h3 {
+      margin: 0 0 5px; }
+    .menu-container .help dl {
+      margin: 5px 0; }
+    .menu-container .help dd, .menu-container .help dt {
+      position: relative;
+      height: 1.5em;
+      line-height: 1.5em;
+      margin-left: 27px;
+      vertical-align: middle; }
+    .menu-container .help i {
+      color: #66cc00;
+      width: 22px;
+      font-size: 140%;
+      height: 1.5em;
+      position: absolute;
+      left: -27px;
+      top: 0;
+      text-align: center; }
+    .menu-container .help .keyboard dl {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      -webkit-animation-duration: 0.7s;
+      animation-duration: 0.7s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both; }
+      .menu-container .help .keyboard dl.show {
+        height: auto;
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown; }
+      .menu-container .help .keyboard dl.hide {
+        height: 0;
+        -webkit-animation-name: fadeOutUp;
+        animation-name: fadeOutUp; }
 
 .menu-trigger {
   -webkit-transition: all 0.35s;
@@ -3596,6 +3688,8 @@ Version: 1.0
 #jPanelMenu-menu {
   overflow-y: auto !important; }
   #jPanelMenu-menu .map-menu {
+    display: block; }
+  #jPanelMenu-menu .keyboard dl {
     display: block; }
 
 .map-footer {
@@ -3866,7 +3960,7 @@ Version: 1.0
           height: 27.7px;
           width: 27.7px;
           background: rgba(255, 255, 255, 0.6); }
-          #map-wrapper .leaflet-popup-content footer .meta nav button:hover {
+          #map-wrapper .leaflet-popup-content footer .meta nav button.active, #map-wrapper .leaflet-popup-content footer .meta nav button:hover {
             color: white;
             background: #66cc00; }
           #map-wrapper .leaflet-popup-content footer .meta nav button:disabled {

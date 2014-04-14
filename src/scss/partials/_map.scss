@@ -15,8 +15,8 @@
     bottom:0;
     width:100%;
     background-color: $multimediaColour;
-    
-        a,
+
+    a,
     a:visited {
         text-decoration:none;
         color: $linkColour;
@@ -25,11 +25,11 @@
     a:hover {
         color: $linkHoverColour;
     }
-    
+
     a:active {
         color:$linkVisitedColour;
     }
-    
+
 }
 
 
@@ -41,9 +41,9 @@
     left:0;
     opacity:0;
     @include transition (opacity 900ms);
-    
 
-    
+
+
     &.show {
         opacity:1;
     }
@@ -60,7 +60,7 @@
 .simple-marker {
     overflow:visible;
     font-size:150%;
-    
+
     .fa {
         position:relative;
         top:10px;
@@ -69,37 +69,100 @@
 }
 
 .edgeMarkerCircle {
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 0 0 2px $bannerColour;
-    @include transition(all 0.75s ease-out);
-    
-    &:hover,
-    &.over {
-        background: $bannerColour;
-        box-shadow: 0 0 0 2px white;
+
+
+    .outer {
+
+        position:relative;
+        z-index:999;
+        width:100%;
+        height:100%;
     }
-    
-/*    &.edgetop {
-        @include fadeInDown;
-    }
-    &.edgebottom {
-        @include fadeInUp;
+
+    .icon {
+        @include animated;
+        @include transition(all 0.25s ease-out);
+        -webkit-animation-delay: .7s;
+        animation-delay: .7s;
+        
+        position:relative;
+        
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 0 2px $bannerColour;
+
+        width:46px;
+        height:46px;
+
+        &:hover,
+            &.over {
+
+            background-color: $bannerColour;
+            box-shadow:0 0 0 2px white, 0 0 0 6px $bannerColour;
+            @include transform(scale3d(1.1,1.1,1));
+
+            .no-3dtransform & {
+                @include transform(scale(1.1));
+            }
+
+        }
+        border-radius:50%;
+
+        /*@include animated;*/
+        /*@include fadeInDown;*/
+
     }
     &.edgeleft {
-        @include fadeInRight;
+        .icon {
+            margin-left:50%;
+            @include fadeInLeft;
+            
+            left:3px;
+            
+            &:hover {
+                left:10px;
+            }
+        }
     }
     &.edgeright {
-        @include fadeInLeft;
-    }*/
+        text-align:left;
+        vertical-align:middle;
+        .icon {
+            right:3px;
+            margin-right:50%;
+            @include fadeInRight;
+            
+            &:hover {
+                right:10px;
+            }
+        }
+    }
+    &.edgetop {
+        text-align:center;
+        vertical-align:bottom;
+        .icon {
+            top:3px;
+            margin-top:50%;
+            @include fadeInDown;
+            
+            &:hover {
+                top:10px;
+            }
+        }
+    }
+    &.edgebottom {
+        text-align:center;
+        vertical-align:top;
+        .icon {
+            bottom:3px;
+            margin-bottom:50%;
+            @include fadeInUp;
+            
+            &:hover {
+                bottom:10px;
+            }
+        }
+    }
+
 }
 
-.edgeMarker {
-    pointer-events:none;
-    border-radius:50%;
-    background: white;
-    
-    /*@include animated;*/
-    /*@include fadeInDown;*/
-    
-}

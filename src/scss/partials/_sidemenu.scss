@@ -11,6 +11,67 @@
     overflow-y:auto;
     background:#efefef;
     @include transition(all 0.35s);
+    
+    .help {
+        display:none;
+        overflow:hidden;
+        padding:0 1.5em;
+        color:#888;
+        
+        h2 {
+            margin:15px 0 5px;
+            font-weight:300;
+            font-size:14px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        h3 {
+            margin:0 0 5px;
+        }
+        
+        dl {
+            margin: 5px 0;
+        }
+        
+        dd, dt {
+            position:relative;
+            height:1.5em;
+            line-height:1.5em;
+            margin-left:27px;
+            vertical-align:middle;
+
+        }
+        
+        i {
+            color:$bannerColour;
+            width:22px;
+            font-size:140%;
+            height:1.5em;
+            position:absolute;
+            left:-27px;
+            top:0;
+            text-align:center;
+        }
+        
+        .keyboard dl {
+            display:none;
+            position:relative;
+            overflow:hidden;
+            opacity: 0;
+            @include animated;
+
+            &.show {
+                height:auto;
+                @include fadeInDown;
+            }
+            &.hide {
+                height:0;
+                @include fadeOutUp;
+            }
+        }
+    }
+    
+    
 }
 
 .menu-trigger {
@@ -213,6 +274,8 @@
             font-size:150%;
         }
     }
+    
+    
 }
 
 #jPanelMenu-menu {
@@ -220,5 +283,9 @@
 
     .map-menu {
         display:block;
-    }   
+    }
+
+    .keyboard dl {
+        display:block;
+    }
 }
