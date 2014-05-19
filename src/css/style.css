@@ -3460,7 +3460,6 @@ Version: 1.0
     Author     : Ray Walker <hello@raywalker.it>
 */
 .menu-container {
-  position: fixed;
   right: 0;
   overflow-y: auto;
   background: #efefef;
