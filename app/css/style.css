@@ -2630,6 +2630,7 @@ THE SOFTWARE.
   cursor: pointer; }
 
 .leaflet-container {
+  cursor: move;
   cursor: -webkit-grab;
   cursor: -moz-grab; }
 

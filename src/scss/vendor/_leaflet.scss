@@ -153,7 +153,8 @@
 	cursor: pointer;
 	}
 .leaflet-container {
-	cursor: -webkit-grab;
+	cursor: move;	
+  cursor: -webkit-grab;
 	cursor:    -moz-grab;
 	}
 .leaflet-popup-pane,
