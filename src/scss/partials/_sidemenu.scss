@@ -211,6 +211,7 @@
         &.hideLayer {
             @include greyscale;
             color:#888;
+            .feature-icon {color:#888;}
         }
     }
 

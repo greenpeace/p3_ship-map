@@ -3625,6 +3625,8 @@ Version: 1.0
       -webkit-filter: grayscale(100%);
       /* Chrome 19+, Safari 6+, Safari 6+ iOS */
       color: #888; }
+      .map-menu a.hideLayer .feature-icon, .map-menu button.hideLayer .feature-icon {
+        color: #888; }
   .map-menu a, .map-menu a:visited {
     display: block;
     width: 100%;
