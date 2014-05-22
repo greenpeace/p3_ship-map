@@ -26,7 +26,7 @@
 
     var defaults = {
             api: {
-                url: '../test/json/default.json'
+                url: '../test/json/mapquest-aerial.json'
             },
             options: {
                 debug: true,
